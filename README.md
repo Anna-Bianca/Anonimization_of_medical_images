@@ -1,5 +1,18 @@
 # Anonimization_of_medical_images
+> Hackathon project — Visual de-identification of medical images.
 
+---
+## 🗂️ Project Structure
+
+```
+Anonimization_of_medical_images/
+├── requirements.txt
+├── README.md
+└── Pipeline/
+    └── OCR.py
+```
+
+---
 ## OCR de texto en imagenes
 
 Script: `Pipeline/OCR.py`
