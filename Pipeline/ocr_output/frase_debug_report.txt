@@ -1,0 +1,76 @@
+Image: frase.jpg
+Confidence step 1 (primary): 60.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 7
+After confidence filter (conf >= 60.0): 27
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 27
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 7
+
+Per-pass debug:
+- standard_gray: raw_lines=5, accepted_detections=4, total_data_rows=12, mean_conf=75.25
+  raw_preview=['INSISTIR', '', 'PERSISTIR', 'REST', 'DESISTIR']
+- inverted_gray: raw_lines=5, accepted_detections=4, total_data_rows=12, mean_conf=69.75
+  raw_preview=['INSISTIR', '', 'PERSISTIR', 'REST', 'DESISTIR']
+- unsharp: raw_lines=5, accepted_detections=4, total_data_rows=12, mean_conf=73.25
+  raw_preview=['INSISTIR', '', 'PERSISTIR', 'REST', 'DESISTIR']
+- unsharp_inverted: raw_lines=5, accepted_detections=4, total_data_rows=12, mean_conf=68.25
+  raw_preview=['INSISTIR', '', 'PERSISTIR', 'REST', 'DESISTIR']
+- gray_upscale_x2: raw_lines=5, accepted_detections=4, total_data_rows=12, mean_conf=68.25
+  raw_preview=['INSISTIR', '', 'PERSISTIR', 'RESISIIE', 'DESISTIR']
+- gray_upscale_x3: raw_lines=5, accepted_detections=4, total_data_rows=12, mean_conf=67.25
+  raw_preview=['INSISTIR', '', 'PERSISTIR', 'RESIIIE', 'DESISTIR']
+- unsharp_upscale_x3: raw_lines=5, accepted_detections=4, total_data_rows=12, mean_conf=67.50
+  raw_preview=['INSISTIR', '', 'PERSISTIR', 'RESIIIE', 'DESISTIR']
+- band_0_gray_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=91.00
+  raw_preview=['Y NUNCA']
+- band_0_gray_inv_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=91.50
+  raw_preview=['Y NUNCA']
+- band_0_unsharp_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=93.50
+  raw_preview=['Y NUNCA']
+
+Clusters that passed overlap rule:
+- cluster_1: token='insistir', members=7, passes=['gray_upscale_x2', 'gray_upscale_x3', 'inverted_gray', 'standard_gray', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_2: token='persistir', members=7, passes=['gray_upscale_x2', 'gray_upscale_x3', 'inverted_gray', 'standard_gray', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_3: token='desistir', members=7, passes=['gray_upscale_x2', 'gray_upscale_x3', 'inverted_gray', 'standard_gray', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_4: token='y', members=3, passes=['band_0_gray_inv_x3', 'band_0_gray_x3', 'band_0_unsharp_x3']
+- cluster_5: token='nunca', members=3, passes=['band_0_gray_inv_x3', 'band_0_gray_x3', 'band_0_unsharp_x3']
+
+All detections (before filters):
+- pass=standard_gray, text='INSISTIR', conf=92.00, bbox=(66,25,337,89)
+- pass=standard_gray, text='PERSISTIR', conf=92.00, bbox=(65,125,383,90)
+- pass=standard_gray, text='DESISTIR', conf=91.00, bbox=(67,396,373,90)
+- pass=inverted_gray, text='INSISTIR', conf=92.00, bbox=(66,25,337,89)
+- pass=inverted_gray, text='PERSISTIR', conf=92.00, bbox=(65,125,383,90)
+- pass=inverted_gray, text='DESISTIR', conf=91.00, bbox=(67,396,373,90)
+- pass=unsharp, text='INSISTIR', conf=92.00, bbox=(66,25,337,89)
+- pass=unsharp, text='PERSISTIR', conf=88.00, bbox=(65,125,384,90)
+- pass=unsharp, text='DESISTIR', conf=91.00, bbox=(67,396,373,90)
+- pass=unsharp_inverted, text='INSISTIR', conf=91.00, bbox=(66,25,337,89)
+- pass=unsharp_inverted, text='PERSISTIR', conf=88.00, bbox=(65,125,384,90)
+- pass=unsharp_inverted, text='DESISTIR', conf=91.00, bbox=(67,396,373,90)
+- pass=gray_upscale_x2, text='INSISTIR', conf=91.00, bbox=(66,25,337,89)
+- pass=gray_upscale_x2, text='PERSISTIR', conf=90.00, bbox=(65,125,384,90)
+- pass=gray_upscale_x2, text='DESISTIR', conf=92.00, bbox=(67,396,373,90)
+- pass=gray_upscale_x3, text='INSISTIR', conf=88.00, bbox=(66,25,337,89)
+- pass=gray_upscale_x3, text='PERSISTIR', conf=90.00, bbox=(65,125,384,90)
+- pass=gray_upscale_x3, text='DESISTIR', conf=91.00, bbox=(67,396,373,90)
+- pass=unsharp_upscale_x3, text='INSISTIR', conf=89.00, bbox=(66,25,337,89)
+- pass=unsharp_upscale_x3, text='PERSISTIR', conf=90.00, bbox=(65,125,384,90)
+- pass=unsharp_upscale_x3, text='DESISTIR', conf=91.00, bbox=(67,396,373,90)
+- pass=band_0_gray_x3, text='Y', conf=87.00, bbox=(87,337,45,38)
+- pass=band_0_gray_x3, text='NUNCA', conf=95.00, bbox=(154,336,274,39)
+- pass=band_0_gray_inv_x3, text='Y', conf=88.00, bbox=(87,337,45,38)
+- pass=band_0_gray_inv_x3, text='NUNCA', conf=95.00, bbox=(154,336,274,39)
+- pass=band_0_unsharp_x3, text='Y', conf=92.00, bbox=(87,336,45,38)
+- pass=band_0_unsharp_x3, text='NUNCA', conf=95.00, bbox=(153,335,275,40)
+
+Final detections (after overlap + dedup):
+- text='INSISTIR', conf=92.00, bbox=(66,25,337,89), pass=standard_gray
+- text='PERSISTIR', conf=92.00, bbox=(65,125,383,90), pass=standard_gray
+- text='PERSISTIR', conf=90.00, bbox=(65,125,384,90), pass=gray_upscale_x2
+- text='DESISTIR', conf=92.00, bbox=(67,396,373,90), pass=gray_upscale_x2
+- text='Y', conf=92.00, bbox=(87,336,45,38), pass=band_0_unsharp_x3
+- text='NUNCA', conf=95.00, bbox=(154,336,274,39), pass=band_0_gray_x3
+- text='NUNCA', conf=95.00, bbox=(153,335,275,40), pass=band_0_unsharp_x3

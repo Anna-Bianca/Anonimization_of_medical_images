@@ -1,0 +1,53 @@
+Image: con_carga.jpeg
+Confidence step 1 (primary): 60.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 6
+After confidence filter (conf >= 60.0): 13
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 12
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 6
+
+Per-pass debug:
+- standard_gray: raw_lines=2, accepted_detections=2, total_data_rows=8, mean_conf=86.00
+  raw_preview=['CiCarga ;', 'D']
+- inverted_gray: raw_lines=2, accepted_detections=2, total_data_rows=8, mean_conf=86.50
+  raw_preview=['CiCarga ;', 'D']
+- unsharp: raw_lines=3, accepted_detections=4, total_data_rows=13, mean_conf=55.00
+  raw_preview=['CiCarga ‘', 'sak 2 )', '¥ 1']
+- unsharp_inverted: raw_lines=3, accepted_detections=5, total_data_rows=13, mean_conf=60.40
+  raw_preview=['CiCarga \\', 'sah BR D', '¥ 1']
+- gray_upscale_x2: raw_lines=11, accepted_detections=8, total_data_rows=29, mean_conf=37.75
+  raw_preview=['C/Carga .', '', 'D', '', '; ;']
+- gray_upscale_x3: raw_lines=5, accepted_detections=3, total_data_rows=20, mean_conf=61.33
+  raw_preview=['C/Carga .', 'D', ', ;', '& ~ - <', ': > S@iprd']
+- unsharp_upscale_x3: raw_lines=9, accepted_detections=7, total_data_rows=33, mean_conf=36.00
+  raw_preview=['5', 'C/Carga', 't= = F', '> bi : -_', '-* = ¢ ‘']
+
+Clusters that passed overlap rule:
+- cluster_1: token='cicarga', members=4, passes=['inverted_gray', 'standard_gray', 'unsharp', 'unsharp_inverted']
+- cluster_2: token='d', members=5, passes=['gray_upscale_x2', 'gray_upscale_x3', 'inverted_gray', 'standard_gray', 'unsharp_inverted']
+- cluster_3: token='ccarga', members=3, passes=['gray_upscale_x2', 'gray_upscale_x3', 'unsharp_upscale_x3']
+
+All detections (before filters):
+- pass=standard_gray, text='CiCarga', conf=84.00, bbox=(177,0,52,27)
+- pass=standard_gray, text='D', conf=88.00, bbox=(375,55,14,17)
+- pass=inverted_gray, text='CiCarga', conf=85.00, bbox=(177,0,52,27)
+- pass=inverted_gray, text='D', conf=88.00, bbox=(375,55,14,17)
+- pass=unsharp, text='CiCarga', conf=76.00, bbox=(172,0,60,24)
+- pass=unsharp, text='sak', conf=69.00, bbox=(75,46,89,37)
+- pass=unsharp_inverted, text='CiCarga', conf=73.00, bbox=(172,0,60,24)
+- pass=unsharp_inverted, text='D', conf=83.00, bbox=(375,55,14,17)
+- pass=gray_upscale_x2, text='C/Carga', conf=91.00, bbox=(177,4,52,18)
+- pass=gray_upscale_x2, text='D', conf=92.00, bbox=(375,56,14,16)
+- pass=gray_upscale_x3, text='C/Carga', conf=92.00, bbox=(177,5,52,16)
+- pass=gray_upscale_x3, text='D', conf=92.00, bbox=(375,55,14,16)
+- pass=unsharp_upscale_x3, text='C/Carga', conf=89.00, bbox=(176,5,53,15)
+
+Final detections (after overlap + dedup):
+- text='CiCarga', conf=85.00, bbox=(177,0,52,27), pass=inverted_gray
+- text='CiCarga', conf=76.00, bbox=(172,0,60,24), pass=unsharp
+- text='D', conf=92.00, bbox=(375,55,14,16), pass=gray_upscale_x3
+- text='D', conf=92.00, bbox=(375,56,14,16), pass=gray_upscale_x2
+- text='C/Carga', conf=92.00, bbox=(177,5,52,16), pass=gray_upscale_x3
+- text='C/Carga', conf=89.00, bbox=(176,5,53,15), pass=unsharp_upscale_x3

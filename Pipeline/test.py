@@ -2,23 +2,65 @@ import pytesseract
 import numpy as np
 import cv2
 import re
+from pathlib import Path
+from shutil import which
 
-filename = 'Images/frase.jpg'
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+filename = PROJECT_ROOT / 'Images' / 'con_carga.jpeg'
+
+
+def configure_tesseract_cmd():
+    detected = which("tesseract")
+    candidates = []
+    if detected:
+        candidates.append(Path(detected))
+
+    candidates.extend(
+        [
+            Path(r"C:\Program Files\Tesseract-OCR\tesseract.exe"),
+            Path(r"C:\Program Files (x86)\Tesseract-OCR\tesseract.exe"),
+        ]
+    )
+
+    for exe in candidates:
+        if exe.exists():
+            pytesseract.pytesseract.tesseract_cmd = str(exe)
+            return exe
+
+    raise FileNotFoundError(
+        "Could not find tesseract.exe. Add it to PATH or set "
+        "pytesseract.pytesseract.tesseract_cmd explicitly."
+    )
+
+
+TESSERACT_EXE = configure_tesseract_cmd()
+print(f"Using Tesseract executable: {TESSERACT_EXE}")
 
 def is_valid_line(text):
     # Must have at least 2 consecutive letters
     return bool(re.search(r'[a-zA-Z]{2,}', text))
 
 def extract_text_generic(image_path):
-    img = cv2.imread(image_path)
+    image_path = Path(image_path)
+    img = cv2.imread(str(image_path))
+    if img is None:
+        raise FileNotFoundError(
+            f"Could not read image: {image_path}. Current working directory: {Path.cwd()}"
+        )
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     results = set()
 
     # --- Pass 1: Standard ---
-    results.update(pytesseract.image_to_string(gray).strip().split('\n'))
+    print( "Running standard OCR pass..." )
+    standard_text = pytesseract.image_to_string(gray).strip().split('\n')
+    print(standard_text)
+    results.update(standard_text)
 
     # --- Pass 2: Inverted ---
-    results.update(pytesseract.image_to_string(cv2.bitwise_not(gray)).strip().split('\n'))
+    inverted_text = pytesseract.image_to_string(cv2.bitwise_not(gray)).strip().split('\n')
+    print( "Running inverted OCR pass..." )
+    print(inverted_text)
+    results.update(inverted_text)
 
     # --- Pass 3: Detect horizontal bands by saturation ---
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -56,6 +98,8 @@ def extract_text_generic(image_path):
                 upscaled = cv2.resize(version, None, fx=3, fy=3,
                                       interpolation=cv2.INTER_CUBIC)
                 text = pytesseract.image_to_string(upscaled, config='--psm 7')
+                print( "Running color band OCR pass..." )
+                print(text.strip().split('\n'))
                 results.update(text.strip().split('\n'))
 
     # Filter out garbage lines

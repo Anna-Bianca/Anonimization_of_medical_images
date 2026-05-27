@@ -1,0 +1,3 @@
+# final_word	x	y	w	h	conf	source_pass
+
+# final_text

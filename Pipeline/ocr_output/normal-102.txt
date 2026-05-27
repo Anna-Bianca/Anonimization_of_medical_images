@@ -1,1 +1,13 @@
+# final_word	x	y	w	h	conf	source_pass
+IAP)	856	296	28	21	79.00	inverted_gray
+PORTABLE}	799	394	102	21	73.00	standard_gray
+PORTABLE:	800	394	102	20	69.00	gray_upscale_x2
+4	298	784	20	31	93.00	unsharp
+AP	856	296	27	21	75.00	gray_upscale_x3
 
+# final_text
+IAP)
+PORTABLE}
+PORTABLE:
+4
+AP

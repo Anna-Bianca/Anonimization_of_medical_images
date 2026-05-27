@@ -8,4 +8,5 @@ pydicom>=2.6.0
 scikit-image>=0.21.0
 matplotlib>=3.8.0
 simpleitk>=2.2.0
+# Note: Requires the Tesseract OCR system binary to be installed separately.
 pytesseract>=0.3.10
