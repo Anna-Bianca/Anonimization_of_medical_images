@@ -132,6 +132,17 @@ def parse_args() -> argparse.Namespace:
         default=MIN_REPETITIONS_DEFAULT,
         help="Repeticiones minimas de la misma palabra (en pases distintos) para validarla.",
     )
+    parser.add_argument(
+        "--single-pass-conf",
+        type=float,
+        default=85.0,
+        help=(
+            "Un token detectado en un SOLO pase pero con confianza >= este valor "
+            "es aceptado sin requerir repeticion en pases adicionales. "
+            "Util para fuentes decorativas que solo un modelo LSTM lee correctamente. "
+            "Valor 0 deshabilita la excepcion."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -193,27 +204,30 @@ def _dedupe_preserve_order(lines: list[str]) -> list[str]:
     return ordered
 
 
-def _dedupe_word_detections(detections: list[WordDetection]) -> list[WordDetection]:
+def _dedupe_word_detections(
+    detections: list[WordDetection],
+    overlap_threshold: float = 0.8,
+) -> list[WordDetection]:
     """
-    Merge near-duplicate detections from multiple passes.
+    Merge near-duplicate detections from multiple passes using IoU.
 
-    We normalize token text and quantize geometry to merge jittered boxes,
-    keeping the highest-confidence detection per bucket.
+    Previous approach (8-pixel grid quantization) failed when two bounding
+    boxes for the same word differed by only 1 pixel in X or Y — they landed
+    in different grid cells and were both kept (e.g. ``PORTABLE}`` at x=799
+    and ``PORTABLE:`` at x=800 both survived).
+
+    New approach: iterate detections from highest to lowest confidence; keep
+    a detection only if it does *not* overlap (IoU ≥ ``overlap_threshold``)
+    with any already-kept detection.  This is purely spatial — two boxes that
+    cover the same region are merged regardless of whether their token texts
+    match, so punctuation artifacts like ``PORTABLE}`` vs ``PORTABLE:`` or
+    ``IAP)`` vs ``AP`` at the same location are correctly collapsed to one.
     """
-    by_key: dict[tuple[str, int, int, int, int], WordDetection] = {}
-    for det in detections:
-        token = _normalize_token_for_match(det.text)
-        key = (
-            token,
-            det.x // 8,
-            det.y // 8,
-            det.w // 8,
-            det.h // 8,
-        )
-        current = by_key.get(key)
-        if current is None or det.conf > current.conf:
-            by_key[key] = det
-    return list(by_key.values())
+    kept: list[WordDetection] = []
+    for det in sorted(detections, key=lambda d: -d.conf):
+        if not any(_bbox_iou(det, k) >= overlap_threshold for k in kept):
+            kept.append(det)
+    return kept
 
 
 def _normalize_token_for_match(text: str) -> str:
@@ -248,14 +262,34 @@ def _apply_overlap_repetition_filter(
     detections: list[WordDetection],
     min_repetitions: int,
     overlap_threshold: float,
+    single_pass_conf_threshold: float = 0.0,
 ) -> tuple[list[dict], list[WordDetection]]:
     """
-    Rule 2:
-    Keep only detections that belong to token clusters repeated in at least
-    `min_repetitions` passes with IoU >= `overlap_threshold`.
-    Returns:
-    - valid_clusters: clusters that satisfy the overlap/repetition rule
-    - candidate_detections_after_rule_2: all detections that belong to valid clusters
+    Keep only detections that belong to token clusters with sufficient pass coverage.
+
+    A cluster of same-token detections is accepted when **either** condition holds:
+
+    1. Multi-pass rule (main gate): the token was seen in >= ``min_repetitions``
+       *distinct* passes at overlapping positions (IoU >= ``overlap_threshold``).
+       This is the conservative baseline: independent passes that agree are
+       almost certainly seeing real text.
+
+    2. High-confidence single-pass exception: if ``single_pass_conf_threshold > 0``
+       and at least one member of the cluster has confidence >=
+       ``single_pass_conf_threshold``, the cluster is accepted even if it only
+       comes from a single pass.  Rationale: Tesseract/LSTM confidence >= 85
+       virtually never occurs on X-ray tissue noise or font artefacts; it
+       indicates the engine is very certain it read real text.  This exception
+       is specifically needed for decorative / mixed-weight fonts (e.g. RESISTIR)
+       that only the LSTM engine reads correctly — giving a single high-conf
+       detection — while every other pass produces a different wrong token.
+
+    Returns
+    -------
+    valid_clusters
+        Clusters that passed at least one acceptance rule.
+    candidate_detections_after_rule_2
+        All individual detections that belong to valid clusters.
     """
     clusters: list[dict] = []
     for det in detections:
@@ -276,8 +310,16 @@ def _apply_overlap_repetition_filter(
     for cluster in clusters:
         members: list[WordDetection] = cluster["members"]
         supporting_passes = {m.source_pass for m in members}
-        if len(supporting_passes) < min_repetitions:
+
+        multi_pass_ok = len(supporting_passes) >= min_repetitions
+        high_conf_ok = (
+            single_pass_conf_threshold > 0
+            and any(m.conf >= single_pass_conf_threshold for m in members)
+        )
+
+        if not (multi_pass_ok or high_conf_ok):
             continue
+
         valid_clusters.append(cluster)
         candidates.extend(members)
 
@@ -317,45 +359,55 @@ def _apply_morphology(binary_img: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
 
 
 def _build_global_passes(image_bgr: np.ndarray) -> list[OCRPass]:
-    """Build full-image OCR passes currently enabled for production."""
-    gray = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2GRAY)
-    clahe = _apply_clahe(gray)
-    unsharp = _apply_unsharp(clahe)
+    """Build full-image OCR passes currently enabled for production.
 
-    # Enabled passes are precision-first based on current debug reports:
-    # - con_carga_debug_report.txt
-    # - normal-102_debug_report.txt
-    # We keep only methods that detected target words in at least one report.
-    #
-    # Disabled (only hallucinations in current evaluations):
-    # - clahe, clahe_inverted
-    # - adaptive_binary, adaptive_binary_inv
-    # - morph_close, morph_open
-    # - adaptive_upscale_x3
-    # Reason: these strategies increased false positives without reliably
-    # recovering target tokens in the two debug samples analyzed.
+    Pass selection rationale
+    ========================
+    Removed from previous version:
+    - ``unsharp`` / ``unsharp_inverted``: correlated passes (same image,
+      one is the bitwise-not of the other).  Unsharp masking amplifies
+      tissue/rib edges in X-rays until Tesseract reads them as characters
+      with high confidence (e.g. a phantom "4" at conf 93/92).  Because the
+      two passes are not independent, they should not both count toward
+      ``min_repetitions``; removing them eliminates the false-positive cluster.
+    - ``unsharp_upscale_x3``: generated 117 candidates (mean_conf 29) in
+      normal-102, almost all noise; the x3 gray pass is sufficient.
+
+    Added / changed:
+    - ``standard_gray_psm4``: ``--psm 4`` treats the image as a single
+      column of variable-size text instead of a uniform block (``--psm 6``).
+      This helps with images where word sizes vary line-by-line (e.g. frase)
+      and with decorative/mixed-weight fonts whose lines are mis-segmented
+      by ``--psm 6``.
+    - ``gray_upscale_x3`` now uses ``--oem 1`` (LSTM-only engine).  The LSTM
+      engine generalises better to stylised fonts (e.g. RESISTIR) than the
+      legacy engine, often raising confidence from sub-threshold to accepted.
+    - ``gray_upscale_x2_lstm``: x2 upscale with LSTM + ``--psm 4`` as an
+      additional independent corroboration pass for decorative-font text.
+    """
+    gray = cv2.cvtColor(image_bgr, cv2.COLOR_BGR2GRAY)
+
     return [
-        OCRPass(name="standard_gray", image=gray, tesseract_config="--psm 6"),
-        OCRPass(name="inverted_gray", image=cv2.bitwise_not(gray), tesseract_config="--psm 6"),
-        OCRPass(name="unsharp", image=unsharp, tesseract_config="--psm 6"),
-        OCRPass(name="unsharp_inverted", image=cv2.bitwise_not(unsharp), tesseract_config="--psm 6"),
+        OCRPass(name="standard_gray",      image=gray,                    tesseract_config="--psm 6 --oem 3"),
+        OCRPass(name="inverted_gray",       image=cv2.bitwise_not(gray),   tesseract_config="--psm 6 --oem 3"),
+        OCRPass(name="standard_gray_psm4",  image=gray,                    tesseract_config="--psm 4 --oem 1"),
         OCRPass(
             name="gray_upscale_x2",
             image=cv2.resize(gray, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC),
             scale=2.0,
-            tesseract_config="--psm 6",
+            tesseract_config="--psm 6 --oem 3",
+        ),
+        OCRPass(
+            name="gray_upscale_x2_lstm",
+            image=cv2.resize(gray, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC),
+            scale=2.0,
+            tesseract_config="--psm 4 --oem 1",
         ),
         OCRPass(
             name="gray_upscale_x3",
             image=cv2.resize(gray, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC),
             scale=3.0,
-            tesseract_config="--psm 6",
-        ),
-        OCRPass(
-            name="unsharp_upscale_x3",
-            image=cv2.resize(unsharp, None, fx=3, fy=3, interpolation=cv2.INTER_CUBIC),
-            scale=3.0,
-            tesseract_config="--psm 6",
+            tesseract_config="--psm 6 --oem 1",
         ),
     ]
 
@@ -455,6 +507,13 @@ def _extract_from_pass(ocr_pass: OCRPass) -> tuple[list[str], list[WordDetection
         y = int(round(data["top"][i] / ocr_pass.scale)) + ocr_pass.y_offset
         w = int(round(data["width"][i] / ocr_pass.scale))
         h = int(round(data["height"][i] / ocr_pass.scale))
+
+        # Reject sub-pixel / noise boxes that survive upscaling arithmetic.
+        # A real character at x3 scale maps back to at least a few pixels;
+        # boxes smaller than 5×5 in original-image coordinates are artefacts.
+        if w < 5 or h < 5:
+            continue
+
         detections.append(
             WordDetection(
                 text=raw_text,
@@ -523,9 +582,25 @@ def _collect_detections(
     return all_detections, debug_rows
 
 
+def _strip_punctuation(text: str) -> str:
+    """Remove leading/trailing non-alphanumeric chars from a detected token.
+
+    Tesseract sometimes absorbs adjacent punctuation or border pixels into a
+    word token — e.g. ``PORTABLE}`` or ``IAP)`` when the bounding box clips
+    a bracket or annotation mark.  Stripping restores the clean word.
+    The bounding box coordinates are unaffected; only the text label changes.
+    """
+    return re.sub(r"^[^a-zA-Z0-9]+|[^a-zA-Z0-9]+$", "", text)
+
+
 def _make_text_from_detections(detections: list[WordDetection]) -> str:
     """Create final text output from filtered detections preserving first-seen order."""
-    lines = [d.text.strip() for d in detections if d.text.strip() and is_valid_token(d.text.strip())]
+    lines = [
+        _strip_punctuation(d.text.strip())
+        for d in detections
+        if d.text.strip() and is_valid_token(d.text.strip())
+    ]
+    lines = [l for l in lines if l]  # drop anything that became empty after stripping
     lines = _dedupe_preserve_order(lines)
     return "\n".join(lines).strip()
 
@@ -609,14 +684,16 @@ def ocr_image(
     save_debug_images: bool,
     overlap_threshold: float,
     min_repetitions: int,
+    single_pass_conf: float = 85.0,
 ) -> None:
     """
     Process one image end-to-end.
 
     Final-result rules:
     1. Keep detections with conf >= min_conf_primary.
-    2. Keep only repeated+overlapping tokens (IoU rule).
-    3. Deduplicate remaining boxes.
+    2. Keep only repeated+overlapping tokens (IoU rule) OR tokens with a
+       single very-high-confidence detection (conf >= single_pass_conf).
+    3. Deduplicate remaining boxes by IoU.
     """
     image_bgr = cv2.imread(str(image_path))
     if image_bgr is None:
@@ -639,8 +716,9 @@ def ocr_image(
         detections=detections_after_conf,
         min_repetitions=min_repetitions,
         overlap_threshold=overlap_threshold,
+        single_pass_conf_threshold=single_pass_conf,
     )
-    final_detections = _dedupe_word_detections(overlap_candidates)
+    final_detections = _dedupe_word_detections(overlap_candidates, overlap_threshold=overlap_threshold)
     extracted_text = _make_text_from_detections(final_detections)
 
     boxed_image_bgr = image_bgr.copy()
@@ -659,8 +737,9 @@ def ocr_image(
 
     text_lines = ["# final_word\tx\ty\tw\th\tconf\tsource_pass"]
     for det in final_detections:
+        clean_word = _strip_punctuation(det.text)
         text_lines.append(
-            f"{det.text}\t{det.x}\t{det.y}\t{det.w}\t{det.h}\t{det.conf:.2f}\t{det.source_pass}"
+            f"{clean_word}\t{det.x}\t{det.y}\t{det.w}\t{det.h}\t{det.conf:.2f}\t{det.source_pass}"
         )
     text_lines.append("")
     text_lines.append("# final_text")
@@ -726,7 +805,8 @@ def main() -> None:
     print("Modo OCR: advanced_unified")
     print(
         "Regla final: "
-        f"min_repetitions={args.min_repetitions}, overlap_iou>={args.overlap_threshold}"
+        f"min_repetitions={args.min_repetitions}, overlap_iou>={args.overlap_threshold}, "
+        f"single_pass_conf>={args.single_pass_conf}"
     )
     print("Debug por paso: activado (incluye lista completa de detecciones)")
 
@@ -739,6 +819,7 @@ def main() -> None:
             save_debug_images=args.save_debug_images,
             overlap_threshold=args.overlap_threshold,
             min_repetitions=args.min_repetitions,
+            single_pass_conf=args.single_pass_conf,
         )
 
     print(f"\nListo. Resultados en: {args.output_dir.resolve()}")

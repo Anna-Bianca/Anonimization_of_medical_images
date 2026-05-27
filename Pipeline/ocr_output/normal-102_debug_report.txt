@@ -1,58 +1,42 @@
 Image: normal-102.jpg
-Confidence step 1 (primary): 60.0
+Confidence step 1 (primary): 50.0
 Confidence step 2 (secondary): 30.0
-All detections (raw): 5
-After confidence filter (conf >= 60.0): 18
+All detections (raw): 9
+After confidence filter (conf >= 50.0): 6
 Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
-Candidates after overlap rule: 9
+Candidates after overlap rule: 4
 Rule 3 (dedup): merge duplicate boxes for same token/location
-Final detections: 5
+Final detections: 2
 
 Per-pass debug:
-- standard_gray: raw_lines=2, accepted_detections=2, total_data_rows=7, mean_conf=71.50
+- standard_gray: raw_lines=2, accepted_detections=2, total_data_rows=7, mean_conf=37.50
+  raw_preview=['NP', 'PORUAEHS']
+- inverted_gray: raw_lines=2, accepted_detections=2, total_data_rows=7, mean_conf=67.00
   raw_preview=['IAP)', 'PORTABLE}']
-- inverted_gray: raw_lines=2, accepted_detections=2, total_data_rows=7, mean_conf=76.00
-  raw_preview=['IAP)', 'PORTABLE}']
-- unsharp: raw_lines=5, accepted_detections=13, total_data_rows=23, mean_conf=37.00
-  raw_preview=['a io tg a', 'aie', 'a sg', 'a Poe art', '\\ vif Pt 4 ‘']
-- unsharp_inverted: raw_lines=5, accepted_detections=13, total_data_rows=24, mean_conf=39.23
-  raw_preview=['pea io tg “a', 'aie', 'a og', 'a ag art', '\\ vif : ies 4 ‘']
-- gray_upscale_x2: raw_lines=3, accepted_detections=3, total_data_rows=9, mean_conf=47.00
-  raw_preview=['AP,', 'PORTABLE:', 's?']
-- gray_upscale_x3: raw_lines=2, accepted_detections=2, total_data_rows=7, mean_conf=43.50
-  raw_preview=['AP', 'PORTABLE']
-- unsharp_upscale_x3: raw_lines=48, accepted_detections=117, total_data_rows=245, mean_conf=29.01
-  raw_preview=['i 4', '4,', '— <', 'j 2', '“']
+- standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- gray_upscale_x2: raw_lines=3, accepted_detections=2, total_data_rows=9, mean_conf=72.00
+  raw_preview=['AP,', 'PORTABLE:', '+']
+- gray_upscale_x2_lstm: raw_lines=2, accepted_detections=1, total_data_rows=15, mean_conf=45.00
+  raw_preview=['al', '*']
+- gray_upscale_x3: raw_lines=2, accepted_detections=2, total_data_rows=7, mean_conf=32.50
+  raw_preview=['AP,', 'PORN']
 
 Clusters that passed overlap rule:
-- cluster_1: token='iap', members=2, passes=['inverted_gray', 'standard_gray']
-- cluster_2: token='portable', members=3, passes=['gray_upscale_x2', 'inverted_gray', 'standard_gray']
-- cluster_3: token='4', members=2, passes=['unsharp', 'unsharp_inverted']
-- cluster_4: token='ap', members=2, passes=['gray_upscale_x2', 'gray_upscale_x3']
+- cluster_1: token='portable', members=2, passes=['gray_upscale_x2', 'inverted_gray']
+- cluster_2: token='ap', members=2, passes=['gray_upscale_x2', 'gray_upscale_x3']
 
 All detections (before filters):
-- pass=standard_gray, text='IAP)', conf=70.00, bbox=(856,296,28,21)
-- pass=standard_gray, text='PORTABLE}', conf=73.00, bbox=(799,394,102,21)
-- pass=inverted_gray, text='IAP)', conf=79.00, bbox=(856,296,28,21)
-- pass=inverted_gray, text='PORTABLE}', conf=73.00, bbox=(799,394,102,21)
-- pass=unsharp, text='4', conf=93.00, bbox=(298,784,20,31)
-- pass=unsharp_inverted, text='4', conf=92.00, bbox=(298,784,20,31)
-- pass=gray_upscale_x2, text='AP,', conf=72.00, bbox=(856,296,27,20)
-- pass=gray_upscale_x2, text='PORTABLE:', conf=69.00, bbox=(800,394,102,20)
-- pass=gray_upscale_x3, text='AP', conf=75.00, bbox=(856,296,27,21)
-- pass=unsharp_upscale_x3, text='4,', conf=92.00, bbox=(326,24,3,3)
-- pass=unsharp_upscale_x3, text='J', conf=87.00, bbox=(592,272,1,1)
-- pass=unsharp_upscale_x3, text='2', conf=68.00, bbox=(614,374,5,13)
-- pass=unsharp_upscale_x3, text='q', conf=69.00, bbox=(574,388,2,2)
-- pass=unsharp_upscale_x3, text='1', conf=71.00, bbox=(360,423,3,5)
-- pass=unsharp_upscale_x3, text='J', conf=68.00, bbox=(668,428,2,2)
-- pass=unsharp_upscale_x3, text='ied', conf=60.00, bbox=(565,459,10,5)
-- pass=unsharp_upscale_x3, text='ee', conf=66.00, bbox=(215,797,27,15)
-- pass=unsharp_upscale_x3, text='7', conf=62.00, bbox=(834,914,1,3)
+- pass=standard_gray, text='NP', conf=75.00, bbox=(856,296,28,21)
+- pass=standard_gray, text='PORUAEHS', conf=0.00, bbox=(799,394,102,21)
+- pass=inverted_gray, text='IAP)', conf=60.00, bbox=(856,296,28,21)
+- pass=inverted_gray, text='PORTABLE}', conf=74.00, bbox=(799,394,102,21)
+- pass=gray_upscale_x2, text='AP,', conf=73.00, bbox=(856,296,27,20)
+- pass=gray_upscale_x2, text='PORTABLE:', conf=71.00, bbox=(800,394,102,20)
+- pass=gray_upscale_x2_lstm, text='al', conf=45.00, bbox=(612,464,16,16)
+- pass=gray_upscale_x3, text='AP,', conf=65.00, bbox=(856,296,27,21)
+- pass=gray_upscale_x3, text='PORN', conf=0.00, bbox=(799,394,102,21)
 
 Final detections (after overlap + dedup):
-- text='IAP)', conf=79.00, bbox=(856,296,28,21), pass=inverted_gray
-- text='PORTABLE}', conf=73.00, bbox=(799,394,102,21), pass=standard_gray
-- text='PORTABLE:', conf=69.00, bbox=(800,394,102,20), pass=gray_upscale_x2
-- text='4', conf=93.00, bbox=(298,784,20,31), pass=unsharp
-- text='AP', conf=75.00, bbox=(856,296,27,21), pass=gray_upscale_x3
+- text='PORTABLE}', conf=74.00, bbox=(799,394,102,21), pass=inverted_gray
+- text='AP,', conf=73.00, bbox=(856,296,27,20), pass=gray_upscale_x2
