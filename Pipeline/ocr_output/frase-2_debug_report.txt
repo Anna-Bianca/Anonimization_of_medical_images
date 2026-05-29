@@ -1,8 +1,8 @@
 Image: frase-2.jpg
-Confidence step 1 (primary): 50.0
+Confidence step 1 (primary): 60.0
 Confidence step 2 (secondary): 30.0
-All detections (raw): 35
-After confidence filter (conf >= 50.0): 0
+All detections (raw): 26
+After confidence filter (conf >= 60.0): 1
 Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
 Candidates after overlap rule: 0
 Rule 3 (dedup): merge duplicate boxes for same token/location
@@ -15,50 +15,41 @@ Per-pass debug:
   raw_preview=[]
 - standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
   raw_preview=[]
-- gray_upscale_x2: raw_lines=14, accepted_detections=11, total_data_rows=54, mean_conf=21.64
-  raw_preview=['—— -', ': re', "' 7 ~ ; ———", ': rr', '— : » alder']
+- gray_upscale_x2: raw_lines=14, accepted_detections=11, total_data_rows=54, mean_conf=24.64
+  raw_preview=['——E -', ': re', '7 7 ~ ; ———', ': — rn', '—— : ad']
 - gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
   raw_preview=[]
-- gray_upscale_x3: raw_lines=36, accepted_detections=24, total_data_rows=121, mean_conf=26.12
-  raw_preview=['. — — ——', '5 - - —', '- -', '', ': —_..']
+- gray_upscale_x3: raw_lines=30, accepted_detections=15, total_data_rows=98, mean_conf=20.20
+  raw_preview=[': — — —', ': / - . ————a', '—', 'A _-', 'a .']
 
 Clusters that passed overlap rule:
 
 All detections (before filters):
-- pass=gray_upscale_x2, text='rr', conf=33.00, bbox=(794,279,66,8)
-- pass=gray_upscale_x2, text='alder', conf=0.00, bbox=(782,416,22,8)
-- pass=gray_upscale_x2, text='7g', conf=23.00, bbox=(767,532,46,8)
+- pass=gray_upscale_x2, text='——E', conf=4.00, bbox=(630,0,70,10)
+- pass=gray_upscale_x2, text='rn', conf=42.00, bbox=(840,279,20,8)
+- pass=gray_upscale_x2, text='ad', conf=18.00, bbox=(768,416,36,8)
+- pass=gray_upscale_x2, text='exams:', conf=0.00, bbox=(767,532,46,8)
 - pass=gray_upscale_x2, text='Yee', conf=0.00, bbox=(3,693,22,6)
-- pass=gray_upscale_x2, text='ee,', conf=33.00, bbox=(762,704,11,16)
-- pass=gray_upscale_x2, text='ae', conf=10.00, bbox=(2,802,150,16)
-- pass=gray_upscale_x2, text='5', conf=38.00, bbox=(197,838,6,24)
-- pass=gray_upscale_x2, text='BY', conf=20.00, bbox=(209,840,16,19)
-- pass=gray_upscale_x2, text='me', conf=34.00, bbox=(261,848,7,14)
-- pass=gray_upscale_x2, text='an', conf=45.00, bbox=(270,848,5,14)
-- pass=gray_upscale_x2, text='—s', conf=2.00, bbox=(846,851,12,7)
-- pass=gray_upscale_x3, text='ae', conf=27.00, bbox=(778,108,54,8)
-- pass=gray_upscale_x3, text='wea', conf=25.00, bbox=(776,116,21,9)
-- pass=gray_upscale_x3, text='eee', conf=21.00, bbox=(3,241,49,11)
-- pass=gray_upscale_x3, text='meh;', conf=23.00, bbox=(757,302,21,9)
-- pass=gray_upscale_x3, text='rereiasewenee', conf=0.00, bbox=(38,352,47,12)
-- pass=gray_upscale_x3, text='—n', conf=0.00, bbox=(0,432,25,9)
-- pass=gray_upscale_x3, text='me', conf=45.00, bbox=(28,432,32,9)
-- pass=gray_upscale_x3, text='as', conf=21.00, bbox=(827,441,33,9)
-- pass=gray_upscale_x3, text='rT', conf=6.00, bbox=(76,513,7,5)
-- pass=gray_upscale_x3, text='Pre', conf=45.00, bbox=(767,533,45,8)
-- pass=gray_upscale_x3, text='oa', conf=41.00, bbox=(791,588,8,6)
-- pass=gray_upscale_x3, text='a', conf=21.00, bbox=(816,633,24,7)
-- pass=gray_upscale_x3, text='oy,', conf=39.00, bbox=(824,636,9,12)
-- pass=gray_upscale_x3, text='Vile', conf=35.00, bbox=(3,693,22,6)
-- pass=gray_upscale_x3, text='wh', conf=22.00, bbox=(761,708,11,12)
-- pass=gray_upscale_x3, text='basen', conf=28.00, bbox=(3,718,17,12)
-- pass=gray_upscale_x3, text='SONA', conf=38.00, bbox=(762,717,22,13)
-- pass=gray_upscale_x3, text='seme', conf=21.00, bbox=(788,721,16,8)
-- pass=gray_upscale_x3, text='eae', conf=26.00, bbox=(823,761,37,7)
-- pass=gray_upscale_x3, text='Gi', conf=11.00, bbox=(1,804,30,12)
-- pass=gray_upscale_x3, text='Rie', conf=36.00, bbox=(811,813,28,11)
-- pass=gray_upscale_x3, text='eo', conf=8.00, bbox=(154,851,30,9)
-- pass=gray_upscale_x3, text='ae', conf=46.00, bbox=(214,852,11,7)
-- pass=gray_upscale_x3, text='ne', conf=42.00, bbox=(263,852,13,7)
+- pass=gray_upscale_x2, text='ee,', conf=40.00, bbox=(762,704,11,16)
+- pass=gray_upscale_x2, text='ae', conf=18.00, bbox=(2,802,150,16)
+- pass=gray_upscale_x2, text='f', conf=58.00, bbox=(199,840,10,19)
+- pass=gray_upscale_x2, text='ae', conf=52.00, bbox=(214,852,11,7)
+- pass=gray_upscale_x2, text='me', conf=39.00, bbox=(261,848,6,14)
+- pass=gray_upscale_x2, text='—s', conf=0.00, bbox=(846,851,12,7)
+- pass=gray_upscale_x3, text='————a', conf=0.00, bbox=(808,42,54,12)
+- pass=gray_upscale_x3, text='a', conf=26.00, bbox=(778,108,54,8)
+- pass=gray_upscale_x3, text='Sued', conf=2.00, bbox=(776,116,21,9)
+- pass=gray_upscale_x3, text='7s', conf=31.00, bbox=(807,168,10,7)
+- pass=gray_upscale_x3, text='ee', conf=36.00, bbox=(757,302,21,9)
+- pass=gray_upscale_x3, text='meme', conf=0.00, bbox=(0,432,60,9)
+- pass=gray_upscale_x3, text='iar', conf=0.00, bbox=(815,433,17,5)
+- pass=gray_upscale_x3, text='es', conf=60.00, bbox=(827,441,33,9)
+- pass=gray_upscale_x3, text='rr)', conf=32.00, bbox=(76,507,7,14)
+- pass=gray_upscale_x3, text='a', conf=0.00, bbox=(767,529,89,11)
+- pass=gray_upscale_x3, text='a...', conf=16.00, bbox=(816,633,24,7)
+- pass=gray_upscale_x3, text='Vai', conf=17.00, bbox=(3,693,22,6)
+- pass=gray_upscale_x3, text='ws', conf=0.00, bbox=(761,710,10,8)
+- pass=gray_upscale_x3, text='ue', conf=34.00, bbox=(214,852,11,7)
+- pass=gray_upscale_x3, text='ne', conf=49.00, bbox=(263,852,13,8)
 
 Final detections (after overlap + dedup):

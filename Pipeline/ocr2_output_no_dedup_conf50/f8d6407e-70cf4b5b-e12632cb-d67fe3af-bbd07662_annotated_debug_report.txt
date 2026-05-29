@@ -1,0 +1,300 @@
+Image: f8d6407e-70cf4b5b-e12632cb-d67fe3af-bbd07662_annotated.png
+Label boxes used: 4
+Confidence step 1 (primary): 50.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 119
+After confidence filter (conf >= 50.0): 36
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 28
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 28
+
+Per-pass debug:
+- box001_c0__standard_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=77.00
+  raw_preview=['ROSA GREEN']
+- box001_c0__inverted_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=75.00
+  raw_preview=['ROSA GREEN']
+- box001_c0__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box001_c0__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=58.50
+  raw_preview=['ROSA GAEEN']
+- box001_c0__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=64.50
+  raw_preview=['ROSA GALEN']
+- box001_c0__adaptive_binary: raw_lines=1, accepted_detections=4, total_data_rows=8, mean_conf=8.25
+  raw_preview=['rmOS 4 KEL N']
+- box001_c0__adaptive_binary_inv: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=7.00
+  raw_preview=['rmOUOS 4 iKRELN']
+- box001_c0__morph_close: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=28.00
+  raw_preview=['HORA iter']
+- box001_c0__morph_open: raw_lines=1, accepted_detections=4, total_data_rows=9, mean_conf=15.25
+  raw_preview=['Thieme B&B aiatl | A']
+- box001_c0__unsharp: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=53.50
+  raw_preview=['ROSA GFAEEN']
+- box001_c0__unsharp_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=43.50
+  raw_preview=['ROSA GFLAHEEN']
+- box001_c0__gray_upscale_x2: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=90.50
+  raw_preview=['ROSA GREEN']
+- box001_c0__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box001_c0__gray_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=94.00
+  raw_preview=['ROSA GREEN']
+- box001_c0__adaptive_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=40.00
+  raw_preview=['ROSA iK-E-LN']
+- box001_c0__unsharp_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=95.00
+  raw_preview=['ROSA GREEN']
+- box002_c1__standard_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=38.00
+  raw_preview=['13464']
+- box002_c1__inverted_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=25.00
+  raw_preview=['138464']
+- box002_c1__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box002_c1__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=0.00
+  raw_preview=['1 4H64']
+- box002_c1__clahe_inverted: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=45.00
+  raw_preview=['14H64']
+- box002_c1__adaptive_binary: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=56.00
+  raw_preview=['3664']
+- box002_c1__adaptive_binary_inv: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=61.00
+  raw_preview=['3664']
+- box002_c1__morph_close: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['T4AnRsA']
+- box002_c1__morph_open: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=57.00
+  raw_preview=['Tinta']
+- box002_c1__unsharp: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=1.00
+  raw_preview=['1 sH64']
+- box002_c1__unsharp_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=0.00
+  raw_preview=['1 sH64']
+- box002_c1__gray_upscale_x2: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=71.00
+  raw_preview=['13864']
+- box002_c1__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box002_c1__gray_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=81.00
+  raw_preview=['13864']
+- box002_c1__adaptive_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=71.00
+  raw_preview=['13364']
+- box002_c1__unsharp_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=48.00
+  raw_preview=['13864']
+- box003_c2__standard_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=27.00
+  raw_preview=['4uy']
+- box003_c2__inverted_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=9.00
+  raw_preview=['4uy']
+- box003_c2__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- box003_c2__clahe: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['auny']
+- box003_c2__clahe_inverted: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=20.00
+  raw_preview=['auy']
+- box003_c2__adaptive_binary: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['stibd']
+- box003_c2__adaptive_binary_inv: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=39.00
+  raw_preview=['Any']
+- box003_c2__morph_close: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=30.00
+  raw_preview=['Yr iihg']
+- box003_c2__morph_open: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['Pith.']
+- box003_c2__unsharp: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['withd']
+- box003_c2__unsharp_inverted: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['withd']
+- box003_c2__gray_upscale_x2: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=34.00
+  raw_preview=['40Y']
+- box003_c2__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box003_c2__gray_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=79.00
+  raw_preview=['40Y']
+- box003_c2__adaptive_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=7.00
+  raw_preview=['ADDY']
+- box003_c2__unsharp_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=11.00
+  raw_preview=['400Y']
+- box004_c3__standard_gray: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=32.00
+  raw_preview=['JU LI-O f-OF']
+- box004_c3__inverted_gray: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=27.00
+  raw_preview=['JU LsI-O f-O7F']
+- box004_c3__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box004_c3__clahe: raw_lines=1, accepted_detections=5, total_data_rows=9, mean_conf=35.60
+  raw_preview=['AU L se) fe 7']
+- box004_c3__clahe_inverted: raw_lines=1, accepted_detections=5, total_data_rows=9, mean_conf=34.20
+  raw_preview=['AU LL se) fe 7']
+- box004_c3__adaptive_binary: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=23.00
+  raw_preview=['SUE Fade Fate']
+- box004_c3__adaptive_binary_inv: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=29.33
+  raw_preview=['SUE Fumie Fate']
+- box004_c3__morph_close: raw_lines=1, accepted_detections=4, total_data_rows=8, mean_conf=28.25
+  raw_preview=['IDE Fudd Fade eT']
+- box004_c3__morph_open: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=17.33
+  raw_preview=['Jinn Fash Fadt']
+- box004_c3__unsharp: raw_lines=1, accepted_detections=5, total_data_rows=10, mean_conf=23.80
+  raw_preview=['AU tL f-t) J -t 7']
+- box004_c3__unsharp_inverted: raw_lines=1, accepted_detections=5, total_data_rows=10, mean_conf=17.60
+  raw_preview=['AU tf -t) J -O 7s']
+- box004_c3__gray_upscale_x2: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=48.33
+  raw_preview=['AU LI-O f-OF7']
+- box004_c3__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box004_c3__gray_upscale_x3: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=45.33
+  raw_preview=['ZU LI-O f/-OF7']
+- box004_c3__adaptive_upscale_x3: raw_lines=1, accepted_detections=4, total_data_rows=8, mean_conf=23.25
+  raw_preview=['SUE £—40 Fmt F']
+- box004_c3__unsharp_upscale_x3: raw_lines=1, accepted_detections=5, total_data_rows=9, mean_conf=37.00
+  raw_preview=['20 £t s-02) f-O 7']
+
+Clusters that passed overlap rule:
+- cluster_1: token='rosa', members=10, passes=['box001_c0__adaptive_upscale_x3', 'box001_c0__clahe', 'box001_c0__clahe_inverted', 'box001_c0__gray_upscale_x2', 'box001_c0__gray_upscale_x3', 'box001_c0__inverted_gray', 'box001_c0__standard_gray', 'box001_c0__unsharp', 'box001_c0__unsharp_inverted', 'box001_c0__unsharp_upscale_x3']
+- cluster_2: token='green', members=5, passes=['box001_c0__gray_upscale_x2', 'box001_c0__gray_upscale_x3', 'box001_c0__inverted_gray', 'box001_c0__standard_gray', 'box001_c0__unsharp_upscale_x3']
+- cluster_3: token='3664', members=2, passes=['box002_c1__adaptive_binary', 'box002_c1__adaptive_binary_inv']
+- cluster_4: token='13864', members=2, passes=['box002_c1__gray_upscale_x2', 'box002_c1__gray_upscale_x3']
+- cluster_5: token='ju', members=2, passes=['box004_c3__inverted_gray', 'box004_c3__standard_gray']
+- cluster_6: token='au', members=5, passes=['box004_c3__clahe', 'box004_c3__clahe_inverted', 'box004_c3__gray_upscale_x2', 'box004_c3__unsharp', 'box004_c3__unsharp_inverted']
+- cluster_7: token='lio', members=2, passes=['box004_c3__gray_upscale_x2', 'box004_c3__gray_upscale_x3']
+
+All detections (before filters):
+- pass=box001_c0__standard_gray, text='ROSA', conf=87.00, bbox=(45,22,36,9)
+- pass=box001_c0__standard_gray, text='GREEN', conf=67.00, bbox=(87,22,43,9)
+- pass=box001_c0__inverted_gray, text='ROSA', conf=89.00, bbox=(45,22,36,9)
+- pass=box001_c0__inverted_gray, text='GREEN', conf=61.00, bbox=(87,22,43,9)
+- pass=box001_c0__clahe, text='ROSA', conf=81.00, bbox=(45,22,36,9)
+- pass=box001_c0__clahe, text='GAEEN', conf=36.00, bbox=(87,22,43,9)
+- pass=box001_c0__clahe_inverted, text='ROSA', conf=84.00, bbox=(45,22,36,9)
+- pass=box001_c0__clahe_inverted, text='GALEN', conf=45.00, bbox=(87,22,43,9)
+- pass=box001_c0__adaptive_binary, text='rmOS', conf=13.00, bbox=(45,22,36,9)
+- pass=box001_c0__adaptive_binary, text='4', conf=20.00, bbox=(74,22,6,9)
+- pass=box001_c0__adaptive_binary, text='KEL', conf=0.00, bbox=(86,22,44,9)
+- pass=box001_c0__adaptive_binary, text='N', conf=0.00, bbox=(122,22,9,9)
+- pass=box001_c0__adaptive_binary_inv, text='rmOUOS', conf=0.00, bbox=(45,22,36,9)
+- pass=box001_c0__adaptive_binary_inv, text='4', conf=21.00, bbox=(74,22,6,9)
+- pass=box001_c0__adaptive_binary_inv, text='iKRELN', conf=0.00, bbox=(86,22,44,9)
+- pass=box001_c0__morph_close, text='HORA', conf=56.00, bbox=(46,22,36,9)
+- pass=box001_c0__morph_close, text='iter', conf=0.00, bbox=(87,22,44,9)
+- pass=box001_c0__morph_open, text='Thieme', conf=35.00, bbox=(47,22,36,9)
+- pass=box001_c0__morph_open, text='B&B', conf=0.00, bbox=(77,22,7,9)
+- pass=box001_c0__morph_open, text='aiatl', conf=0.00, bbox=(88,22,43,9)
+- pass=box001_c0__morph_open, text='A', conf=26.00, bbox=(124,22,7,9)
+- pass=box001_c0__unsharp, text='ROSA', conf=89.00, bbox=(45,22,36,9)
+- pass=box001_c0__unsharp, text='GFAEEN', conf=18.00, bbox=(86,22,44,9)
+- pass=box001_c0__unsharp_inverted, text='ROSA', conf=87.00, bbox=(45,22,36,9)
+- pass=box001_c0__unsharp_inverted, text='GFLAHEEN', conf=0.00, bbox=(86,22,44,9)
+- pass=box001_c0__gray_upscale_x2, text='ROSA', conf=95.00, bbox=(45,22,36,9)
+- pass=box001_c0__gray_upscale_x2, text='GREEN', conf=86.00, bbox=(86,22,44,9)
+- pass=box001_c0__gray_upscale_x3, text='ROSA', conf=94.00, bbox=(45,22,36,9)
+- pass=box001_c0__gray_upscale_x3, text='GREEN', conf=94.00, bbox=(87,22,43,9)
+- pass=box001_c0__adaptive_upscale_x3, text='ROSA', conf=64.00, bbox=(45,22,36,9)
+- pass=box001_c0__adaptive_upscale_x3, text='iK-E-LN', conf=16.00, bbox=(86,22,44,9)
+- pass=box001_c0__unsharp_upscale_x3, text='ROSA', conf=95.00, bbox=(45,22,36,9)
+- pass=box001_c0__unsharp_upscale_x3, text='GREEN', conf=95.00, bbox=(86,22,44,9)
+- pass=box002_c1__standard_gray, text='13464', conf=38.00, bbox=(40,33,40,9)
+- pass=box002_c1__inverted_gray, text='138464', conf=25.00, bbox=(40,33,40,9)
+- pass=box002_c1__clahe, text='1', conf=0.00, bbox=(39,33,8,9)
+- pass=box002_c1__clahe, text='4H64', conf=0.00, bbox=(40,33,40,9)
+- pass=box002_c1__clahe_inverted, text='14H64', conf=45.00, bbox=(40,33,40,9)
+- pass=box002_c1__adaptive_binary, text='3664', conf=56.00, bbox=(40,33,40,9)
+- pass=box002_c1__adaptive_binary_inv, text='3664', conf=61.00, bbox=(40,33,40,9)
+- pass=box002_c1__morph_close, text='T4AnRsA', conf=0.00, bbox=(41,33,40,9)
+- pass=box002_c1__morph_open, text='Tinta', conf=57.00, bbox=(42,33,39,9)
+- pass=box002_c1__unsharp, text='1', conf=1.00, bbox=(39,33,8,9)
+- pass=box002_c1__unsharp, text='sH64', conf=1.00, bbox=(40,33,40,9)
+- pass=box002_c1__unsharp_inverted, text='1', conf=0.00, bbox=(39,33,8,9)
+- pass=box002_c1__unsharp_inverted, text='sH64', conf=0.00, bbox=(40,33,40,9)
+- pass=box002_c1__gray_upscale_x2, text='13864', conf=71.00, bbox=(40,33,40,9)
+- pass=box002_c1__gray_upscale_x3, text='13864', conf=81.00, bbox=(40,33,40,9)
+- pass=box002_c1__adaptive_upscale_x3, text='13364', conf=71.00, bbox=(40,33,40,9)
+- pass=box002_c1__unsharp_upscale_x3, text='13864', conf=48.00, bbox=(40,33,40,9)
+- pass=box003_c2__standard_gray, text='4uy', conf=27.00, bbox=(101,33,26,9)
+- pass=box003_c2__inverted_gray, text='4uy', conf=9.00, bbox=(101,33,26,9)
+- pass=box003_c2__clahe, text='auny', conf=0.00, bbox=(101,33,25,9)
+- pass=box003_c2__clahe_inverted, text='auy', conf=20.00, bbox=(101,33,25,9)
+- pass=box003_c2__adaptive_binary, text='stibd', conf=0.00, bbox=(101,33,26,9)
+- pass=box003_c2__adaptive_binary_inv, text='Any', conf=39.00, bbox=(101,33,26,9)
+- pass=box003_c2__morph_close, text='Yr', conf=45.00, bbox=(101,33,5,9)
+- pass=box003_c2__morph_close, text='iihg', conf=15.00, bbox=(109,33,18,9)
+- pass=box003_c2__morph_open, text='Pith.', conf=0.00, bbox=(101,33,26,9)
+- pass=box003_c2__unsharp, text='withd', conf=0.00, bbox=(101,33,25,9)
+- pass=box003_c2__unsharp_inverted, text='withd', conf=0.00, bbox=(101,33,25,9)
+- pass=box003_c2__gray_upscale_x2, text='40Y', conf=34.00, bbox=(101,33,26,9)
+- pass=box003_c2__gray_upscale_x3, text='40Y', conf=79.00, bbox=(101,33,26,9)
+- pass=box003_c2__adaptive_upscale_x3, text='ADDY', conf=7.00, bbox=(101,33,26,9)
+- pass=box003_c2__unsharp_upscale_x3, text='400Y', conf=11.00, bbox=(101,33,25,9)
+- pass=box004_c3__standard_gray, text='JU', conf=55.00, bbox=(20,44,15,9)
+- pass=box004_c3__standard_gray, text='LI-O', conf=0.00, bbox=(38,44,26,9)
+- pass=box004_c3__standard_gray, text='f-OF', conf=41.00, bbox=(68,44,26,9)
+- pass=box004_c3__inverted_gray, text='JU', conf=53.00, bbox=(20,44,15,9)
+- pass=box004_c3__inverted_gray, text='LsI-O', conf=0.00, bbox=(38,44,26,9)
+- pass=box004_c3__inverted_gray, text='f-O7F', conf=28.00, bbox=(68,44,26,9)
+- pass=box004_c3__clahe, text='AU', conf=67.00, bbox=(20,44,14,9)
+- pass=box004_c3__clahe, text='L', conf=72.00, bbox=(38,44,5,9)
+- pass=box004_c3__clahe, text='se)', conf=0.00, bbox=(45,44,50,9)
+- pass=box004_c3__clahe, text='fe', conf=0.00, bbox=(69,44,13,9)
+- pass=box004_c3__clahe, text='7', conf=39.00, bbox=(89,44,7,9)
+- pass=box004_c3__clahe_inverted, text='AU', conf=75.00, bbox=(20,44,14,9)
+- pass=box004_c3__clahe_inverted, text='LL', conf=48.00, bbox=(38,44,5,9)
+- pass=box004_c3__clahe_inverted, text='se)', conf=0.00, bbox=(45,44,50,9)
+- pass=box004_c3__clahe_inverted, text='fe', conf=7.00, bbox=(68,44,14,9)
+- pass=box004_c3__clahe_inverted, text='7', conf=41.00, bbox=(89,44,7,9)
+- pass=box004_c3__adaptive_binary, text='SUE', conf=35.00, bbox=(20,44,75,9)
+- pass=box004_c3__adaptive_binary, text='Fade', conf=13.00, bbox=(47,44,18,9)
+- pass=box004_c3__adaptive_binary, text='Fate', conf=21.00, bbox=(70,44,25,9)
+- pass=box004_c3__adaptive_binary_inv, text='SUE', conf=45.00, bbox=(20,44,75,9)
+- pass=box004_c3__adaptive_binary_inv, text='Fumie', conf=14.00, bbox=(47,44,18,9)
+- pass=box004_c3__adaptive_binary_inv, text='Fate', conf=29.00, bbox=(70,44,25,9)
+- pass=box004_c3__morph_close, text='IDE', conf=31.00, bbox=(21,44,22,9)
+- pass=box004_c3__morph_close, text='Fudd', conf=38.00, bbox=(48,44,19,9)
+- pass=box004_c3__morph_close, text='Fade', conf=42.00, bbox=(70,44,18,9)
+- pass=box004_c3__morph_close, text='eT', conf=2.00, bbox=(91,44,5,9)
+- pass=box004_c3__morph_open, text='Jinn', conf=10.00, bbox=(22,44,74,9)
+- pass=box004_c3__morph_open, text='Fash', conf=42.00, bbox=(49,44,18,9)
+- pass=box004_c3__morph_open, text='Fadt', conf=0.00, bbox=(72,44,17,9)
+- pass=box004_c3__unsharp, text='AU', conf=50.00, bbox=(20,44,15,9)
+- pass=box004_c3__unsharp, text='tL', conf=32.00, bbox=(38,44,5,9)
+- pass=box004_c3__unsharp, text='f-t)', conf=5.00, bbox=(44,44,21,9)
+- pass=box004_c3__unsharp, text='-t', conf=0.00, bbox=(74,44,21,9)
+- pass=box004_c3__unsharp, text='7', conf=32.00, bbox=(89,44,7,9)
+- pass=box004_c3__unsharp_inverted, text='AU', conf=50.00, bbox=(20,44,15,9)
+- pass=box004_c3__unsharp_inverted, text='tf', conf=0.00, bbox=(38,44,13,9)
+- pass=box004_c3__unsharp_inverted, text='-t)', conf=0.00, bbox=(52,44,13,9)
+- pass=box004_c3__unsharp_inverted, text='-O', conf=0.00, bbox=(74,44,21,9)
+- pass=box004_c3__unsharp_inverted, text='7s', conf=38.00, bbox=(89,44,7,9)
+- pass=box004_c3__gray_upscale_x2, text='AU', conf=70.00, bbox=(20,44,15,9)
+- pass=box004_c3__gray_upscale_x2, text='LI-O', conf=60.00, bbox=(39,44,25,9)
+- pass=box004_c3__gray_upscale_x2, text='f-OF7', conf=15.00, bbox=(69,44,26,9)
+- pass=box004_c3__gray_upscale_x3, text='ZU', conf=69.00, bbox=(20,44,15,9)
+- pass=box004_c3__gray_upscale_x3, text='LI-O', conf=59.00, bbox=(40,44,25,9)
+- pass=box004_c3__gray_upscale_x3, text='f/-OF7', conf=8.00, bbox=(69,44,25,9)
+- pass=box004_c3__adaptive_upscale_x3, text='SUE', conf=38.00, bbox=(20,44,15,9)
+- pass=box004_c3__adaptive_upscale_x3, text='£—40', conf=0.00, bbox=(37,44,28,9)
+- pass=box004_c3__adaptive_upscale_x3, text='Fmt', conf=24.00, bbox=(67,44,28,9)
+- pass=box004_c3__adaptive_upscale_x3, text='F', conf=31.00, bbox=(90,44,6,9)
+- pass=box004_c3__unsharp_upscale_x3, text='20', conf=81.00, bbox=(20,44,15,9)
+- pass=box004_c3__unsharp_upscale_x3, text='£t', conf=11.00, bbox=(39,44,5,9)
+- pass=box004_c3__unsharp_upscale_x3, text='s-02)', conf=0.00, bbox=(44,44,21,9)
+- pass=box004_c3__unsharp_upscale_x3, text='f-O', conf=13.00, bbox=(67,44,28,9)
+- pass=box004_c3__unsharp_upscale_x3, text='7', conf=80.00, bbox=(89,44,6,9)
+
+Final detections (after overlap + dedup):
+- text='ROSA', conf=87.00, bbox=(45,22,36,9), pass=box001_c0__standard_gray
+- text='ROSA', conf=89.00, bbox=(45,22,36,9), pass=box001_c0__inverted_gray
+- text='ROSA', conf=81.00, bbox=(45,22,36,9), pass=box001_c0__clahe
+- text='ROSA', conf=84.00, bbox=(45,22,36,9), pass=box001_c0__clahe_inverted
+- text='ROSA', conf=89.00, bbox=(45,22,36,9), pass=box001_c0__unsharp
+- text='ROSA', conf=87.00, bbox=(45,22,36,9), pass=box001_c0__unsharp_inverted
+- text='ROSA', conf=95.00, bbox=(45,22,36,9), pass=box001_c0__gray_upscale_x2
+- text='ROSA', conf=94.00, bbox=(45,22,36,9), pass=box001_c0__gray_upscale_x3
+- text='ROSA', conf=64.00, bbox=(45,22,36,9), pass=box001_c0__adaptive_upscale_x3
+- text='ROSA', conf=95.00, bbox=(45,22,36,9), pass=box001_c0__unsharp_upscale_x3
+- text='GREEN', conf=67.00, bbox=(87,22,43,9), pass=box001_c0__standard_gray
+- text='GREEN', conf=61.00, bbox=(87,22,43,9), pass=box001_c0__inverted_gray
+- text='GREEN', conf=86.00, bbox=(86,22,44,9), pass=box001_c0__gray_upscale_x2
+- text='GREEN', conf=94.00, bbox=(87,22,43,9), pass=box001_c0__gray_upscale_x3
+- text='GREEN', conf=95.00, bbox=(86,22,44,9), pass=box001_c0__unsharp_upscale_x3
+- text='3664', conf=56.00, bbox=(40,33,40,9), pass=box002_c1__adaptive_binary
+- text='3664', conf=61.00, bbox=(40,33,40,9), pass=box002_c1__adaptive_binary_inv
+- text='13864', conf=71.00, bbox=(40,33,40,9), pass=box002_c1__gray_upscale_x2
+- text='13864', conf=81.00, bbox=(40,33,40,9), pass=box002_c1__gray_upscale_x3
+- text='JU', conf=55.00, bbox=(20,44,15,9), pass=box004_c3__standard_gray
+- text='JU', conf=53.00, bbox=(20,44,15,9), pass=box004_c3__inverted_gray
+- text='AU', conf=67.00, bbox=(20,44,14,9), pass=box004_c3__clahe
+- text='AU', conf=75.00, bbox=(20,44,14,9), pass=box004_c3__clahe_inverted
+- text='AU', conf=50.00, bbox=(20,44,15,9), pass=box004_c3__unsharp
+- text='AU', conf=50.00, bbox=(20,44,15,9), pass=box004_c3__unsharp_inverted
+- text='AU', conf=70.00, bbox=(20,44,15,9), pass=box004_c3__gray_upscale_x2
+- text='LI-O', conf=60.00, bbox=(39,44,25,9), pass=box004_c3__gray_upscale_x2
+- text='LI-O', conf=59.00, bbox=(40,44,25,9), pass=box004_c3__gray_upscale_x3

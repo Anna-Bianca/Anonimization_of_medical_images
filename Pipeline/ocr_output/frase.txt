@@ -1,15 +1,15 @@
 # final_word	x	y	w	h	conf	source_pass
-NUNCA	154	336	274	39	96.00	band_0_gray_x3
+NUNCA	154	336	274	39	95.00	band_0_gray_x3
 INSISTIR	66	25	337	89	92.00	standard_gray
 PERSISTIR	65	125	383	90	92.00	standard_gray
-DESISTIR	67	396	373	90	91.00	standard_gray
+DESISTIR	67	396	373	90	92.00	gray_upscale_x2
+Y	87	336	45	38	92.00	band_0_unsharp_x3
 RESISTIR	65	226	354	90	91.00	gray_upscale_x2_lstm
-Y	87	336	45	38	91.00	band_0_unsharp_x3
 
 # final_text
 NUNCA
 INSISTIR
 PERSISTIR
 DESISTIR
-RESISTIR
 Y
+RESISTIR

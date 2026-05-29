@@ -1,0 +1,118 @@
+Image: f9 - copia.png
+Confidence step 1 (primary): 60.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 61
+After confidence filter (conf >= 60.0): 7
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 5
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 4
+
+Per-pass debug:
+- standard_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=33.50
+  raw_preview=['el ne']
+- inverted_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=25.00
+  raw_preview=['ee he']
+- standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- clahe: raw_lines=2, accepted_detections=4, total_data_rows=9, mean_conf=24.00
+  raw_preview=['CHEST L~', 'he i']
+- clahe_inverted: raw_lines=2, accepted_detections=4, total_data_rows=9, mean_conf=28.25
+  raw_preview=['CHEST L~', 'he i']
+- adaptive_binary: raw_lines=3, accepted_detections=7, total_data_rows=15, mean_conf=8.86
+  raw_preview=['ee Gy', 'ae ae ORASLE', 'ae pe GE |']
+- adaptive_binary_inv: raw_lines=3, accepted_detections=7, total_data_rows=15, mean_conf=8.29
+  raw_preview=['ee Gy', 'ae ae ORASLE', 'ue pe GE |']
+- morph_close: raw_lines=5, accepted_detections=8, total_data_rows=19, mean_conf=21.12
+  raw_preview=['ee? °', 'Bape', '', 'oA Gra \\', '7 ie 7 “aa r']
+- morph_open: raw_lines=5, accepted_detections=7, total_data_rows=15, mean_conf=22.14
+  raw_preview=['ewes) ED', 'ieee', '', 'i "als', 'ee pT']
+- unsharp: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- unsharp_inverted: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- gray_upscale_x2: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- gray_upscale_x3: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- adaptive_upscale_x3: raw_lines=3, accepted_detections=13, total_data_rows=20, mean_conf=42.38
+  raw_preview=['F91/14/2018 17:56). wet', 'LE CHEST PA yy ROOM, 34 ees', 'aaah tipee PORTABLE i']
+- unsharp_upscale_x3: raw_lines=3, accepted_detections=7, total_data_rows=17, mean_conf=42.14
+  raw_preview=['HAR IS. SARA 3/', '01/14/2018 17:56 ,', 'Bid ~~ PORTABLE ©']
+
+Clusters that passed overlap rule:
+- cluster_1: token='room', members=1, passes=['adaptive_upscale_x3']
+- cluster_2: token='portable', members=2, passes=['adaptive_upscale_x3', 'unsharp_upscale_x3']
+- cluster_3: token='har', members=1, passes=['unsharp_upscale_x3']
+- cluster_4: token='1756', members=1, passes=['unsharp_upscale_x3']
+
+All detections (before filters):
+- pass=standard_gray, text='el', conf=26.00, bbox=(0,80,26,17)
+- pass=standard_gray, text='ne', conf=41.00, bbox=(36,76,46,21)
+- pass=inverted_gray, text='ee', conf=26.00, bbox=(0,80,82,17)
+- pass=inverted_gray, text='he', conf=24.00, bbox=(63,76,23,21)
+- pass=clahe, text='CHEST', conf=50.00, bbox=(6,32,40,37)
+- pass=clahe, text='L~', conf=0.00, bbox=(184,0,81,97)
+- pass=clahe, text='he', conf=18.00, bbox=(0,80,130,17)
+- pass=clahe, text='i', conf=28.00, bbox=(64,76,19,21)
+- pass=clahe_inverted, text='CHEST', conf=54.00, bbox=(6,32,40,37)
+- pass=clahe_inverted, text='L~', conf=0.00, bbox=(184,0,81,97)
+- pass=clahe_inverted, text='he', conf=23.00, bbox=(0,80,130,17)
+- pass=clahe_inverted, text='i', conf=36.00, bbox=(64,76,19,21)
+- pass=adaptive_binary, text='ee', conf=10.00, bbox=(0,44,138,12)
+- pass=adaptive_binary, text='Gy', conf=0.00, bbox=(173,49,20,23)
+- pass=adaptive_binary, text='ae', conf=16.00, bbox=(13,65,47,26)
+- pass=adaptive_binary, text='ae', conf=0.00, bbox=(88,61,23,34)
+- pass=adaptive_binary, text='ORASLE', conf=0.00, bbox=(113,70,64,18)
+- pass=adaptive_binary, text='ae', conf=24.00, bbox=(0,81,92,16)
+- pass=adaptive_binary, text='pe', conf=12.00, bbox=(98,77,11,20)
+- pass=adaptive_binary_inv, text='ee', conf=9.00, bbox=(0,44,138,12)
+- pass=adaptive_binary_inv, text='Gy', conf=0.00, bbox=(173,49,20,23)
+- pass=adaptive_binary_inv, text='ae', conf=16.00, bbox=(13,65,47,26)
+- pass=adaptive_binary_inv, text='ae', conf=0.00, bbox=(88,61,23,34)
+- pass=adaptive_binary_inv, text='ORASLE', conf=0.00, bbox=(113,70,64,18)
+- pass=adaptive_binary_inv, text='ue', conf=23.00, bbox=(0,81,92,16)
+- pass=adaptive_binary_inv, text='pe', conf=10.00, bbox=(98,77,11,20)
+- pass=morph_close, text='ee?', conf=14.00, bbox=(0,22,185,49)
+- pass=morph_close, text='Bape', conf=18.00, bbox=(0,45,176,10)
+- pass=morph_close, text='oA', conf=13.00, bbox=(20,62,17,14)
+- pass=morph_close, text='Gra', conf=34.00, bbox=(114,50,101,47)
+- pass=morph_close, text='7', conf=26.00, bbox=(0,88,6,9)
+- pass=morph_close, text='ie', conf=40.00, bbox=(17,81,65,16)
+- pass=morph_close, text='“aa', conf=24.00, bbox=(140,90,21,7)
+- pass=morph_close, text='r', conf=0.00, bbox=(191,87,5,7)
+- pass=morph_open, text='ewes)', conf=15.00, bbox=(11,23,175,24)
+- pass=morph_open, text='ED', conf=47.00, bbox=(222,15,33,24)
+- pass=morph_open, text='ieee', conf=29.00, bbox=(0,46,177,10)
+- pass=morph_open, text='i', conf=10.00, bbox=(24,67,14,10)
+- pass=morph_open, text='"als', conf=13.00, bbox=(93,54,101,21)
+- pass=morph_open, text='ee', conf=35.00, bbox=(0,72,94,25)
+- pass=morph_open, text='pT', conf=6.00, bbox=(115,73,64,17)
+- pass=adaptive_upscale_x3, text='F91/14/2018', conf=0.00, bbox=(0,32,81,11)
+- pass=adaptive_upscale_x3, text='17:56).', conf=14.00, bbox=(89,29,55,12)
+- pass=adaptive_upscale_x3, text='wet', conf=39.00, bbox=(156,24,29,16)
+- pass=adaptive_upscale_x3, text='CHEST', conf=45.00, bbox=(9,44,39,10)
+- pass=adaptive_upscale_x3, text='PA', conf=70.00, bbox=(53,44,13,8)
+- pass=adaptive_upscale_x3, text='yy', conf=49.00, bbox=(73,39,10,19)
+- pass=adaptive_upscale_x3, text='ROOM,', conf=92.00, bbox=(89,44,28,8)
+- pass=adaptive_upscale_x3, text='34', conf=80.00, bbox=(124,44,19,8)
+- pass=adaptive_upscale_x3, text='ees', conf=19.00, bbox=(150,40,32,14)
+- pass=adaptive_upscale_x3, text='aaah', conf=0.00, bbox=(2,65,58,20)
+- pass=adaptive_upscale_x3, text='tipee', conf=0.00, bbox=(74,70,22,17)
+- pass=adaptive_upscale_x3, text='PORTABLE', conf=95.00, bbox=(109,70,68,14)
+- pass=adaptive_upscale_x3, text='i', conf=48.00, bbox=(185,68,15,16)
+- pass=unsharp_upscale_x3, text='HAR', conf=94.00, bbox=(11,21,16,8)
+- pass=unsharp_upscale_x3, text='IS.', conf=9.00, bbox=(42,20,12,9)
+- pass=unsharp_upscale_x3, text='SARA', conf=0.00, bbox=(70,23,30,6)
+- pass=unsharp_upscale_x3, text='01/14/2018', conf=4.00, bbox=(0,22,81,21)
+- pass=unsharp_upscale_x3, text='17:56', conf=89.00, bbox=(87,30,34,13)
+- pass=unsharp_upscale_x3, text='Bid', conf=14.00, bbox=(13,64,22,17)
+- pass=unsharp_upscale_x3, text='PORTABLE', conf=85.00, bbox=(103,69,74,16)
+
+Final detections (after overlap + dedup):
+- text='PORTABLE', conf=95.00, bbox=(109,70,68,14), pass=adaptive_upscale_x3
+- text='HAR', conf=94.00, bbox=(11,21,16,8), pass=unsharp_upscale_x3
+- text='ROOM,', conf=92.00, bbox=(89,44,28,8), pass=adaptive_upscale_x3
+- text='17:56', conf=89.00, bbox=(87,30,34,13), pass=unsharp_upscale_x3

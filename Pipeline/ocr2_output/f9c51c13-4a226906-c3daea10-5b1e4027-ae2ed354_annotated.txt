@@ -1,0 +1,15 @@
+# final_word	x	y	w	h	conf	source_pass
+56	357	33	12	8	91.00	box005_c4__gray_upscale_x2
+14/2018	278	32	49	9	89.00	box004_c3__clahe
+HARRIS	256	21	46	10	86.00	box001_c0__clahe_inverted
+1	335	33	18	8	77.00	box005_c4__gray_upscale_x3
+617	256	32	17	9	71.00	box004_c3__unsharp
+47	335	33	34	8	64.00	box005_c4__clahe_inverted
+
+# final_text
+56
+14/2018
+HARRIS
+1
+617
+47

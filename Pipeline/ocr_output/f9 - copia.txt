@@ -1,0 +1,11 @@
+# final_word	x	y	w	h	conf	source_pass
+PORTABLE	109	70	68	14	95.00	adaptive_upscale_x3
+HAR	11	21	16	8	94.00	unsharp_upscale_x3
+ROOM	89	44	28	8	92.00	adaptive_upscale_x3
+17:56	87	30	34	13	89.00	unsharp_upscale_x3
+
+# final_text
+PORTABLE
+HAR
+ROOM
+17:56

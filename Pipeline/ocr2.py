@@ -1,6 +1,6 @@
 from __future__ import annotations
 """
-OCR pipeline for medical-image text detection with per-pass debugging.
+OCR pipeline for medical-image text detection constrained by label bounding boxes.
 
 Design goals:
 1. Use one unified OCR flow for both extracted text and bounding boxes.
@@ -68,6 +68,17 @@ class PassDebug:
     mean_conf: float
 
 
+@dataclass(frozen=True)
+class LabelBox:
+    """One label-defined ROI box in absolute image coordinates."""
+    class_id: int
+    x: int
+    y: int
+    w: int
+    h: int
+    source_line: int
+
+
 def parse_args() -> argparse.Namespace:
     """
     Parse CLI arguments.
@@ -83,12 +94,18 @@ def parse_args() -> argparse.Namespace:
         "--input-dir",
         type=Path,
         default=Path("train"),
-        help="Carpeta con imagenes de entrada (default: Images).",
+        help="Carpeta con imagenes de entrada (default: train).",
+    )
+    parser.add_argument(
+        "--labels-dir",
+        type=Path,
+        default=Path("labels"),
+        help="Carpeta con labels YOLO (.txt) para cada imagen.",
     )
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("Pipeline") / "ocr_output",
+        default=Path("Pipeline") / "ocr2_output",
         help="Carpeta donde se guardan textos y cajas detectadas.",
     )
     parser.add_argument(
@@ -143,6 +160,11 @@ def parse_args() -> argparse.Namespace:
             "Valor 0 deshabilita la excepcion."
         ),
     )
+    parser.add_argument(
+        "--skip-dedup",
+        action="store_true",
+        help="Desactiva la deduplicacion final por IoU (regla 3).",
+    )
     return parser.parse_args()
 
 
@@ -151,6 +173,72 @@ def iter_images(input_dir: Path) -> list[Path]:
     return sorted(
         p for p in input_dir.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED_EXTENSIONS
     )
+
+
+def _label_candidates_for_image(labels_dir: Path, image_path: Path) -> list[Path]:
+    """Return candidate label paths for an image (exact stem first, then fallback names)."""
+    stem = image_path.stem
+    candidates = [labels_dir / f"{stem}.txt"]
+    if stem.endswith("_annotated"):
+        candidates.append(labels_dir / f"{stem[:-10]}.txt")
+    return candidates
+
+
+def _load_label_boxes(labels_dir: Path, image_path: Path, image_shape: tuple[int, int, int]) -> list[LabelBox]:
+    """Load YOLO labels and convert normalized boxes to absolute pixel coordinates."""
+    label_path = next((p for p in _label_candidates_for_image(labels_dir, image_path) if p.exists()), None)
+    if label_path is None:
+        return []
+
+    img_h, img_w = image_shape[:2]
+    boxes: list[LabelBox] = []
+    lines = label_path.read_text(encoding="utf-8").splitlines()
+    for line_idx, raw_line in enumerate(lines, start=1):
+        line = raw_line.strip()
+        if not line:
+            continue
+
+        parts = line.split()
+        if len(parts) != 5:
+            print(f"[WARN] Label invalido en {label_path.name}:{line_idx} -> {line!r}")
+            continue
+
+        try:
+            class_id = int(parts[0])
+            cx = float(parts[1]) * img_w
+            cy = float(parts[2]) * img_h
+            bw = float(parts[3]) * img_w
+            bh = float(parts[4]) * img_h
+        except ValueError:
+            print(f"[WARN] Label no numerico en {label_path.name}:{line_idx} -> {line!r}")
+            continue
+
+        x1 = int(round(cx - (bw / 2.0)))
+        y1 = int(round(cy - (bh / 2.0)))
+        x2 = int(round(cx + (bw / 2.0)))
+        y2 = int(round(cy + (bh / 2.0)))
+
+        x1 = max(0, min(x1, img_w - 1))
+        y1 = max(0, min(y1, img_h - 1))
+        x2 = max(0, min(x2, img_w))
+        y2 = max(0, min(y2, img_h))
+
+        w = x2 - x1
+        h = y2 - y1
+        if w < 2 or h < 2:
+            continue
+
+        boxes.append(
+            LabelBox(
+                class_id=class_id,
+                x=x1,
+                y=y1,
+                w=w,
+                h=h,
+                source_line=line_idx,
+            )
+        )
+    return boxes
 
 
 def preprocess_for_ocr(image_bgr: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -589,28 +677,48 @@ def _save_pass_image(debug_dir: Path, stem: str, ocr_pass: OCRPass) -> None:
     cv2.imwrite(str(debug_path), ocr_pass.image)
 
 
+def _offset_pass(ocr_pass: OCRPass, prefix: str, x_offset: int, y_offset: int) -> OCRPass:
+    """Return a pass remapped from ROI coordinates to absolute image coordinates."""
+    return OCRPass(
+        name=f"{prefix}__{ocr_pass.name}",
+        image=ocr_pass.image,
+        x_offset=ocr_pass.x_offset + x_offset,
+        y_offset=ocr_pass.y_offset + y_offset,
+        scale=ocr_pass.scale,
+        tesseract_config=ocr_pass.tesseract_config,
+    )
+
+
 def _collect_detections(
     image_bgr: np.ndarray,
     stem: str,
+    label_boxes: list[LabelBox],
     debug_dir: Path,
     save_debug_images: bool,
 ) -> tuple[list[WordDetection], list[PassDebug]]:
     """
-    Run all enabled passes and aggregate detections.
+    Run all enabled passes over label-defined ROIs and aggregate detections.
 
     This is the raw stage: no confidence, overlap, or dedup filters are applied here.
     """
-    passes = _build_global_passes(image_bgr) + _build_band_passes(image_bgr)
     all_detections: list[WordDetection] = []
     debug_rows: list[PassDebug] = []
 
-    for ocr_pass in passes:
-        raw_lines, detections, debug_info = _extract_from_pass(ocr_pass)
-        _print_pass_debug(ocr_pass.name, raw_lines)
-        if save_debug_images:
-            _save_pass_image(debug_dir, stem, ocr_pass)
-        all_detections.extend(detections)
-        debug_rows.append(debug_info)
+    for box_idx, box in enumerate(label_boxes, start=1):
+        roi = image_bgr[box.y:box.y + box.h, box.x:box.x + box.w]
+        if roi.size == 0:
+            continue
+
+        roi_prefix = f"box{box_idx:03d}_c{box.class_id}"
+        roi_passes = _build_global_passes(roi) + _build_band_passes(roi)
+        for roi_pass in roi_passes:
+            abs_pass = _offset_pass(roi_pass, roi_prefix, box.x, box.y)
+            raw_lines, detections, debug_info = _extract_from_pass(abs_pass)
+            _print_pass_debug(abs_pass.name, raw_lines)
+            if save_debug_images:
+                _save_pass_image(debug_dir, stem, abs_pass)
+            all_detections.extend(detections)
+            debug_rows.append(debug_info)
 
     return all_detections, debug_rows
 
@@ -641,6 +749,7 @@ def _make_text_from_detections(detections: list[WordDetection]) -> str:
 def _write_debug_report(
     debug_report_path: Path,
     image_name: str,
+    label_count: int,
     min_conf_primary: float,
     min_conf_secondary: float,
     overlap_threshold: float,
@@ -657,6 +766,7 @@ def _write_debug_report(
     """Persist a full trace report: raw detections, filters, clusters and final detections."""
     lines = [
         f"Image: {image_name}",
+        f"Label boxes used: {label_count}",
         f"Confidence step 1 (primary): {min_conf_primary}",
         f"Confidence step 2 (secondary): {min_conf_secondary}",
         f"All detections (raw): {total_detections}",
@@ -711,6 +821,7 @@ def _write_debug_report(
 
 def ocr_image(
     image_path: Path,
+    labels_dir: Path,
     output_dir: Path,
     min_conf_primary: float,
     min_conf_secondary: float,
@@ -718,6 +829,7 @@ def ocr_image(
     overlap_threshold: float,
     min_repetitions: int,
     single_pass_conf: float = 85.0,
+    skip_dedup: bool = False,
 ) -> None:
     """
     Process one image end-to-end.
@@ -736,10 +848,15 @@ def ocr_image(
     gray, _ = preprocess_for_ocr(image_bgr)
     stem = image_path.stem
     debug_dir = output_dir / "debug"
+    label_boxes = _load_label_boxes(labels_dir, image_path, image_bgr.shape)
+    if not label_boxes:
+        print(f"[WARN] Sin labels validos para {image_path.name}; se omite.")
+        return
 
     raw_detections, pass_debug_rows = _collect_detections(
         image_bgr=image_bgr,
         stem=stem,
+        label_boxes=label_boxes,
         debug_dir=debug_dir,
         save_debug_images=save_debug_images,
     )
@@ -751,11 +868,18 @@ def ocr_image(
         overlap_threshold=overlap_threshold,
         single_pass_conf_threshold=single_pass_conf,
     )
-    final_detections = _dedupe_word_detections(overlap_candidates, overlap_threshold=overlap_threshold)
+    if skip_dedup:
+        final_detections = list(overlap_candidates)
+    else:
+        final_detections = _dedupe_word_detections(overlap_candidates, overlap_threshold=overlap_threshold)
     extracted_text = _make_text_from_detections(final_detections)
 
     boxed_image_bgr = image_bgr.copy()
     final_boxes = 0
+    for box in label_boxes:
+        x1, y1 = box.x, box.y
+        x2, y2 = box.x + box.w, box.y + box.h
+        cv2.rectangle(boxed_image_bgr, (x1, y1), (x2, y2), (255, 0, 0), 2)
     for det in final_detections:
         x1, y1 = max(det.x, 0), max(det.y, 0)
         x2 = min(det.x + det.w, image_bgr.shape[1] - 1)
@@ -783,6 +907,7 @@ def ocr_image(
     _write_debug_report(
         debug_report_path=debug_report_file,
         image_name=image_path.name,
+        label_count=len(label_boxes),
         min_conf_primary=min_conf_primary,
         min_conf_secondary=min_conf_secondary,
         overlap_threshold=overlap_threshold,
@@ -801,7 +926,7 @@ def ocr_image(
     print(f"     -> Texto: {text_file}")
     print(
         "     -> Cajas: "
-        f"{boxed_image_file} (finales: {final_boxes})"
+        f"{boxed_image_file} (labels: {len(label_boxes)}, finales: {final_boxes})"
     )
     print(f"     -> Debug report: {debug_report_file}")
 
@@ -827,6 +952,11 @@ def main() -> None:
             f"No existe la carpeta de entrada: {args.input_dir}. "
             "Crea la carpeta o pasa --input-dir con una ruta valida."
         )
+    if not args.labels_dir.exists():
+        raise FileNotFoundError(
+            f"No existe la carpeta de labels: {args.labels_dir}. "
+            "Crea la carpeta o pasa --labels-dir con una ruta valida."
+        )
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
     images = iter_images(args.input_dir)
@@ -835,7 +965,7 @@ def main() -> None:
         return
 
     print(f"Procesando {len(images)} imagen(es) de {args.input_dir} ...")
-    print("Modo OCR: advanced_unified")
+    print("Modo OCR: labels_only (solo dentro de bounding boxes de labels)")
     print(
         "Regla final: "
         f"min_repetitions={args.min_repetitions}, overlap_iou>={args.overlap_threshold}, "
@@ -846,6 +976,7 @@ def main() -> None:
     for image_path in images:
         ocr_image(
             image_path=image_path,
+            labels_dir=args.labels_dir,
             output_dir=args.output_dir,
             min_conf_primary=args.min_conf_primary,
             min_conf_secondary=args.min_conf_secondary,
@@ -853,6 +984,7 @@ def main() -> None:
             overlap_threshold=args.overlap_threshold,
             min_repetitions=args.min_repetitions,
             single_pass_conf=args.single_pass_conf,
+            skip_dedup=args.skip_dedup,
         )
 
     print(f"\nListo. Resultados en: {args.output_dir.resolve()}")

@@ -1,7 +1,7 @@
 # final_word	x	y	w	h	conf	source_pass
-PORTABLE	799	394	102	21	74.00	inverted_gray
-AP	856	296	27	20	73.00	gray_upscale_x2
+IAP	856	296	28	21	79.00	inverted_gray
+PORTABLE	799	394	102	21	73.00	standard_gray
 
 # final_text
+IAP
 PORTABLE
-AP

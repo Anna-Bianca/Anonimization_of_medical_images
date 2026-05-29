@@ -1,7 +1,7 @@
 # final_word	x	y	w	h	conf	source_pass
 D	375	56	14	16	92.00	gray_upscale_x2
 C/Carga	177	5	52	16	92.00	gray_upscale_x3
-CiCarga	177	0	52	27	84.00	standard_gray
+CiCarga	177	0	52	27	85.00	inverted_gray
 
 # final_text
 D

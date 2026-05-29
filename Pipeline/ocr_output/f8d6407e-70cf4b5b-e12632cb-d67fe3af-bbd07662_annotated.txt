@@ -1,0 +1,29 @@
+# final_word	x	y	w	h	conf	source_pass
+PT	20	22	18	9	96.00	gray_upscale_x2
+ROSA	45	22	36	9	96.00	standard_gray
+GREEN	87	22	43	9	96.00	inverted_gray
+2017-07-07	20	44	74	9	96.00	gray_upscale_x2_lstm
+R29	179	44	24	10	96.00	gray_upscale_x3
+CHEST	104	44	44	9	95.00	gray_upscale_x2
+PA	153	44	16	9	94.00	gray_upscale_x2
+40Y	101	33	26	9	91.00	unsharp_upscale_x3
+M	86	33	10	9	90.00	gray_upscale_x2_lstm
+ID-13864	20	33	60	9	89.00	unsharp_upscale_x3
+A	473	490	38	18	89.00	morph_open
+if	318	472	13	15	86.00	adaptive_upscale_x3
+K	328	451	19	17	71.00	clahe
+
+# final_text
+PT
+ROSA
+GREEN
+2017-07-07
+R29
+CHEST
+PA
+40Y
+M
+ID-13864
+A
+if
+K

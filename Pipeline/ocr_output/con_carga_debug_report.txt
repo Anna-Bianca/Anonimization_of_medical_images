@@ -1,26 +1,26 @@
 Image: con_carga.jpeg
-Confidence step 1 (primary): 50.0
+Confidence step 1 (primary): 60.0
 Confidence step 2 (secondary): 30.0
 All detections (raw): 16
-After confidence filter (conf >= 50.0): 11
+After confidence filter (conf >= 60.0): 9
 Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
 Candidates after overlap rule: 9
 Rule 3 (dedup): merge duplicate boxes for same token/location
 Final detections: 3
 
 Per-pass debug:
-- standard_gray: raw_lines=2, accepted_detections=2, total_data_rows=8, mean_conf=85.50
-  raw_preview=['CiCarga ,', 'D']
-- inverted_gray: raw_lines=2, accepted_detections=2, total_data_rows=8, mean_conf=85.00
+- standard_gray: raw_lines=2, accepted_detections=2, total_data_rows=8, mean_conf=86.00
   raw_preview=['CiCarga ;', 'D']
-- standard_gray_psm4: raw_lines=1, accepted_detections=1, total_data_rows=9, mean_conf=59.00
+- inverted_gray: raw_lines=2, accepted_detections=2, total_data_rows=8, mean_conf=86.50
+  raw_preview=['CiCarga ;', 'D']
+- standard_gray_psm4: raw_lines=1, accepted_detections=1, total_data_rows=9, mean_conf=57.00
   raw_preview=['CiCarga']
-- gray_upscale_x2: raw_lines=11, accepted_detections=6, total_data_rows=29, mean_conf=47.17
-  raw_preview=['C/Carga ,', '', 'D', '', ': ;']
-- gray_upscale_x2_lstm: raw_lines=1, accepted_detections=1, total_data_rows=9, mean_conf=90.00
+- gray_upscale_x2: raw_lines=11, accepted_detections=7, total_data_rows=29, mean_conf=37.71
+  raw_preview=['C/Carga .', '', 'D', '', '; ;']
+- gray_upscale_x2_lstm: raw_lines=1, accepted_detections=1, total_data_rows=9, mean_conf=91.00
   raw_preview=['C/Carga']
-- gray_upscale_x3: raw_lines=5, accepted_detections=4, total_data_rows=21, mean_conf=53.00
-  raw_preview=['C/Carga ’', 'D', 'é :', 'a 6 ~ - <', '. im AUP:']
+- gray_upscale_x3: raw_lines=5, accepted_detections=3, total_data_rows=20, mean_conf=61.33
+  raw_preview=['C/Carga .', 'D', ', ;', '& ~ - <', ': > S@iprd']
 
 Clusters that passed overlap rule:
 - cluster_1: token='cicarga', members=2, passes=['inverted_gray', 'standard_gray']
@@ -29,23 +29,23 @@ Clusters that passed overlap rule:
 
 All detections (before filters):
 - pass=standard_gray, text='CiCarga', conf=84.00, bbox=(177,0,52,27)
-- pass=standard_gray, text='D', conf=87.00, bbox=(375,55,14,17)
-- pass=inverted_gray, text='CiCarga', conf=84.00, bbox=(177,0,52,27)
-- pass=inverted_gray, text='D', conf=86.00, bbox=(375,55,14,17)
-- pass=standard_gray_psm4, text='CiCarga', conf=59.00, bbox=(177,6,52,13)
-- pass=gray_upscale_x2, text='C/Carga', conf=90.00, bbox=(177,4,52,18)
+- pass=standard_gray, text='D', conf=88.00, bbox=(375,55,14,17)
+- pass=inverted_gray, text='CiCarga', conf=85.00, bbox=(177,0,52,27)
+- pass=inverted_gray, text='D', conf=88.00, bbox=(375,55,14,17)
+- pass=standard_gray_psm4, text='CiCarga', conf=57.00, bbox=(177,6,52,13)
+- pass=gray_upscale_x2, text='C/Carga', conf=91.00, bbox=(177,4,52,18)
 - pass=gray_upscale_x2, text='D', conf=92.00, bbox=(375,56,14,16)
-- pass=gray_upscale_x2, text='H', conf=0.00, bbox=(370,156,7,12)
-- pass=gray_upscale_x2, text='x', conf=58.00, bbox=(232,170,20,13)
-- pass=gray_upscale_x2, text='es', conf=0.00, bbox=(158,194,24,26)
-- pass=gray_upscale_x2, text='F', conf=43.00, bbox=(11,211,161,487)
-- pass=gray_upscale_x2_lstm, text='C/Carga', conf=90.00, bbox=(177,6,52,14)
+- pass=gray_upscale_x2, text='m4', conf=6.00, bbox=(168,158,20,28)
+- pass=gray_upscale_x2, text='x', conf=31.00, bbox=(232,170,20,13)
+- pass=gray_upscale_x2, text='I', conf=18.00, bbox=(12,184,12,34)
+- pass=gray_upscale_x2, text='s', conf=0.00, bbox=(158,194,24,26)
+- pass=gray_upscale_x2, text='F', conf=26.00, bbox=(11,211,161,487)
+- pass=gray_upscale_x2_lstm, text='C/Carga', conf=91.00, bbox=(177,6,52,14)
 - pass=gray_upscale_x3, text='C/Carga', conf=92.00, bbox=(177,5,52,16)
 - pass=gray_upscale_x3, text='D', conf=92.00, bbox=(375,55,14,16)
-- pass=gray_upscale_x3, text='im', conf=28.00, bbox=(166,194,16,26)
-- pass=gray_upscale_x3, text='AUP:', conf=0.00, bbox=(333,188,76,39)
+- pass=gray_upscale_x3, text='S@iprd', conf=0.00, bbox=(235,188,174,39)
 
 Final detections (after overlap + dedup):
 - text='D', conf=92.00, bbox=(375,56,14,16), pass=gray_upscale_x2
 - text='C/Carga', conf=92.00, bbox=(177,5,52,16), pass=gray_upscale_x3
-- text='CiCarga', conf=84.00, bbox=(177,0,52,27), pass=standard_gray
+- text='CiCarga', conf=85.00, bbox=(177,0,52,27), pass=inverted_gray

@@ -1,0 +1,25 @@
+# final_word	x	y	w	h	conf	source_pass
+PT	20	22	19	9	96.00	unsharp
+ROSA	45	22	36	9	96.00	standard_gray
+GREEN	86	22	44	9	96.00	standard_gray
+2017-07-07	20	44	75	9	96.00	clahe
+CHEST	104	44	44	9	96.00	unsharp_upscale_x3
+ROSA	49	11	32	32	96.00	morph_close
+PA	153	44	16	9	94.00	unsharp_inverted
+M	86	33	10	9	92.00	unsharp_upscale_x3
+40Y	101	33	26	9	92.00	unsharp_upscale_x3
+R	179	44	8	10	91.00	gray_upscale_x3
+ID-13864	20	33	60	9	90.00	unsharp_upscale_x3
+PA	155	46	16	9	74.00	morph_open
+
+# final_text
+PT
+ROSA
+GREEN
+2017-07-07
+CHEST
+PA
+M
+40Y
+R
+ID-13864

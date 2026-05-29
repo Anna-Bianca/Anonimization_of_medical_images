@@ -1,0 +1,143 @@
+Image: fa8- copia.png
+Confidence step 1 (primary): 60.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 82
+After confidence filter (conf >= 60.0): 19
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 14
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 6
+
+Per-pass debug:
+- standard_gray: raw_lines=4, accepted_detections=3, total_data_rows=12, mean_conf=33.33
+  raw_preview=['as,', '= aro', '£e', '@)']
+- inverted_gray: raw_lines=4, accepted_detections=3, total_data_rows=12, mean_conf=38.67
+  raw_preview=['as,', '= eat', '£e', '©']
+- standard_gray_psm4: raw_lines=4, accepted_detections=5, total_data_rows=25, mean_conf=40.80
+  raw_preview=['iD: | 55003F', '', '00m 18', '£e']
+- clahe: raw_lines=3, accepted_detections=6, total_data_rows=12, mean_conf=45.50
+  raw_preview=['3 De 550035. 35¥y', 'ze', 'ra)']
+- clahe_inverted: raw_lines=3, accepted_detections=6, total_data_rows=12, mean_conf=38.17
+  raw_preview=['3 De 550035 35¥y', 'ze', 'ra)']
+- adaptive_binary: raw_lines=2, accepted_detections=6, total_data_rows=12, mean_conf=8.17
+  raw_preview=['r, ss', 'LUIS WALKEY ID2“55693F «359 ‘']
+- adaptive_binary_inv: raw_lines=2, accepted_detections=6, total_data_rows=14, mean_conf=9.00
+  raw_preview=['v, —', 'LUIS WALKEY ID: "55693F © 35 ‘']
+- morph_close: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- morph_open: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- unsharp: raw_lines=3, accepted_detections=6, total_data_rows=13, mean_conf=30.83
+  raw_preview=['3 Ure WADNERrD: 559935. 35yy', 'me', '‘©']
+- unsharp_inverted: raw_lines=3, accepted_detections=6, total_data_rows=13, mean_conf=30.17
+  raw_preview=['3 Ure WADNERrD: 559935. 35yy', 'mie', '‘©']
+- gray_upscale_x2: raw_lines=4, accepted_detections=8, total_data_rows=16, mean_conf=61.88
+  raw_preview=['D: 55093F 35Y;', 'be TP Room 1s', '€e', 'ie)']
+- gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- gray_upscale_x3: raw_lines=4, accepted_detections=7, total_data_rows=16, mean_conf=59.57
+  raw_preview=['D: 55093F 35Y', '= LP Room 1s', '£e', 'om']
+- adaptive_upscale_x3: raw_lines=2, accepted_detections=9, total_data_rows=16, mean_conf=36.44
+  raw_preview=['er Tus WALKEM ID:°55693F " 35Y¥', '65 -Cobepiaiimael PA ROOM LS']
+- unsharp_upscale_x3: raw_lines=4, accepted_detections=11, total_data_rows=24, mean_conf=31.91
+  raw_preview=['“ i) cae 2', 'DUIS WALKERSID: 55093F 35Y,', '3 5 - 0G Ta2.8 TopALROOM Ls', '» £e']
+
+Clusters that passed overlap rule:
+- cluster_1: token='e', members=2, passes=['inverted_gray', 'standard_gray']
+- cluster_2: token='3', members=4, passes=['clahe', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_3: token='d', members=2, passes=['gray_upscale_x2', 'gray_upscale_x3']
+- cluster_4: token='55093f', members=2, passes=['gray_upscale_x2', 'gray_upscale_x3']
+- cluster_5: token='35y', members=2, passes=['gray_upscale_x2', 'gray_upscale_x3']
+- cluster_6: token='room', members=2, passes=['adaptive_upscale_x3', 'gray_upscale_x2']
+
+All detections (before filters):
+- pass=standard_gray, text='as,', conf=30.00, bbox=(130,23,110,9)
+- pass=standard_gray, text='aro', conf=0.00, bbox=(172,26,74,18)
+- pass=standard_gray, text='£e', conf=70.00, bbox=(229,45,16,11)
+- pass=inverted_gray, text='as,', conf=24.00, bbox=(130,23,110,9)
+- pass=inverted_gray, text='eat', conf=23.00, bbox=(172,26,74,18)
+- pass=inverted_gray, text='£e', conf=69.00, bbox=(229,45,16,11)
+- pass=standard_gray_psm4, text='iD:', conf=32.00, bbox=(130,23,12,9)
+- pass=standard_gray_psm4, text='55003F', conf=32.00, bbox=(154,23,45,16)
+- pass=standard_gray_psm4, text='00m', conf=43.00, bbox=(200,23,20,20)
+- pass=standard_gray_psm4, text='18', conf=55.00, bbox=(232,23,14,21)
+- pass=standard_gray_psm4, text='£e', conf=42.00, bbox=(229,45,16,11)
+- pass=clahe, text='3', conf=64.00, bbox=(0,8,24,35)
+- pass=clahe, text='De', conf=61.00, bbox=(130,23,12,9)
+- pass=clahe, text='550035.', conf=30.00, bbox=(154,22,51,19)
+- pass=clahe, text='35¥y', conf=21.00, bbox=(211,23,35,21)
+- pass=clahe, text='ze', conf=56.00, bbox=(229,45,16,11)
+- pass=clahe, text='ra)', conf=41.00, bbox=(223,60,23,14)
+- pass=clahe_inverted, text='3', conf=55.00, bbox=(0,8,24,35)
+- pass=clahe_inverted, text='De', conf=40.00, bbox=(130,23,12,9)
+- pass=clahe_inverted, text='550035', conf=36.00, bbox=(154,22,51,19)
+- pass=clahe_inverted, text='35¥y', conf=8.00, bbox=(211,23,35,21)
+- pass=clahe_inverted, text='ze', conf=53.00, bbox=(229,45,16,11)
+- pass=clahe_inverted, text='ra)', conf=37.00, bbox=(223,60,23,14)
+- pass=adaptive_binary, text='r,', conf=0.00, bbox=(51,17,7,5)
+- pass=adaptive_binary, text='ss', conf=8.00, bbox=(136,10,33,10)
+- pass=adaptive_binary, text='LUIS', conf=19.00, bbox=(22,23,36,10)
+- pass=adaptive_binary, text='WALKEY', conf=1.00, bbox=(67,22,32,10)
+- pass=adaptive_binary, text='ID2“55693F', conf=0.00, bbox=(123,21,76,12)
+- pass=adaptive_binary, text='«359', conf=21.00, bbox=(217,23,23,9)
+- pass=adaptive_binary_inv, text='v,', conf=0.00, bbox=(51,17,7,5)
+- pass=adaptive_binary_inv, text='LUIS', conf=25.00, bbox=(22,23,36,10)
+- pass=adaptive_binary_inv, text='WALKEY', conf=10.00, bbox=(67,22,32,10)
+- pass=adaptive_binary_inv, text='ID:', conf=0.00, bbox=(123,23,19,10)
+- pass=adaptive_binary_inv, text='"55693F', conf=0.00, bbox=(146,21,52,11)
+- pass=adaptive_binary_inv, text='35', conf=19.00, bbox=(217,23,23,9)
+- pass=unsharp, text='3', conf=62.00, bbox=(0,8,25,35)
+- pass=unsharp, text='Ure', conf=45.00, bbox=(36,28,20,6)
+- pass=unsharp, text='WADNERrD:', conf=0.00, bbox=(74,23,68,11)
+- pass=unsharp, text='559935.', conf=40.00, bbox=(154,12,53,36)
+- pass=unsharp, text='35yy', conf=0.00, bbox=(218,12,30,36)
+- pass=unsharp, text='me', conf=38.00, bbox=(216,45,30,11)
+- pass=unsharp_inverted, text='3', conf=61.00, bbox=(0,8,25,35)
+- pass=unsharp_inverted, text='Ure', conf=45.00, bbox=(36,28,20,6)
+- pass=unsharp_inverted, text='WADNERrD:', conf=0.00, bbox=(74,23,68,11)
+- pass=unsharp_inverted, text='559935.', conf=40.00, bbox=(154,12,53,36)
+- pass=unsharp_inverted, text='35yy', conf=0.00, bbox=(218,12,30,36)
+- pass=unsharp_inverted, text='mie', conf=35.00, bbox=(216,45,30,11)
+- pass=gray_upscale_x2, text='D:', conf=84.00, bbox=(133,24,10,8)
+- pass=gray_upscale_x2, text='55093F', conf=74.00, bbox=(154,22,45,10)
+- pass=gray_upscale_x2, text='35Y;', conf=60.00, bbox=(217,23,22,9)
+- pass=gray_upscale_x2, text='be', conf=21.00, bbox=(0,6,28,42)
+- pass=gray_upscale_x2, text='Room', conf=85.00, bbox=(193,34,30,10)
+- pass=gray_upscale_x2, text='1s', conf=74.00, bbox=(232,24,14,24)
+- pass=gray_upscale_x2, text='€e', conf=56.00, bbox=(229,45,16,11)
+- pass=gray_upscale_x2, text='ie)', conf=41.00, bbox=(232,60,15,11)
+- pass=gray_upscale_x3, text='D:', conf=87.00, bbox=(133,24,9,8)
+- pass=gray_upscale_x3, text='55093F', conf=78.00, bbox=(154,23,45,10)
+- pass=gray_upscale_x3, text='35Y', conf=78.00, bbox=(217,23,23,9)
+- pass=gray_upscale_x3, text='Room', conf=45.00, bbox=(193,34,30,10)
+- pass=gray_upscale_x3, text='1s', conf=51.00, bbox=(230,25,16,23)
+- pass=gray_upscale_x3, text='£e', conf=43.00, bbox=(229,45,16,11)
+- pass=gray_upscale_x3, text='om', conf=35.00, bbox=(232,60,15,11)
+- pass=adaptive_upscale_x3, text='Tus', conf=0.00, bbox=(36,23,22,9)
+- pass=adaptive_upscale_x3, text='WALKEM', conf=25.00, bbox=(67,22,32,10)
+- pass=adaptive_upscale_x3, text='ID:°55693F', conf=0.00, bbox=(109,21,90,12)
+- pass=adaptive_upscale_x3, text='35Y¥', conf=29.00, bbox=(217,23,23,9)
+- pass=adaptive_upscale_x3, text='65', conf=34.00, bbox=(28,34,15,9)
+- pass=adaptive_upscale_x3, text='-Cobepiaiimael', conf=0.00, bbox=(46,34,107,14)
+- pass=adaptive_upscale_x3, text='PA', conf=81.00, bbox=(170,34,15,10)
+- pass=adaptive_upscale_x3, text='ROOM', conf=91.00, bbox=(192,34,32,9)
+- pass=adaptive_upscale_x3, text='LS', conf=68.00, bbox=(230,25,16,19)
+- pass=unsharp_upscale_x3, text='i)', conf=0.00, bbox=(123,0,12,11)
+- pass=unsharp_upscale_x3, text='cae', conf=38.00, bbox=(138,0,17,11)
+- pass=unsharp_upscale_x3, text='WALKERSID:', conf=80.00, bbox=(62,17,80,16)
+- pass=unsharp_upscale_x3, text='55093F', conf=42.00, bbox=(154,18,46,15)
+- pass=unsharp_upscale_x3, text='35Y,', conf=55.00, bbox=(217,23,23,9)
+- pass=unsharp_upscale_x3, text='3', conf=71.00, bbox=(0,8,24,35)
+- pass=unsharp_upscale_x3, text='0G', conf=11.00, bbox=(55,28,12,20)
+- pass=unsharp_upscale_x3, text='Ta2.8', conf=0.00, bbox=(69,29,29,7)
+- pass=unsharp_upscale_x3, text='TopALROOM', conf=0.00, bbox=(148,26,98,19)
+- pass=unsharp_upscale_x3, text='Ls', conf=23.00, bbox=(232,24,16,24)
+- pass=unsharp_upscale_x3, text='£e', conf=31.00, bbox=(229,45,17,11)
+
+Final detections (after overlap + dedup):
+- text='ROOM', conf=91.00, bbox=(192,34,32,9), pass=adaptive_upscale_x3
+- text='D:', conf=87.00, bbox=(133,24,9,8), pass=gray_upscale_x3
+- text='55093F', conf=78.00, bbox=(154,23,45,10), pass=gray_upscale_x3
+- text='35Y', conf=78.00, bbox=(217,23,23,9), pass=gray_upscale_x3
+- text='3', conf=71.00, bbox=(0,8,24,35), pass=unsharp_upscale_x3
+- text='£e', conf=70.00, bbox=(229,45,16,11), pass=standard_gray

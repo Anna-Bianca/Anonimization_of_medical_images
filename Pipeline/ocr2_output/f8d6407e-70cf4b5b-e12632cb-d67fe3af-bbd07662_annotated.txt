@@ -1,0 +1,13 @@
+# final_word	x	y	w	h	conf	source_pass
+ROSA	45	22	36	9	95.00	box001_c0__gray_upscale_x2
+GREEN	86	22	44	9	95.00	box001_c0__unsharp_upscale_x3
+13864	40	33	40	9	81.00	box002_c1__gray_upscale_x3
+AU	20	44	14	9	75.00	box004_c3__clahe_inverted
+LI-O	39	44	25	9	60.00	box004_c3__gray_upscale_x2
+
+# final_text
+ROSA
+GREEN
+13864
+AU
+LI-O

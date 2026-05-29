@@ -1,0 +1,295 @@
+Image: fa8bf189-527dd56c-8c5cddc1-38fa627a-cece8065_annotated.png
+Label boxes used: 4
+Confidence step 1 (primary): 50.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 120
+After confidence filter (conf >= 50.0): 31
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 22
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 22
+
+Per-pass debug:
+- box001_c0__standard_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=79.50
+  raw_preview=['LULS WALAER']
+- box001_c0__inverted_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=83.50
+  raw_preview=['LULS WALAER']
+- box001_c0__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box001_c0__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=56.50
+  raw_preview=['LthiS WALAER']
+- box001_c0__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=33.00
+  raw_preview=['LtitiS WALAER']
+- box001_c0__adaptive_binary: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=26.00
+  raw_preview=['riUlS WALACK']
+- box001_c0__adaptive_binary_inv: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=40.50
+  raw_preview=['rUlS WALACK']
+- box001_c0__morph_close: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=31.33
+  raw_preview=['BUTS Al EER']
+- box001_c0__morph_open: raw_lines=1, accepted_detections=4, total_data_rows=8, mean_conf=36.00
+  raw_preview=['Tits wal &T G']
+- box001_c0__unsharp: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=27.00
+  raw_preview=['LitiS WALKER']
+- box001_c0__unsharp_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=27.00
+  raw_preview=['LitiS WALKER']
+- box001_c0__gray_upscale_x2: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=51.50
+  raw_preview=['LUILS WALKER']
+- box001_c0__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box001_c0__gray_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=80.50
+  raw_preview=['LULS WALKER']
+- box001_c0__adaptive_upscale_x3: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=11.00
+  raw_preview=['FULTS WAL RER']
+- box001_c0__unsharp_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=51.50
+  raw_preview=['LibTS. WALKER']
+- box002_c1__standard_gray: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=32.33
+  raw_preview=['SS OU SE']
+- box002_c1__inverted_gray: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=20.00
+  raw_preview=['SS OU SE']
+- box002_c1__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box002_c1__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=14.00
+  raw_preview=['SS HUS5F']
+- box002_c1__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=18.50
+  raw_preview=['SS HUS5F']
+- box002_c1__adaptive_binary: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=38.00
+  raw_preview=['SS HU SE']
+- box002_c1__adaptive_binary_inv: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=21.33
+  raw_preview=['ie be ed']
+- box002_c1__morph_close: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=0.00
+  raw_preview=['ARS IE']
+- box002_c1__morph_open: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=26.00
+  raw_preview=['Rae alt']
+- box002_c1__unsharp: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=38.00
+  raw_preview=['SS HOUSE']
+- box002_c1__unsharp_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=34.00
+  raw_preview=['SS HOUSE']
+- box002_c1__gray_upscale_x2: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=21.00
+  raw_preview=['5509 5F']
+- box002_c1__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box002_c1__gray_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=8.00
+  raw_preview=['5509U3F']
+- box002_c1__adaptive_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=36.50
+  raw_preview=['S5BYU SE']
+- box002_c1__unsharp_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=16.00
+  raw_preview=['S5OHUSE']
+- box003_c2__standard_gray: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=22.00
+  raw_preview=['35 ¥']
+- box003_c2__inverted_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['35']
+- box003_c2__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box003_c2__clahe: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=38.00
+  raw_preview=['st ¥.']
+- box003_c2__clahe_inverted: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=29.00
+  raw_preview=['st ¥,']
+- box003_c2__adaptive_binary: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=23.00
+  raw_preview=['Sieh d']
+- box003_c2__adaptive_binary_inv: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=23.00
+  raw_preview=['Sieh d']
+- box003_c2__morph_close: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=5.00
+  raw_preview=['anY¥']
+- box003_c2__morph_open: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=2.00
+  raw_preview=['5%']
+- box003_c2__unsharp: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=58.00
+  raw_preview=['Shon /']
+- box003_c2__unsharp_inverted: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=54.00
+  raw_preview=['Sion /']
+- box003_c2__gray_upscale_x2: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=0.00
+  raw_preview=['35 ¥']
+- box003_c2__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box003_c2__gray_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=19.00
+  raw_preview=['s5Y']
+- box003_c2__adaptive_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['ShH¥']
+- box003_c2__unsharp_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=22.00
+  raw_preview=['sf ¥,']
+- box004_c3__standard_gray: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=45.33
+  raw_preview=['O06 -OQOL bes']
+- box004_c3__inverted_gray: raw_lines=1, accepted_detections=4, total_data_rows=8, mean_conf=19.25
+  raw_preview=['06 -QOL. bw ts']
+- box004_c3__standard_gray_psm4: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=45.33
+  raw_preview=['O06 -OQOL bes']
+- box004_c3__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=0.50
+  raw_preview=['Ob -Obebe2OTS']
+- box004_c3__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=0.00
+  raw_preview=['O06 -Obeie2,OoTS']
+- box004_c3__adaptive_binary: raw_lines=1, accepted_detections=5, total_data_rows=9, mean_conf=24.60
+  raw_preview=['A =4 i beet Pe']
+- box004_c3__adaptive_binary_inv: raw_lines=1, accepted_detections=5, total_data_rows=9, mean_conf=24.60
+  raw_preview=['A =4 i beet Pe']
+- box004_c3__morph_close: raw_lines=1, accepted_detections=5, total_data_rows=9, mean_conf=39.60
+  raw_preview=['BOG —4 bb he eee']
+- box004_c3__morph_open: raw_lines=1, accepted_detections=5, total_data_rows=9, mean_conf=39.80
+  raw_preview=['BRE md eh ce ee']
+- box004_c3__unsharp: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['Ho-OUbebe2aTs']
+- box004_c3__unsharp_inverted: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['Hbo-Ubebe2oTs']
+- box004_c3__gray_upscale_x2: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=85.00
+  raw_preview=['06 -OGcbe/sOAL5']
+- box004_c3__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- box004_c3__gray_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=44.00
+  raw_preview=['06 -Uihed erres']
+- box004_c3__adaptive_upscale_x3: raw_lines=1, accepted_detections=4, total_data_rows=8, mean_conf=34.75
+  raw_preview=['BB =-hhy beet tae']
+- box004_c3__unsharp_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['U6-Oee2ors']
+
+Clusters that passed overlap rule:
+- cluster_1: token='luls', members=3, passes=['box001_c0__gray_upscale_x3', 'box001_c0__inverted_gray', 'box001_c0__standard_gray']
+- cluster_2: token='walaer', members=3, passes=['box001_c0__clahe', 'box001_c0__inverted_gray', 'box001_c0__standard_gray']
+- cluster_3: token='walack', members=2, passes=['box001_c0__adaptive_binary', 'box001_c0__adaptive_binary_inv']
+- cluster_4: token='walker', members=5, passes=['box001_c0__gray_upscale_x2', 'box001_c0__gray_upscale_x3', 'box001_c0__unsharp', 'box001_c0__unsharp_inverted', 'box001_c0__unsharp_upscale_x3']
+- cluster_5: token='se', members=4, passes=['box002_c1__adaptive_binary', 'box002_c1__adaptive_upscale_x3', 'box002_c1__inverted_gray', 'box002_c1__standard_gray']
+- cluster_6: token='o06', members=2, passes=['box004_c3__standard_gray', 'box004_c3__standard_gray_psm4']
+- cluster_7: token='06', members=3, passes=['box004_c3__gray_upscale_x2', 'box004_c3__gray_upscale_x3', 'box004_c3__inverted_gray']
+
+All detections (before filters):
+- pass=box001_c0__standard_gray, text='LULS', conf=84.00, bbox=(275,23,29,9)
+- pass=box001_c0__standard_gray, text='WALAER', conf=75.00, bbox=(313,23,47,9)
+- pass=box001_c0__inverted_gray, text='LULS', conf=86.00, bbox=(275,23,29,9)
+- pass=box001_c0__inverted_gray, text='WALAER', conf=81.00, bbox=(313,23,47,9)
+- pass=box001_c0__clahe, text='LthiS', conf=52.00, bbox=(275,23,29,9)
+- pass=box001_c0__clahe, text='WALAER', conf=61.00, bbox=(313,23,47,9)
+- pass=box001_c0__clahe_inverted, text='LtitiS', conf=28.00, bbox=(275,23,29,9)
+- pass=box001_c0__clahe_inverted, text='WALAER', conf=38.00, bbox=(313,23,47,9)
+- pass=box001_c0__adaptive_binary, text='riUlS', conf=0.00, bbox=(275,23,29,9)
+- pass=box001_c0__adaptive_binary, text='WALACK', conf=52.00, bbox=(313,23,47,9)
+- pass=box001_c0__adaptive_binary_inv, text='rUlS', conf=11.00, bbox=(275,23,29,9)
+- pass=box001_c0__adaptive_binary_inv, text='WALACK', conf=70.00, bbox=(313,23,47,9)
+- pass=box001_c0__morph_close, text='BUTS', conf=37.00, bbox=(276,23,29,9)
+- pass=box001_c0__morph_close, text='Al', conf=7.00, bbox=(314,23,20,9)
+- pass=box001_c0__morph_close, text='EER', conf=50.00, bbox=(339,23,21,9)
+- pass=box001_c0__morph_open, text='Tits', conf=0.00, bbox=(277,23,29,9)
+- pass=box001_c0__morph_open, text='wal', conf=54.00, bbox=(315,23,20,9)
+- pass=box001_c0__morph_open, text='&T', conf=18.00, bbox=(340,23,20,9)
+- pass=box001_c0__morph_open, text='G', conf=72.00, bbox=(354,23,6,9)
+- pass=box001_c0__unsharp, text='LitiS', conf=0.00, bbox=(275,23,29,9)
+- pass=box001_c0__unsharp, text='WALKER', conf=54.00, bbox=(313,23,47,9)
+- pass=box001_c0__unsharp_inverted, text='LitiS', conf=0.00, bbox=(275,23,29,9)
+- pass=box001_c0__unsharp_inverted, text='WALKER', conf=54.00, bbox=(313,23,47,9)
+- pass=box001_c0__gray_upscale_x2, text='LUILS', conf=13.00, bbox=(276,23,28,9)
+- pass=box001_c0__gray_upscale_x2, text='WALKER', conf=90.00, bbox=(313,23,47,9)
+- pass=box001_c0__gray_upscale_x3, text='LULS', conf=66.00, bbox=(275,23,29,9)
+- pass=box001_c0__gray_upscale_x3, text='WALKER', conf=95.00, bbox=(313,23,47,9)
+- pass=box001_c0__adaptive_upscale_x3, text='FULTS', conf=33.00, bbox=(275,23,29,9)
+- pass=box001_c0__adaptive_upscale_x3, text='WAL', conf=0.00, bbox=(313,23,23,9)
+- pass=box001_c0__adaptive_upscale_x3, text='RER', conf=0.00, bbox=(338,23,22,9)
+- pass=box001_c0__unsharp_upscale_x3, text='LibTS.', conf=21.00, bbox=(275,23,29,9)
+- pass=box001_c0__unsharp_upscale_x3, text='WALKER', conf=82.00, bbox=(310,23,50,9)
+- pass=box002_c1__standard_gray, text='SS', conf=19.00, bbox=(400,23,14,9)
+- pass=box002_c1__standard_gray, text='OU', conf=19.00, bbox=(417,23,12,9)
+- pass=box002_c1__standard_gray, text='SE', conf=59.00, bbox=(432,23,13,9)
+- pass=box002_c1__inverted_gray, text='SS', conf=0.00, bbox=(400,23,14,9)
+- pass=box002_c1__inverted_gray, text='OU', conf=0.00, bbox=(416,23,13,9)
+- pass=box002_c1__inverted_gray, text='SE', conf=60.00, bbox=(432,23,13,9)
+- pass=box002_c1__clahe, text='SS', conf=14.00, bbox=(400,23,14,9)
+- pass=box002_c1__clahe, text='HUS5F', conf=14.00, bbox=(417,23,28,9)
+- pass=box002_c1__clahe_inverted, text='SS', conf=28.00, bbox=(400,23,14,9)
+- pass=box002_c1__clahe_inverted, text='HUS5F', conf=9.00, bbox=(417,23,28,9)
+- pass=box002_c1__adaptive_binary, text='SS', conf=28.00, bbox=(400,23,14,9)
+- pass=box002_c1__adaptive_binary, text='HU', conf=28.00, bbox=(417,23,12,9)
+- pass=box002_c1__adaptive_binary, text='SE', conf=58.00, bbox=(432,23,13,9)
+- pass=box002_c1__adaptive_binary_inv, text='ie', conf=16.00, bbox=(399,23,5,9)
+- pass=box002_c1__adaptive_binary_inv, text='be', conf=22.00, bbox=(405,23,9,9)
+- pass=box002_c1__adaptive_binary_inv, text='ed', conf=26.00, bbox=(416,23,29,9)
+- pass=box002_c1__morph_close, text='ARS', conf=0.00, bbox=(401,23,28,9)
+- pass=box002_c1__morph_close, text='IE', conf=0.00, bbox=(432,23,14,9)
+- pass=box002_c1__morph_open, text='Rae', conf=12.00, bbox=(402,23,26,9)
+- pass=box002_c1__morph_open, text='alt', conf=40.00, bbox=(434,23,12,9)
+- pass=box002_c1__unsharp, text='SS', conf=38.00, bbox=(399,23,15,9)
+- pass=box002_c1__unsharp, text='HOUSE', conf=38.00, bbox=(417,23,28,9)
+- pass=box002_c1__unsharp_inverted, text='SS', conf=34.00, bbox=(399,23,15,9)
+- pass=box002_c1__unsharp_inverted, text='HOUSE', conf=34.00, bbox=(417,23,28,9)
+- pass=box002_c1__gray_upscale_x2, text='5509', conf=0.00, bbox=(400,23,28,9)
+- pass=box002_c1__gray_upscale_x2, text='5F', conf=42.00, bbox=(433,23,12,9)
+- pass=box002_c1__gray_upscale_x3, text='5509U3F', conf=8.00, bbox=(400,23,45,9)
+- pass=box002_c1__adaptive_upscale_x3, text='S5BYU', conf=0.00, bbox=(400,23,28,9)
+- pass=box002_c1__adaptive_upscale_x3, text='SE', conf=73.00, bbox=(432,23,13,9)
+- pass=box002_c1__unsharp_upscale_x3, text='S5OHUSE', conf=16.00, bbox=(399,23,46,9)
+- pass=box003_c2__standard_gray, text='35', conf=22.00, bbox=(463,23,23,9)
+- pass=box003_c2__inverted_gray, text='35', conf=0.00, bbox=(463,23,23,9)
+- pass=box003_c2__clahe, text='st', conf=38.00, bbox=(462,23,24,9)
+- pass=box003_c2__clahe_inverted, text='st', conf=29.00, bbox=(462,23,24,9)
+- pass=box003_c2__adaptive_binary, text='Sieh', conf=23.00, bbox=(462,23,24,9)
+- pass=box003_c2__adaptive_binary_inv, text='Sieh', conf=23.00, bbox=(462,23,24,9)
+- pass=box003_c2__morph_close, text='anY¥', conf=5.00, bbox=(462,23,24,9)
+- pass=box003_c2__morph_open, text='5%', conf=2.00, bbox=(466,23,20,9)
+- pass=box003_c2__unsharp, text='Shon', conf=58.00, bbox=(462,23,24,9)
+- pass=box003_c2__unsharp_inverted, text='Sion', conf=54.00, bbox=(462,23,24,9)
+- pass=box003_c2__gray_upscale_x2, text='35', conf=0.00, bbox=(463,23,23,9)
+- pass=box003_c2__gray_upscale_x3, text='s5Y', conf=19.00, bbox=(463,23,23,9)
+- pass=box003_c2__adaptive_upscale_x3, text='ShH¥', conf=0.00, bbox=(462,23,24,9)
+- pass=box003_c2__unsharp_upscale_x3, text='sf', conf=22.00, bbox=(462,23,24,9)
+- pass=box004_c3__standard_gray, text='O06', conf=74.00, bbox=(274,34,15,9)
+- pass=box004_c3__standard_gray, text='-OQOL', conf=30.00, bbox=(293,34,15,9)
+- pass=box004_c3__standard_gray, text='bes', conf=32.00, bbox=(308,34,52,5)
+- pass=box004_c3__inverted_gray, text='06', conf=77.00, bbox=(274,34,15,9)
+- pass=box004_c3__inverted_gray, text='-QOL.', conf=0.00, bbox=(293,34,67,9)
+- pass=box004_c3__inverted_gray, text='bw', conf=0.00, bbox=(316,34,12,9)
+- pass=box004_c3__inverted_gray, text='ts', conf=0.00, bbox=(331,34,29,9)
+- pass=box004_c3__standard_gray_psm4, text='O06', conf=74.00, bbox=(274,34,15,9)
+- pass=box004_c3__standard_gray_psm4, text='-OQOL', conf=30.00, bbox=(293,34,15,9)
+- pass=box004_c3__standard_gray_psm4, text='bes', conf=32.00, bbox=(308,34,52,5)
+- pass=box004_c3__clahe, text='Ob', conf=1.00, bbox=(274,34,15,9)
+- pass=box004_c3__clahe, text='-Obebe2OTS', conf=0.00, bbox=(285,34,75,9)
+- pass=box004_c3__clahe_inverted, text='O06', conf=0.00, bbox=(274,34,15,9)
+- pass=box004_c3__clahe_inverted, text='-Obeie2,OoTS', conf=0.00, bbox=(285,34,75,9)
+- pass=box004_c3__adaptive_binary, text='A', conf=18.00, bbox=(274,34,9,9)
+- pass=box004_c3__adaptive_binary, text='=4', conf=0.00, bbox=(292,34,8,9)
+- pass=box004_c3__adaptive_binary, text='i', conf=34.00, bbox=(303,34,5,9)
+- pass=box004_c3__adaptive_binary, text='beet', conf=43.00, bbox=(316,34,19,9)
+- pass=box004_c3__adaptive_binary, text='Pe', conf=28.00, bbox=(335,34,25,9)
+- pass=box004_c3__adaptive_binary_inv, text='A', conf=24.00, bbox=(274,34,9,9)
+- pass=box004_c3__adaptive_binary_inv, text='=4', conf=0.00, bbox=(292,34,8,9)
+- pass=box004_c3__adaptive_binary_inv, text='i', conf=34.00, bbox=(303,34,5,9)
+- pass=box004_c3__adaptive_binary_inv, text='beet', conf=45.00, bbox=(316,34,19,9)
+- pass=box004_c3__adaptive_binary_inv, text='Pe', conf=20.00, bbox=(335,34,25,9)
+- pass=box004_c3__morph_close, text='BOG', conf=43.00, bbox=(274,34,15,9)
+- pass=box004_c3__morph_close, text='—4', conf=49.00, bbox=(293,34,8,9)
+- pass=box004_c3__morph_close, text='bb', conf=36.00, bbox=(303,34,6,8)
+- pass=box004_c3__morph_close, text='he', conf=32.00, bbox=(316,34,16,7)
+- pass=box004_c3__morph_close, text='eee', conf=38.00, bbox=(344,34,16,9)
+- pass=box004_c3__morph_open, text='BRE', conf=70.00, bbox=(274,34,12,9)
+- pass=box004_c3__morph_open, text='md', conf=59.00, bbox=(294,34,7,9)
+- pass=box004_c3__morph_open, text='eh', conf=23.00, bbox=(304,34,9,9)
+- pass=box004_c3__morph_open, text='ce', conf=11.00, bbox=(319,34,10,9)
+- pass=box004_c3__morph_open, text='ee', conf=36.00, bbox=(340,34,11,9)
+- pass=box004_c3__unsharp, text='Ho-OUbebe2aTs', conf=0.00, bbox=(274,34,86,9)
+- pass=box004_c3__unsharp_inverted, text='Hbo-Ubebe2oTs', conf=0.00, bbox=(274,34,86,9)
+- pass=box004_c3__gray_upscale_x2, text='06', conf=85.00, bbox=(274,34,11,9)
+- pass=box004_c3__gray_upscale_x3, text='06', conf=88.00, bbox=(274,34,11,9)
+- pass=box004_c3__gray_upscale_x3, text='-Uihed', conf=0.00, bbox=(293,34,23,9)
+- pass=box004_c3__adaptive_upscale_x3, text='BB', conf=50.00, bbox=(274,34,10,9)
+- pass=box004_c3__adaptive_upscale_x3, text='=-hhy', conf=0.00, bbox=(292,34,20,9)
+- pass=box004_c3__adaptive_upscale_x3, text='beet', conf=47.00, bbox=(317,34,20,9)
+- pass=box004_c3__adaptive_upscale_x3, text='tae', conf=42.00, bbox=(338,34,22,9)
+- pass=box004_c3__unsharp_upscale_x3, text='U6-Oee2ors', conf=0.00, bbox=(274,34,86,9)
+
+Final detections (after overlap + dedup):
+- text='LULS', conf=84.00, bbox=(275,23,29,9), pass=box001_c0__standard_gray
+- text='LULS', conf=86.00, bbox=(275,23,29,9), pass=box001_c0__inverted_gray
+- text='LULS', conf=66.00, bbox=(275,23,29,9), pass=box001_c0__gray_upscale_x3
+- text='WALAER', conf=75.00, bbox=(313,23,47,9), pass=box001_c0__standard_gray
+- text='WALAER', conf=81.00, bbox=(313,23,47,9), pass=box001_c0__inverted_gray
+- text='WALAER', conf=61.00, bbox=(313,23,47,9), pass=box001_c0__clahe
+- text='WALACK', conf=52.00, bbox=(313,23,47,9), pass=box001_c0__adaptive_binary
+- text='WALACK', conf=70.00, bbox=(313,23,47,9), pass=box001_c0__adaptive_binary_inv
+- text='WALKER', conf=54.00, bbox=(313,23,47,9), pass=box001_c0__unsharp
+- text='WALKER', conf=54.00, bbox=(313,23,47,9), pass=box001_c0__unsharp_inverted
+- text='WALKER', conf=90.00, bbox=(313,23,47,9), pass=box001_c0__gray_upscale_x2
+- text='WALKER', conf=95.00, bbox=(313,23,47,9), pass=box001_c0__gray_upscale_x3
+- text='WALKER', conf=82.00, bbox=(310,23,50,9), pass=box001_c0__unsharp_upscale_x3
+- text='SE', conf=59.00, bbox=(432,23,13,9), pass=box002_c1__standard_gray
+- text='SE', conf=60.00, bbox=(432,23,13,9), pass=box002_c1__inverted_gray
+- text='SE', conf=58.00, bbox=(432,23,13,9), pass=box002_c1__adaptive_binary
+- text='SE', conf=73.00, bbox=(432,23,13,9), pass=box002_c1__adaptive_upscale_x3
+- text='O06', conf=74.00, bbox=(274,34,15,9), pass=box004_c3__standard_gray
+- text='O06', conf=74.00, bbox=(274,34,15,9), pass=box004_c3__standard_gray_psm4
+- text='06', conf=77.00, bbox=(274,34,15,9), pass=box004_c3__inverted_gray
+- text='06', conf=85.00, bbox=(274,34,11,9), pass=box004_c3__gray_upscale_x2
+- text='06', conf=88.00, bbox=(274,34,11,9), pass=box004_c3__gray_upscale_x3

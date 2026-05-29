@@ -1,0 +1,48 @@
+# final_word	x	y	w	h	conf	source_pass
+HARRIS	256	21	46	10	81.00	box001_c0__clahe
+HARRIS	256	21	46	10	86.00	box001_c0__clahe_inverted
+HARRIS	256	21	46	10	77.00	box001_c0__unsharp
+HARRIS	256	21	46	10	74.00	box001_c0__unsharp_inverted
+HARRIS	256	21	47	10	72.00	box001_c0__unsharp_upscale_x3
+HARRLS	256	21	46	10	78.00	box001_c0__gray_upscale_x2
+HARRLS	256	21	46	10	78.00	box001_c0__gray_upscale_x2_lstm
+HARRLS	256	21	46	10	81.00	box001_c0__gray_upscale_x3
+01/14/7018	256	32	71	9	65.00	box004_c3__standard_gray
+01/14/7018	256	32	71	9	67.00	box004_c3__inverted_gray
+01/14/7018	255	32	72	9	70.00	box004_c3__gray_upscale_x2
+01/14/7018	256	32	71	9	78.00	box004_c3__gray_upscale_x3
+01/7	255	32	19	9	66.00	box004_c3__clahe
+01/7	255	32	19	9	53.00	box004_c3__clahe_inverted
+14/2018	278	32	49	9	89.00	box004_c3__clahe
+14/2018	278	32	49	9	88.00	box004_c3__clahe_inverted
+14/2018	263	32	64	9	68.00	box004_c3__unsharp
+14/2018	263	32	64	9	65.00	box004_c3__unsharp_inverted
+14/2018	280	32	47	9	60.00	box004_c3__unsharp_upscale_x3
+617	256	32	17	9	71.00	box004_c3__unsharp
+617	256	32	17	9	70.00	box004_c3__unsharp_inverted
+47	335	33	34	8	54.00	box005_c4__clahe
+47	335	33	34	8	64.00	box005_c4__clahe_inverted
+Sb	356	33	13	8	52.00	box005_c4__clahe_inverted
+Sb	357	33	13	8	89.00	box005_c4__adaptive_upscale_x3
+Sk	357	33	13	8	58.00	box005_c4__adaptive_binary
+Sk	357	33	13	8	59.00	box005_c4__adaptive_binary_inv
+47.356	335	33	35	8	63.00	box005_c4__unsharp
+47.356	335	33	35	8	62.00	box005_c4__unsharp_inverted
+1	335	33	18	8	59.00	box005_c4__gray_upscale_x2
+1	335	33	18	8	77.00	box005_c4__gray_upscale_x3
+56	357	33	12	8	91.00	box005_c4__gray_upscale_x2
+56	357	33	13	8	90.00	box005_c4__gray_upscale_x3
+
+# final_text
+HARRIS
+HARRLS
+01/14/7018
+01/7
+14/2018
+617
+47
+Sb
+Sk
+47.356
+1
+56

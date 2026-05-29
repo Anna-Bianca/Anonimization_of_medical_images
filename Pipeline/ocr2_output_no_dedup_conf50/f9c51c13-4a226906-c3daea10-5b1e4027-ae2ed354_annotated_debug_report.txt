@@ -1,0 +1,331 @@
+Image: f9c51c13-4a226906-c3daea10-5b1e4027-ae2ed354_annotated.png
+Label boxes used: 5
+Confidence step 1 (primary): 50.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 108
+After confidence filter (conf >= 50.0): 37
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 33
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 33
+
+Per-pass debug:
+- box001_c0__standard_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=18.50
+  raw_preview=['HARRIS, SARA']
+- box001_c0__inverted_gray: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=20.00
+  raw_preview=['HARRIS, SARA']
+- box001_c0__standard_gray_psm4: raw_lines=3, accepted_detections=2, total_data_rows=9, mean_conf=0.50
+  raw_preview=['HARRIS,', '', 'SARA']
+- box001_c0__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=56.50
+  raw_preview=['HARRIS, SARA']
+- box001_c0__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=59.50
+  raw_preview=['HARRIS, SARA']
+- box001_c0__adaptive_binary: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=24.00
+  raw_preview=['HARRIS.” aARAn']
+- box001_c0__adaptive_binary_inv: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=2.50
+  raw_preview=['MARIS.” aARAn']
+- box001_c0__morph_close: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=21.00
+  raw_preview=['HALLS © SARAH']
+- box001_c0__morph_open: raw_lines=1, accepted_detections=3, total_data_rows=7, mean_conf=13.33
+  raw_preview=['mitt». jk tA']
+- box001_c0__unsharp: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=39.50
+  raw_preview=['HARRIS, - SARA']
+- box001_c0__unsharp_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=37.00
+  raw_preview=['HARRIS, SARA']
+- box001_c0__gray_upscale_x2: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=39.00
+  raw_preview=['HARRLS, SARA']
+- box001_c0__gray_upscale_x2_lstm: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=39.00
+  raw_preview=['HARRLS, SARA']
+- box001_c0__gray_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=47.50
+  raw_preview=['HARRLS, SARA']
+- box001_c0__adaptive_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=42.50
+  raw_preview=['MARRIS,” SARAH']
+- box001_c0__unsharp_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=51.00
+  raw_preview=['HARRIS, = SARAH']
+- box002_c1__standard_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=4.00
+  raw_preview=['S2Z/oOg']
+- box002_c1__inverted_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['S2Z/oOg']
+- box002_c1__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box002_c1__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=17.00
+  raw_preview=['S21 OF']
+- box002_c1__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=1.00
+  raw_preview=['2/1 OF']
+- box002_c1__adaptive_binary: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=3.00
+  raw_preview=['f2f/iod']
+- box002_c1__adaptive_binary_inv: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=9.00
+  raw_preview=['f2fZiaod']
+- box002_c1__morph_close: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=51.00
+  raw_preview=['seins']
+- box002_c1__morph_open: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['hae']
+- box002_c1__unsharp: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=39.00
+  raw_preview=['S215 OF']
+- box002_c1__unsharp_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=44.00
+  raw_preview=['S215 OF']
+- box002_c1__gray_upscale_x2: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['S272156¢']
+- box002_c1__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box002_c1__gray_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=4.00
+  raw_preview=['J2721(of']
+- box002_c1__adaptive_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=21.00
+  raw_preview=['S27 Li OF']
+- box002_c1__unsharp_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=0.00
+  raw_preview=['SAL OL']
+- box003_c2__standard_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=49.00
+  raw_preview=['ZbyY']
+- box003_c2__inverted_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=45.00
+  raw_preview=['ZbyY']
+- box003_c2__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box003_c2__clahe: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=0.00
+  raw_preview=['“2byY']
+- box003_c2__clahe_inverted: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=19.00
+  raw_preview=['2byY']
+- box003_c2__adaptive_binary: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=22.00
+  raw_preview=['267.']
+- box003_c2__adaptive_binary_inv: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=21.00
+  raw_preview=['767.']
+- box003_c2__morph_close: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=16.00
+  raw_preview=['ZH']
+- box003_c2__morph_open: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=20.00
+  raw_preview=['rT']
+- box003_c2__unsharp: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=11.00
+  raw_preview=['YbY.']
+- box003_c2__unsharp_inverted: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=12.00
+  raw_preview=['YbY.']
+- box003_c2__gray_upscale_x2: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=30.00
+  raw_preview=['AbBY']
+- box003_c2__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box003_c2__gray_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=35.00
+  raw_preview=['AbBY']
+- box003_c2__adaptive_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=12.00
+  raw_preview=['767']
+- box003_c2__unsharp_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=33.00
+  raw_preview=['2b6Y']
+- box004_c3__standard_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=65.00
+  raw_preview=['01/14/7018']
+- box004_c3__inverted_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=67.00
+  raw_preview=['01/14/7018']
+- box004_c3__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box004_c3__clahe: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=77.50
+  raw_preview=['01/7 14/2018']
+- box004_c3__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=70.50
+  raw_preview=['01/7 14/2018']
+- box004_c3__adaptive_binary: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=64.00
+  raw_preview=['61/14/7618']
+- box004_c3__adaptive_binary_inv: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=33.00
+  raw_preview=['61/14/77618']
+- box004_c3__morph_close: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=43.00
+  raw_preview=['41/14/5985 18']
+- box004_c3__morph_open: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box004_c3__unsharp: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=69.50
+  raw_preview=['617 14/2018']
+- box004_c3__unsharp_inverted: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=67.50
+  raw_preview=['617 14/2018']
+- box004_c3__gray_upscale_x2: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=70.00
+  raw_preview=['01/14/7018']
+- box004_c3__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box004_c3__gray_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=78.00
+  raw_preview=['01/14/7018']
+- box004_c3__adaptive_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=42.00
+  raw_preview=['01/14/7613']
+- box004_c3__unsharp_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=54.00
+  raw_preview=['O17 14/2018']
+- box005_c4__standard_gray: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=1.00
+  raw_preview=['re.']
+- box005_c4__inverted_gray: raw_lines=1, accepted_detections=1, total_data_rows=6, mean_conf=40.00
+  raw_preview=['res —']
+- box005_c4__standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box005_c4__clahe: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=44.00
+  raw_preview=['47 2 Sb']
+- box005_c4__clahe_inverted: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=58.00
+  raw_preview=['47 7 Sb']
+- box005_c4__adaptive_binary: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=51.50
+  raw_preview=['Ls * Sk']
+- box005_c4__adaptive_binary_inv: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=34.00
+  raw_preview=['Ls Sk']
+- box005_c4__morph_close: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=0.00
+  raw_preview=['7" oH']
+- box005_c4__morph_open: raw_lines=1, accepted_detections=1, total_data_rows=8, mean_conf=25.00
+  raw_preview=['> ot ae §']
+- box005_c4__unsharp: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=63.00
+  raw_preview=['47.356']
+- box005_c4__unsharp_inverted: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=62.00
+  raw_preview=['47.356']
+- box005_c4__gray_upscale_x2: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=75.00
+  raw_preview=['1/° 56']
+- box005_c4__gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=1, mean_conf=-1.00
+  raw_preview=[]
+- box005_c4__gray_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=6, mean_conf=83.50
+  raw_preview=['1/° 56']
+- box005_c4__adaptive_upscale_x3: raw_lines=1, accepted_detections=2, total_data_rows=7, mean_conf=68.00
+  raw_preview=['Lf * Sb']
+- box005_c4__unsharp_upscale_x3: raw_lines=1, accepted_detections=1, total_data_rows=5, mean_conf=28.00
+  raw_preview=['4%.356']
+
+Clusters that passed overlap rule:
+- cluster_1: token='harris', members=5, passes=['box001_c0__clahe', 'box001_c0__clahe_inverted', 'box001_c0__unsharp', 'box001_c0__unsharp_inverted', 'box001_c0__unsharp_upscale_x3']
+- cluster_2: token='harrls', members=3, passes=['box001_c0__gray_upscale_x2', 'box001_c0__gray_upscale_x2_lstm', 'box001_c0__gray_upscale_x3']
+- cluster_3: token='01147018', members=4, passes=['box004_c3__gray_upscale_x2', 'box004_c3__gray_upscale_x3', 'box004_c3__inverted_gray', 'box004_c3__standard_gray']
+- cluster_4: token='017', members=2, passes=['box004_c3__clahe', 'box004_c3__clahe_inverted']
+- cluster_5: token='142018', members=5, passes=['box004_c3__clahe', 'box004_c3__clahe_inverted', 'box004_c3__unsharp', 'box004_c3__unsharp_inverted', 'box004_c3__unsharp_upscale_x3']
+- cluster_6: token='617', members=2, passes=['box004_c3__unsharp', 'box004_c3__unsharp_inverted']
+- cluster_7: token='47', members=2, passes=['box005_c4__clahe', 'box005_c4__clahe_inverted']
+- cluster_8: token='sb', members=2, passes=['box005_c4__adaptive_upscale_x3', 'box005_c4__clahe_inverted']
+- cluster_9: token='sk', members=2, passes=['box005_c4__adaptive_binary', 'box005_c4__adaptive_binary_inv']
+- cluster_10: token='47356', members=2, passes=['box005_c4__unsharp', 'box005_c4__unsharp_inverted']
+- cluster_11: token='1', members=2, passes=['box005_c4__gray_upscale_x2', 'box005_c4__gray_upscale_x3']
+- cluster_12: token='56', members=2, passes=['box005_c4__gray_upscale_x2', 'box005_c4__gray_upscale_x3']
+
+All detections (before filters):
+- pass=box001_c0__standard_gray, text='HARRIS,', conf=37.00, bbox=(256,21,46,10)
+- pass=box001_c0__standard_gray, text='SARA', conf=0.00, bbox=(314,21,33,8)
+- pass=box001_c0__inverted_gray, text='HARRIS,', conf=39.00, bbox=(256,21,46,10)
+- pass=box001_c0__inverted_gray, text='SARA', conf=1.00, bbox=(314,21,33,8)
+- pass=box001_c0__standard_gray_psm4, text='HARRIS,', conf=1.00, bbox=(256,21,46,10)
+- pass=box001_c0__standard_gray_psm4, text='SARA', conf=0.00, bbox=(314,21,33,8)
+- pass=box001_c0__clahe, text='HARRIS,', conf=81.00, bbox=(256,21,46,10)
+- pass=box001_c0__clahe, text='SARA', conf=32.00, bbox=(313,21,36,8)
+- pass=box001_c0__clahe_inverted, text='HARRIS,', conf=86.00, bbox=(256,21,46,10)
+- pass=box001_c0__clahe_inverted, text='SARA', conf=33.00, bbox=(313,21,36,8)
+- pass=box001_c0__adaptive_binary, text='HARRIS.”', conf=34.00, bbox=(256,21,52,10)
+- pass=box001_c0__adaptive_binary, text='aARAn', conf=14.00, bbox=(313,21,35,8)
+- pass=box001_c0__adaptive_binary_inv, text='MARIS.”', conf=0.00, bbox=(256,21,52,10)
+- pass=box001_c0__adaptive_binary_inv, text='aARAn', conf=5.00, bbox=(313,21,35,8)
+- pass=box001_c0__morph_close, text='HALLS', conf=42.00, bbox=(257,21,52,10)
+- pass=box001_c0__morph_close, text='SARAH', conf=0.00, bbox=(314,21,35,9)
+- pass=box001_c0__morph_open, text='mitt».', conf=11.00, bbox=(262,21,42,10)
+- pass=box001_c0__morph_open, text='jk', conf=6.00, bbox=(316,21,14,10)
+- pass=box001_c0__morph_open, text='tA', conf=23.00, bbox=(333,21,16,10)
+- pass=box001_c0__unsharp, text='HARRIS,', conf=77.00, bbox=(256,21,46,10)
+- pass=box001_c0__unsharp, text='SARA', conf=2.00, bbox=(313,21,35,10)
+- pass=box001_c0__unsharp_inverted, text='HARRIS,', conf=74.00, bbox=(256,21,46,10)
+- pass=box001_c0__unsharp_inverted, text='SARA', conf=0.00, bbox=(313,21,35,10)
+- pass=box001_c0__gray_upscale_x2, text='HARRLS,', conf=78.00, bbox=(256,21,46,10)
+- pass=box001_c0__gray_upscale_x2, text='SARA', conf=0.00, bbox=(313,21,34,8)
+- pass=box001_c0__gray_upscale_x2_lstm, text='HARRLS,', conf=78.00, bbox=(256,21,46,10)
+- pass=box001_c0__gray_upscale_x2_lstm, text='SARA', conf=0.00, bbox=(313,21,34,8)
+- pass=box001_c0__gray_upscale_x3, text='HARRLS,', conf=81.00, bbox=(256,21,46,10)
+- pass=box001_c0__gray_upscale_x3, text='SARA', conf=14.00, bbox=(314,21,34,8)
+- pass=box001_c0__adaptive_upscale_x3, text='MARRIS,”', conf=31.00, bbox=(256,21,52,10)
+- pass=box001_c0__adaptive_upscale_x3, text='SARAH', conf=54.00, bbox=(313,21,35,8)
+- pass=box001_c0__unsharp_upscale_x3, text='HARRIS,', conf=72.00, bbox=(256,21,47,10)
+- pass=box001_c0__unsharp_upscale_x3, text='SARAH', conf=30.00, bbox=(313,21,36,10)
+- pass=box002_c1__standard_gray, text='S2Z/oOg', conf=4.00, bbox=(408,21,34,8)
+- pass=box002_c1__inverted_gray, text='S2Z/oOg', conf=0.00, bbox=(408,21,34,8)
+- pass=box002_c1__clahe, text='S21', conf=17.00, bbox=(407,21,20,8)
+- pass=box002_c1__clahe, text='OF', conf=17.00, bbox=(430,21,13,8)
+- pass=box002_c1__clahe_inverted, text='2/1', conf=2.00, bbox=(407,21,20,8)
+- pass=box002_c1__clahe_inverted, text='OF', conf=0.00, bbox=(430,21,13,8)
+- pass=box002_c1__adaptive_binary, text='f2f/iod', conf=3.00, bbox=(408,21,34,8)
+- pass=box002_c1__adaptive_binary_inv, text='f2fZiaod', conf=9.00, bbox=(408,21,34,8)
+- pass=box002_c1__morph_close, text='seins', conf=51.00, bbox=(409,21,34,8)
+- pass=box002_c1__morph_open, text='hae', conf=0.00, bbox=(416,21,27,8)
+- pass=box002_c1__unsharp, text='S215', conf=39.00, bbox=(407,21,20,8)
+- pass=box002_c1__unsharp, text='OF', conf=39.00, bbox=(429,21,14,8)
+- pass=box002_c1__unsharp_inverted, text='S215', conf=44.00, bbox=(407,21,20,8)
+- pass=box002_c1__unsharp_inverted, text='OF', conf=44.00, bbox=(429,21,14,8)
+- pass=box002_c1__gray_upscale_x2, text='S272156¢', conf=0.00, bbox=(407,21,34,8)
+- pass=box002_c1__gray_upscale_x3, text='J2721(of', conf=4.00, bbox=(408,21,34,8)
+- pass=box002_c1__adaptive_upscale_x3, text='S27', conf=21.00, bbox=(408,21,34,8)
+- pass=box002_c1__adaptive_upscale_x3, text='OF', conf=21.00, bbox=(431,21,11,8)
+- pass=box002_c1__unsharp_upscale_x3, text='SAL', conf=0.00, bbox=(407,21,20,8)
+- pass=box002_c1__unsharp_upscale_x3, text='OL', conf=0.00, bbox=(430,21,13,8)
+- pass=box003_c2__standard_gray, text='ZbyY', conf=49.00, bbox=(473,21,20,8)
+- pass=box003_c2__inverted_gray, text='ZbyY', conf=45.00, bbox=(473,21,20,8)
+- pass=box003_c2__clahe, text='“2byY', conf=0.00, bbox=(473,21,20,8)
+- pass=box003_c2__clahe_inverted, text='2byY', conf=19.00, bbox=(473,21,20,8)
+- pass=box003_c2__adaptive_binary, text='267.', conf=22.00, bbox=(473,21,20,8)
+- pass=box003_c2__adaptive_binary_inv, text='767.', conf=21.00, bbox=(473,21,20,8)
+- pass=box003_c2__morph_close, text='ZH', conf=16.00, bbox=(474,21,20,8)
+- pass=box003_c2__morph_open, text='rT', conf=20.00, bbox=(475,21,19,8)
+- pass=box003_c2__unsharp, text='YbY.', conf=11.00, bbox=(473,21,20,8)
+- pass=box003_c2__unsharp_inverted, text='YbY.', conf=12.00, bbox=(473,21,20,8)
+- pass=box003_c2__gray_upscale_x2, text='AbBY', conf=30.00, bbox=(473,21,20,8)
+- pass=box003_c2__gray_upscale_x3, text='AbBY', conf=35.00, bbox=(473,21,20,8)
+- pass=box003_c2__adaptive_upscale_x3, text='767', conf=12.00, bbox=(473,21,20,8)
+- pass=box003_c2__unsharp_upscale_x3, text='2b6Y', conf=33.00, bbox=(473,21,20,8)
+- pass=box004_c3__standard_gray, text='01/14/7018', conf=65.00, bbox=(256,32,71,9)
+- pass=box004_c3__inverted_gray, text='01/14/7018', conf=67.00, bbox=(256,32,71,9)
+- pass=box004_c3__clahe, text='01/7', conf=66.00, bbox=(255,32,19,9)
+- pass=box004_c3__clahe, text='14/2018', conf=89.00, bbox=(278,32,49,9)
+- pass=box004_c3__clahe_inverted, text='01/7', conf=53.00, bbox=(255,32,19,9)
+- pass=box004_c3__clahe_inverted, text='14/2018', conf=88.00, bbox=(278,32,49,9)
+- pass=box004_c3__adaptive_binary, text='61/14/7618', conf=64.00, bbox=(255,32,72,9)
+- pass=box004_c3__adaptive_binary_inv, text='61/14/77618', conf=33.00, bbox=(255,32,72,9)
+- pass=box004_c3__morph_close, text='41/14/5985', conf=54.00, bbox=(255,32,72,9)
+- pass=box004_c3__morph_close, text='18', conf=32.00, bbox=(315,32,12,9)
+- pass=box004_c3__unsharp, text='617', conf=71.00, bbox=(256,32,17,9)
+- pass=box004_c3__unsharp, text='14/2018', conf=68.00, bbox=(263,32,64,9)
+- pass=box004_c3__unsharp_inverted, text='617', conf=70.00, bbox=(256,32,17,9)
+- pass=box004_c3__unsharp_inverted, text='14/2018', conf=65.00, bbox=(263,32,64,9)
+- pass=box004_c3__gray_upscale_x2, text='01/14/7018', conf=70.00, bbox=(255,32,72,9)
+- pass=box004_c3__gray_upscale_x3, text='01/14/7018', conf=78.00, bbox=(256,32,71,9)
+- pass=box004_c3__adaptive_upscale_x3, text='01/14/7613', conf=42.00, bbox=(255,32,72,9)
+- pass=box004_c3__unsharp_upscale_x3, text='O17', conf=48.00, bbox=(255,32,19,9)
+- pass=box004_c3__unsharp_upscale_x3, text='14/2018', conf=60.00, bbox=(280,32,47,9)
+- pass=box005_c4__standard_gray, text='re.', conf=1.00, bbox=(335,33,12,8)
+- pass=box005_c4__inverted_gray, text='res', conf=40.00, bbox=(335,33,12,8)
+- pass=box005_c4__clahe, text='47', conf=54.00, bbox=(335,33,34,8)
+- pass=box005_c4__clahe, text='Sb', conf=34.00, bbox=(356,33,13,8)
+- pass=box005_c4__clahe_inverted, text='47', conf=64.00, bbox=(335,33,34,8)
+- pass=box005_c4__clahe_inverted, text='Sb', conf=52.00, bbox=(356,33,13,8)
+- pass=box005_c4__adaptive_binary, text='Ls', conf=45.00, bbox=(335,33,35,8)
+- pass=box005_c4__adaptive_binary, text='Sk', conf=58.00, bbox=(357,33,13,8)
+- pass=box005_c4__adaptive_binary_inv, text='Ls', conf=9.00, bbox=(335,33,35,8)
+- pass=box005_c4__adaptive_binary_inv, text='Sk', conf=59.00, bbox=(357,33,13,8)
+- pass=box005_c4__morph_close, text='7"', conf=0.00, bbox=(336,33,18,8)
+- pass=box005_c4__morph_close, text='oH', conf=0.00, bbox=(358,33,12,8)
+- pass=box005_c4__morph_open, text='ae', conf=25.00, bbox=(344,33,26,8)
+- pass=box005_c4__unsharp, text='47.356', conf=63.00, bbox=(335,33,35,8)
+- pass=box005_c4__unsharp_inverted, text='47.356', conf=62.00, bbox=(335,33,35,8)
+- pass=box005_c4__gray_upscale_x2, text='1/°', conf=59.00, bbox=(335,33,18,8)
+- pass=box005_c4__gray_upscale_x2, text='56', conf=91.00, bbox=(357,33,12,8)
+- pass=box005_c4__gray_upscale_x3, text='1/°', conf=77.00, bbox=(335,33,18,8)
+- pass=box005_c4__gray_upscale_x3, text='56', conf=90.00, bbox=(357,33,13,8)
+- pass=box005_c4__adaptive_upscale_x3, text='Lf', conf=47.00, bbox=(335,33,35,8)
+- pass=box005_c4__adaptive_upscale_x3, text='Sb', conf=89.00, bbox=(357,33,13,8)
+- pass=box005_c4__unsharp_upscale_x3, text='4%.356', conf=28.00, bbox=(335,33,35,8)
+
+Final detections (after overlap + dedup):
+- text='HARRIS,', conf=81.00, bbox=(256,21,46,10), pass=box001_c0__clahe
+- text='HARRIS,', conf=86.00, bbox=(256,21,46,10), pass=box001_c0__clahe_inverted
+- text='HARRIS,', conf=77.00, bbox=(256,21,46,10), pass=box001_c0__unsharp
+- text='HARRIS,', conf=74.00, bbox=(256,21,46,10), pass=box001_c0__unsharp_inverted
+- text='HARRIS,', conf=72.00, bbox=(256,21,47,10), pass=box001_c0__unsharp_upscale_x3
+- text='HARRLS,', conf=78.00, bbox=(256,21,46,10), pass=box001_c0__gray_upscale_x2
+- text='HARRLS,', conf=78.00, bbox=(256,21,46,10), pass=box001_c0__gray_upscale_x2_lstm
+- text='HARRLS,', conf=81.00, bbox=(256,21,46,10), pass=box001_c0__gray_upscale_x3
+- text='01/14/7018', conf=65.00, bbox=(256,32,71,9), pass=box004_c3__standard_gray
+- text='01/14/7018', conf=67.00, bbox=(256,32,71,9), pass=box004_c3__inverted_gray
+- text='01/14/7018', conf=70.00, bbox=(255,32,72,9), pass=box004_c3__gray_upscale_x2
+- text='01/14/7018', conf=78.00, bbox=(256,32,71,9), pass=box004_c3__gray_upscale_x3
+- text='01/7', conf=66.00, bbox=(255,32,19,9), pass=box004_c3__clahe
+- text='01/7', conf=53.00, bbox=(255,32,19,9), pass=box004_c3__clahe_inverted
+- text='14/2018', conf=89.00, bbox=(278,32,49,9), pass=box004_c3__clahe
+- text='14/2018', conf=88.00, bbox=(278,32,49,9), pass=box004_c3__clahe_inverted
+- text='14/2018', conf=68.00, bbox=(263,32,64,9), pass=box004_c3__unsharp
+- text='14/2018', conf=65.00, bbox=(263,32,64,9), pass=box004_c3__unsharp_inverted
+- text='14/2018', conf=60.00, bbox=(280,32,47,9), pass=box004_c3__unsharp_upscale_x3
+- text='617', conf=71.00, bbox=(256,32,17,9), pass=box004_c3__unsharp
+- text='617', conf=70.00, bbox=(256,32,17,9), pass=box004_c3__unsharp_inverted
+- text='47', conf=54.00, bbox=(335,33,34,8), pass=box005_c4__clahe
+- text='47', conf=64.00, bbox=(335,33,34,8), pass=box005_c4__clahe_inverted
+- text='Sb', conf=52.00, bbox=(356,33,13,8), pass=box005_c4__clahe_inverted
+- text='Sb', conf=89.00, bbox=(357,33,13,8), pass=box005_c4__adaptive_upscale_x3
+- text='Sk', conf=58.00, bbox=(357,33,13,8), pass=box005_c4__adaptive_binary
+- text='Sk', conf=59.00, bbox=(357,33,13,8), pass=box005_c4__adaptive_binary_inv
+- text='47.356', conf=63.00, bbox=(335,33,35,8), pass=box005_c4__unsharp
+- text='47.356', conf=62.00, bbox=(335,33,35,8), pass=box005_c4__unsharp_inverted
+- text='1/°', conf=59.00, bbox=(335,33,18,8), pass=box005_c4__gray_upscale_x2
+- text='1/°', conf=77.00, bbox=(335,33,18,8), pass=box005_c4__gray_upscale_x3
+- text='56', conf=91.00, bbox=(357,33,12,8), pass=box005_c4__gray_upscale_x2
+- text='56', conf=90.00, bbox=(357,33,13,8), pass=box005_c4__gray_upscale_x3

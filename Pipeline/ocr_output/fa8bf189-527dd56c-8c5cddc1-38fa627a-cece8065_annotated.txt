@@ -1,0 +1,13 @@
+# final_word	x	y	w	h	conf	source_pass
+ROOM	441	34	28	10	91.00	gray_upscale_x2
+4	314	422	6	10	89.00	gray_upscale_x2
+e	475	45	16	11	84.00	gray_upscale_x3
+55093F	400	23	46	10	83.00	gray_upscale_x3
+35Y	463	23	22	9	64.00	gray_upscale_x2
+
+# final_text
+ROOM
+4
+e
+55093F
+35Y

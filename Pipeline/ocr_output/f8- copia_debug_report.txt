@@ -1,0 +1,255 @@
+Image: f8- copia.png
+Confidence step 1 (primary): 60.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 182
+After confidence filter (conf >= 60.0): 124
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 119
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 12
+
+Per-pass debug:
+- standard_gray: raw_lines=3, accepted_detections=10, total_data_rows=16, mean_conf=77.00
+  raw_preview=['PT: ROSA GREEN', '1D-13864 M 40¥_', '2017-07-07 CHEST PA R:']
+- inverted_gray: raw_lines=3, accepted_detections=10, total_data_rows=16, mean_conf=81.40
+  raw_preview=['PT: ROSA GREEN', '1D-13864 M 40.', '2017-07-07 CHEST PA R:']
+- standard_gray_psm4: raw_lines=3, accepted_detections=10, total_data_rows=16, mean_conf=77.00
+  raw_preview=['PT: ROSA GREEN', '1D-13864 M 40¥_', '2017-07-07 CHEST PA R:']
+- clahe: raw_lines=3, accepted_detections=10, total_data_rows=17, mean_conf=64.40
+  raw_preview=['PT: ROSA GREEN', '1D-13864 M 40. Li,', '2017-07-07 CHEST PA R']
+- clahe_inverted: raw_lines=3, accepted_detections=10, total_data_rows=17, mean_conf=66.50
+  raw_preview=['PT: ROSA GREEN', '1D-13864 M 40. Lin', '2017-07-07 CHEST PA R']
+- adaptive_binary: raw_lines=6, accepted_detections=15, total_data_rows=24, mean_conf=52.47
+  raw_preview=['SS', 'PT: ROSA GREEN ayn', '1D-13464 M 407 ee)', '2017-07-07 CHEST PA R29,', '']
+- adaptive_binary_inv: raw_lines=6, accepted_detections=16, total_data_rows=26, mean_conf=53.12
+  raw_preview=['— SS', 'PT: ROSA GREEN ‘8 ot', 'ID-13464 M 407 ee)', '2017-07-07 CHEST PA R29,', '']
+- morph_close: raw_lines=6, accepted_detections=15, total_data_rows=25, mean_conf=58.07
+  raw_preview=['—————————— Eee', 'PT: ROSA GREEN Lye', '1D-13064 M 407 fb', '2017-07-07 CHEST PA RQ', '']
+- morph_open: raw_lines=5, accepted_detections=14, total_data_rows=23, mean_conf=29.57
+  raw_preview=['Pl: ROSA GRIIN Lae', '1 }fled M40 Py', 'POILOLO? CMISI PA .', '', 'a ee ye']
+- unsharp: raw_lines=3, accepted_detections=9, total_data_rows=15, mean_conf=78.44
+  raw_preview=['PT: ROSA GREEN', '1D-13864 M 40¥.', '2017-07-07 CHEST PA']
+- unsharp_inverted: raw_lines=3, accepted_detections=9, total_data_rows=15, mean_conf=80.00
+  raw_preview=['PT: ROSA GREEN', '1D-13864 M 40¥.', '2017-07-07 CHEST PA']
+- gray_upscale_x2: raw_lines=3, accepted_detections=10, total_data_rows=16, mean_conf=91.30
+  raw_preview=['PT: ROSA GREEN', 'ID-13864 M 40Y', '2017-07-07 CHEST PA R']
+- gray_upscale_x2_lstm: raw_lines=3, accepted_detections=10, total_data_rows=16, mean_conf=91.30
+  raw_preview=['PT: ROSA GREEN', 'ID-13864 M 40Y', '2017-07-07 CHEST PA R']
+- gray_upscale_x3: raw_lines=3, accepted_detections=10, total_data_rows=16, mean_conf=92.10
+  raw_preview=['PT: ROSA GREEN', 'ID-13864 M 40Y', '2017-07-07 CHEST PA R']
+- adaptive_upscale_x3: raw_lines=8, accepted_detections=15, total_data_rows=31, mean_conf=61.60
+  raw_preview=['OO', '', '- ig oes 4.', '', 'PT: ROSA GREEN : a td']
+- unsharp_upscale_x3: raw_lines=6, accepted_detections=9, total_data_rows=21, mean_conf=93.78
+  raw_preview=['PT: ROSA GREEN ‘', '', 'ID-13864 M 40Y', '', '2017-07-07 CHEST PA Ri']
+
+Clusters that passed overlap rule:
+- cluster_1: token='pt', members=15, passes=['adaptive_binary', 'adaptive_binary_inv', 'adaptive_upscale_x3', 'clahe', 'clahe_inverted', 'gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'morph_close', 'standard_gray', 'standard_gray_psm4', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_2: token='rosa', members=14, passes=['adaptive_binary', 'adaptive_binary_inv', 'adaptive_upscale_x3', 'clahe', 'clahe_inverted', 'gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'standard_gray', 'standard_gray_psm4', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_3: token='green', members=14, passes=['adaptive_binary', 'adaptive_binary_inv', 'adaptive_upscale_x3', 'clahe', 'clahe_inverted', 'gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'standard_gray', 'standard_gray_psm4', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_4: token='m', members=15, passes=['adaptive_binary', 'adaptive_binary_inv', 'adaptive_upscale_x3', 'clahe', 'clahe_inverted', 'gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'morph_close', 'standard_gray', 'standard_gray_psm4', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_5: token='20170707', members=15, passes=['adaptive_binary', 'adaptive_binary_inv', 'adaptive_upscale_x3', 'clahe', 'clahe_inverted', 'gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'morph_close', 'standard_gray', 'standard_gray_psm4', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_6: token='chest', members=13, passes=['adaptive_binary', 'adaptive_binary_inv', 'adaptive_upscale_x3', 'gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'morph_close', 'standard_gray', 'standard_gray_psm4', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_7: token='pa', members=14, passes=['adaptive_binary', 'adaptive_binary_inv', 'adaptive_upscale_x3', 'gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'morph_close', 'morph_open', 'standard_gray', 'standard_gray_psm4', 'unsharp', 'unsharp_inverted', 'unsharp_upscale_x3']
+- cluster_8: token='r', members=6, passes=['gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'inverted_gray', 'standard_gray', 'standard_gray_psm4']
+- cluster_9: token='1d13864', members=3, passes=['clahe', 'unsharp', 'unsharp_inverted']
+- cluster_10: token='rosa', members=2, passes=['morph_close', 'morph_open']
+- cluster_11: token='id13864', members=4, passes=['gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'unsharp_upscale_x3']
+- cluster_12: token='40y', members=4, passes=['gray_upscale_x2', 'gray_upscale_x2_lstm', 'gray_upscale_x3', 'unsharp_upscale_x3']
+
+All detections (before filters):
+- pass=standard_gray, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=standard_gray, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=standard_gray, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=standard_gray, text='1D-13864', conf=52.00, bbox=(20,33,60,9)
+- pass=standard_gray, text='M', conf=82.00, bbox=(86,33,10,9)
+- pass=standard_gray, text='40¥_', conf=8.00, bbox=(101,33,26,9)
+- pass=standard_gray, text='2017-07-07', conf=95.00, bbox=(20,44,75,9)
+- pass=standard_gray, text='CHEST', conf=93.00, bbox=(104,44,44,9)
+- pass=standard_gray, text='PA', conf=92.00, bbox=(153,44,16,9)
+- pass=standard_gray, text='R:', conf=61.00, bbox=(179,44,8,9)
+- pass=inverted_gray, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=inverted_gray, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=inverted_gray, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=inverted_gray, text='1D-13864', conf=57.00, bbox=(20,33,60,9)
+- pass=inverted_gray, text='M', conf=81.00, bbox=(86,33,10,9)
+- pass=inverted_gray, text='40.', conf=43.00, bbox=(101,33,26,9)
+- pass=inverted_gray, text='2017-07-07', conf=95.00, bbox=(20,44,75,9)
+- pass=inverted_gray, text='CHEST', conf=93.00, bbox=(104,44,44,9)
+- pass=inverted_gray, text='PA', conf=91.00, bbox=(153,44,16,9)
+- pass=inverted_gray, text='R:', conf=67.00, bbox=(179,44,8,9)
+- pass=standard_gray_psm4, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=standard_gray_psm4, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=standard_gray_psm4, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=standard_gray_psm4, text='1D-13864', conf=52.00, bbox=(20,33,60,9)
+- pass=standard_gray_psm4, text='M', conf=82.00, bbox=(86,33,10,9)
+- pass=standard_gray_psm4, text='40¥_', conf=8.00, bbox=(101,33,26,9)
+- pass=standard_gray_psm4, text='2017-07-07', conf=95.00, bbox=(20,44,75,9)
+- pass=standard_gray_psm4, text='CHEST', conf=93.00, bbox=(104,44,44,9)
+- pass=standard_gray_psm4, text='PA', conf=92.00, bbox=(153,44,16,9)
+- pass=standard_gray_psm4, text='R:', conf=61.00, bbox=(179,44,8,9)
+- pass=clahe, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=clahe, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=clahe, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=clahe, text='1D-13864', conf=63.00, bbox=(20,33,60,9)
+- pass=clahe, text='M', conf=84.00, bbox=(86,33,10,9)
+- pass=clahe, text='40.', conf=0.00, bbox=(101,33,26,9)
+- pass=clahe, text='Li,', conf=50.00, bbox=(186,41,13,5)
+- pass=clahe, text='2017-07-07', conf=96.00, bbox=(20,44,75,9)
+- pass=clahe, text='CHEST', conf=32.00, bbox=(104,44,44,9)
+- pass=clahe, text='PA', conf=32.00, bbox=(153,44,16,9)
+- pass=clahe_inverted, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=clahe_inverted, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=clahe_inverted, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=clahe_inverted, text='1D-13864', conf=53.00, bbox=(20,33,60,9)
+- pass=clahe_inverted, text='M', conf=82.00, bbox=(86,33,10,9)
+- pass=clahe_inverted, text='40.', conf=10.00, bbox=(101,33,26,9)
+- pass=clahe_inverted, text='Lin', conf=43.00, bbox=(186,41,13,5)
+- pass=clahe_inverted, text='2017-07-07', conf=96.00, bbox=(20,44,75,9)
+- pass=clahe_inverted, text='CHEST', conf=47.00, bbox=(104,44,44,9)
+- pass=clahe_inverted, text='PA', conf=47.00, bbox=(153,44,16,9)
+- pass=adaptive_binary, text='SS', conf=0.00, bbox=(1,0,265,7)
+- pass=adaptive_binary, text='PT:', conf=86.00, bbox=(20,22,19,9)
+- pass=adaptive_binary, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=adaptive_binary, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=adaptive_binary, text='ayn', conf=35.00, bbox=(194,14,68,21)
+- pass=adaptive_binary, text='1D-13464', conf=40.00, bbox=(20,29,60,13)
+- pass=adaptive_binary, text='M', conf=63.00, bbox=(86,33,10,9)
+- pass=adaptive_binary, text='407', conf=42.00, bbox=(101,33,26,9)
+- pass=adaptive_binary, text='ee)', conf=28.00, bbox=(212,26,51,15)
+- pass=adaptive_binary, text='2017-07-07', conf=94.00, bbox=(20,44,75,9)
+- pass=adaptive_binary, text='CHEST', conf=94.00, bbox=(104,44,44,9)
+- pass=adaptive_binary, text='PA', conf=86.00, bbox=(153,44,16,9)
+- pass=adaptive_binary, text='R29,', conf=0.00, bbox=(179,44,65,15)
+- pass=adaptive_binary, text='et', conf=20.00, bbox=(124,66,17,10)
+- pass=adaptive_binary, text='eee', conf=7.00, bbox=(208,67,7,12)
+- pass=adaptive_binary_inv, text='SS', conf=8.00, bbox=(1,0,265,7)
+- pass=adaptive_binary_inv, text='PT:', conf=86.00, bbox=(20,22,19,9)
+- pass=adaptive_binary_inv, text='ROSA', conf=95.00, bbox=(45,22,36,9)
+- pass=adaptive_binary_inv, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=adaptive_binary_inv, text='‘8', conf=15.00, bbox=(194,14,18,21)
+- pass=adaptive_binary_inv, text='ot', conf=48.00, bbox=(222,14,40,17)
+- pass=adaptive_binary_inv, text='ID-13464', conf=43.00, bbox=(20,29,60,13)
+- pass=adaptive_binary_inv, text='M', conf=66.00, bbox=(86,33,10,9)
+- pass=adaptive_binary_inv, text='407', conf=40.00, bbox=(101,33,26,9)
+- pass=adaptive_binary_inv, text='ee)', conf=30.00, bbox=(212,26,51,15)
+- pass=adaptive_binary_inv, text='2017-07-07', conf=95.00, bbox=(20,44,75,9)
+- pass=adaptive_binary_inv, text='CHEST', conf=95.00, bbox=(104,44,44,9)
+- pass=adaptive_binary_inv, text='PA', conf=85.00, bbox=(153,44,16,9)
+- pass=adaptive_binary_inv, text='R29,', conf=0.00, bbox=(179,44,65,15)
+- pass=adaptive_binary_inv, text='et', conf=13.00, bbox=(124,66,17,10)
+- pass=adaptive_binary_inv, text='ee', conf=35.00, bbox=(208,67,7,12)
+- pass=morph_close, text='Eee', conf=45.00, bbox=(157,0,109,8)
+- pass=morph_close, text='PT:', conf=91.00, bbox=(21,23,19,9)
+- pass=morph_close, text='ROSA', conf=96.00, bbox=(49,11,32,32)
+- pass=morph_close, text='GREEN', conf=84.00, bbox=(89,11,42,32)
+- pass=morph_close, text='Lye', conf=32.00, bbox=(200,15,62,18)
+- pass=morph_close, text='1D-13064', conf=4.00, bbox=(21,34,60,9)
+- pass=morph_close, text='M', conf=81.00, bbox=(87,34,10,9)
+- pass=morph_close, text='407', conf=84.00, bbox=(102,34,26,9)
+- pass=morph_close, text='fb', conf=0.00, bbox=(219,27,44,15)
+- pass=morph_close, text='2017-07-07', conf=91.00, bbox=(21,45,75,9)
+- pass=morph_close, text='CHEST', conf=92.00, bbox=(105,45,44,9)
+- pass=morph_close, text='PA', conf=91.00, bbox=(154,45,16,9)
+- pass=morph_close, text='RQ', conf=23.00, bbox=(193,46,41,11)
+- pass=morph_close, text='ee', conf=31.00, bbox=(125,67,91,12)
+- pass=morph_close, text='a', conf=26.00, bbox=(227,65,39,14)
+- pass=morph_open, text='Pl:', conf=60.00, bbox=(22,11,19,32)
+- pass=morph_open, text='ROSA', conf=93.00, bbox=(50,11,32,32)
+- pass=morph_open, text='GRIIN', conf=23.00, bbox=(90,24,42,9)
+- pass=morph_open, text='Lae', conf=24.00, bbox=(201,16,62,18)
+- pass=morph_open, text='1', conf=17.00, bbox=(22,35,25,9)
+- pass=morph_open, text='}fled', conf=0.00, bbox=(53,25,31,29)
+- pass=morph_open, text='M40', conf=17.00, bbox=(88,35,40,9)
+- pass=morph_open, text='Py', conf=12.00, bbox=(216,24,16,29)
+- pass=morph_open, text='POILOLO?', conf=0.00, bbox=(22,46,75,9)
+- pass=morph_open, text='CMISI', conf=9.00, bbox=(106,46,42,9)
+- pass=morph_open, text='PA', conf=74.00, bbox=(155,46,16,9)
+- pass=morph_open, text='a', conf=23.00, bbox=(126,71,9,7)
+- pass=morph_open, text='ee', conf=27.00, bbox=(167,68,10,11)
+- pass=morph_open, text='ye', conf=35.00, bbox=(228,66,38,13)
+- pass=unsharp, text='PT:', conf=96.00, bbox=(20,22,19,9)
+- pass=unsharp, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=unsharp, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=unsharp, text='1D-13864', conf=62.00, bbox=(20,33,60,9)
+- pass=unsharp, text='M', conf=77.00, bbox=(86,33,10,9)
+- pass=unsharp, text='40¥.', conf=0.00, bbox=(101,33,26,9)
+- pass=unsharp, text='2017-07-07', conf=93.00, bbox=(20,44,75,9)
+- pass=unsharp, text='CHEST', conf=93.00, bbox=(104,44,44,9)
+- pass=unsharp, text='PA', conf=93.00, bbox=(153,44,16,9)
+- pass=unsharp_inverted, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=unsharp_inverted, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=unsharp_inverted, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=unsharp_inverted, text='1D-13864', conf=67.00, bbox=(20,33,60,9)
+- pass=unsharp_inverted, text='M', conf=77.00, bbox=(86,33,10,9)
+- pass=unsharp_inverted, text='40¥.', conf=9.00, bbox=(101,33,26,9)
+- pass=unsharp_inverted, text='2017-07-07', conf=92.00, bbox=(20,44,75,9)
+- pass=unsharp_inverted, text='CHEST', conf=94.00, bbox=(104,44,44,9)
+- pass=unsharp_inverted, text='PA', conf=94.00, bbox=(153,44,16,9)
+- pass=gray_upscale_x2, text='PT:', conf=95.00, bbox=(20,22,18,9)
+- pass=gray_upscale_x2, text='ROSA', conf=95.00, bbox=(45,22,36,9)
+- pass=gray_upscale_x2, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=gray_upscale_x2, text='ID-13864', conf=79.00, bbox=(20,33,60,9)
+- pass=gray_upscale_x2, text='M', conf=90.00, bbox=(86,33,10,9)
+- pass=gray_upscale_x2, text='40Y', conf=90.00, bbox=(102,33,25,9)
+- pass=gray_upscale_x2, text='2017-07-07', conf=96.00, bbox=(20,44,74,9)
+- pass=gray_upscale_x2, text='CHEST', conf=94.00, bbox=(104,44,44,9)
+- pass=gray_upscale_x2, text='PA', conf=89.00, bbox=(153,44,16,9)
+- pass=gray_upscale_x2, text='R', conf=89.00, bbox=(179,44,8,10)
+- pass=gray_upscale_x2_lstm, text='PT:', conf=95.00, bbox=(20,22,18,9)
+- pass=gray_upscale_x2_lstm, text='ROSA', conf=95.00, bbox=(45,22,36,9)
+- pass=gray_upscale_x2_lstm, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=gray_upscale_x2_lstm, text='ID-13864', conf=79.00, bbox=(20,33,60,9)
+- pass=gray_upscale_x2_lstm, text='M', conf=90.00, bbox=(86,33,10,9)
+- pass=gray_upscale_x2_lstm, text='40Y', conf=90.00, bbox=(102,33,25,9)
+- pass=gray_upscale_x2_lstm, text='2017-07-07', conf=96.00, bbox=(20,44,74,9)
+- pass=gray_upscale_x2_lstm, text='CHEST', conf=94.00, bbox=(104,44,44,9)
+- pass=gray_upscale_x2_lstm, text='PA', conf=89.00, bbox=(153,44,16,9)
+- pass=gray_upscale_x2_lstm, text='R', conf=89.00, bbox=(179,44,8,10)
+- pass=gray_upscale_x3, text='PT:', conf=96.00, bbox=(20,22,19,10)
+- pass=gray_upscale_x3, text='ROSA', conf=96.00, bbox=(45,22,36,10)
+- pass=gray_upscale_x3, text='GREEN', conf=96.00, bbox=(86,22,44,10)
+- pass=gray_upscale_x3, text='ID-13864', conf=87.00, bbox=(20,33,60,10)
+- pass=gray_upscale_x3, text='M', conf=87.00, bbox=(86,33,10,9)
+- pass=gray_upscale_x3, text='40Y', conf=87.00, bbox=(101,33,25,9)
+- pass=gray_upscale_x3, text='2017-07-07', conf=96.00, bbox=(20,44,75,10)
+- pass=gray_upscale_x3, text='CHEST', conf=94.00, bbox=(104,44,44,10)
+- pass=gray_upscale_x3, text='PA', conf=91.00, bbox=(153,44,16,9)
+- pass=gray_upscale_x3, text='R', conf=91.00, bbox=(179,44,8,10)
+- pass=adaptive_upscale_x3, text='OO', conf=0.00, bbox=(1,0,265,7)
+- pass=adaptive_upscale_x3, text='oes', conf=0.00, bbox=(222,13,17,10)
+- pass=adaptive_upscale_x3, text='4.', conf=58.00, bbox=(258,15,7,7)
+- pass=adaptive_upscale_x3, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=adaptive_upscale_x3, text='ROSA', conf=96.00, bbox=(45,22,36,9)
+- pass=adaptive_upscale_x3, text='GREEN', conf=96.00, bbox=(86,22,44,9)
+- pass=adaptive_upscale_x3, text='td', conf=60.00, bbox=(249,18,11,13)
+- pass=adaptive_upscale_x3, text='ID-13464', conf=34.00, bbox=(20,33,60,9)
+- pass=adaptive_upscale_x3, text='M', conf=87.00, bbox=(86,33,10,9)
+- pass=adaptive_upscale_x3, text='40¥', conf=81.00, bbox=(101,33,26,9)
+- pass=adaptive_upscale_x3, text='it', conf=37.00, bbox=(224,26,39,15)
+- pass=adaptive_upscale_x3, text='2017-07-07', conf=94.00, bbox=(20,44,75,9)
+- pass=adaptive_upscale_x3, text='CHEST', conf=93.00, bbox=(104,44,44,9)
+- pass=adaptive_upscale_x3, text='PA', conf=93.00, bbox=(153,44,16,9)
+- pass=adaptive_upscale_x3, text='R290', conf=0.00, bbox=(179,44,55,12)
+- pass=unsharp_upscale_x3, text='PT:', conf=95.00, bbox=(20,22,19,9)
+- pass=unsharp_upscale_x3, text='ROSA', conf=95.00, bbox=(45,22,36,9)
+- pass=unsharp_upscale_x3, text='GREEN', conf=95.00, bbox=(86,22,44,9)
+- pass=unsharp_upscale_x3, text='ID-13864', conf=90.00, bbox=(20,33,60,9)
+- pass=unsharp_upscale_x3, text='M', conf=92.00, bbox=(86,33,10,9)
+- pass=unsharp_upscale_x3, text='40Y', conf=92.00, bbox=(101,33,26,9)
+- pass=unsharp_upscale_x3, text='2017-07-07', conf=95.00, bbox=(20,44,75,9)
+- pass=unsharp_upscale_x3, text='CHEST', conf=96.00, bbox=(104,44,44,9)
+- pass=unsharp_upscale_x3, text='PA', conf=94.00, bbox=(153,44,16,9)
+
+Final detections (after overlap + dedup):
+- text='PT:', conf=96.00, bbox=(20,22,19,9), pass=unsharp
+- text='ROSA', conf=96.00, bbox=(45,22,36,9), pass=standard_gray
+- text='GREEN', conf=96.00, bbox=(86,22,44,9), pass=standard_gray
+- text='2017-07-07', conf=96.00, bbox=(20,44,75,9), pass=clahe
+- text='CHEST', conf=96.00, bbox=(104,44,44,9), pass=unsharp_upscale_x3
+- text='ROSA', conf=96.00, bbox=(49,11,32,32), pass=morph_close
+- text='PA', conf=94.00, bbox=(153,44,16,9), pass=unsharp_inverted
+- text='M', conf=92.00, bbox=(86,33,10,9), pass=unsharp_upscale_x3
+- text='40Y', conf=92.00, bbox=(101,33,26,9), pass=unsharp_upscale_x3
+- text='R', conf=91.00, bbox=(179,44,8,10), pass=gray_upscale_x3
+- text='ID-13864', conf=90.00, bbox=(20,33,60,9), pass=unsharp_upscale_x3
+- text='PA', conf=74.00, bbox=(155,46,16,9), pass=morph_open

@@ -1,0 +1,285 @@
+Image: fa8bf189-527dd56c-8c5cddc1-38fa627a-cece8065_annotated.png
+Confidence step 1 (primary): 60.0
+Confidence step 2 (secondary): 30.0
+All detections (raw): 226
+After confidence filter (conf >= 60.0): 15
+Rule 2 (overlap): token repeated in >= 2 passes with IoU >= 0.6
+Candidates after overlap rule: 12
+Rule 3 (dedup): merge duplicate boxes for same token/location
+Final detections: 5
+
+Per-pass debug:
+- standard_gray: raw_lines=6, accepted_detections=9, total_data_rows=20, mean_conf=24.22
+  raw_preview=['be ssmmnr sy,', '£e', '@)', '“ a ae ie', 'ee']
+- inverted_gray: raw_lines=6, accepted_detections=6, total_data_rows=19, mean_conf=25.00
+  raw_preview=['besser sy,', '£e', '©', '“ ‘a ae ee', 'a']
+- standard_gray_psm4: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- clahe: raw_lines=7, accepted_detections=11, total_data_rows=26, mean_conf=27.09
+  raw_preview=['a, AP sep', 'e D:/55093F35Y;', '—_ hook Ub', '@)', 'ee =']
+- clahe_inverted: raw_lines=7, accepted_detections=14, total_data_rows=29, mean_conf=21.50
+  raw_preview=['ET , AP sae', 'e. D:/55093F 35;', '—_ hook Ub', '©', 'ee i']
+- adaptive_binary: raw_lines=5, accepted_detections=20, total_data_rows=29, mean_conf=19.50
+  raw_preview=['a _', 'B00 COS a gets Soe', 'iautic Lote ae i', 'Hera Rey Oe at ae', 'e- "SA at Page a']
+- adaptive_binary_inv: raw_lines=5, accepted_detections=20, total_data_rows=29, mean_conf=19.40
+  raw_preview=['a s', 'B00 COS a ges Soe', 'Piautic Lote i', 'Hera Bey Oe at ane', 'e - "BME ay wage a']
+- morph_close: raw_lines=5, accepted_detections=12, total_data_rows=26, mean_conf=19.42
+  raw_preview=['™ Ret elias sonar ony', '~ 7', 'foe ee Se RDI a', 'ro. . ‘er', '- . a']
+- morph_open: raw_lines=5, accepted_detections=15, total_data_rows=24, mean_conf=22.53
+  raw_preview=['n Oia RRA. ROOM', 'ii An ee aa', 'Rte aw tsa', 'TOI Ng NS', 'Negi #']
+- unsharp: raw_lines=8, accepted_detections=17, total_data_rows=35, mean_conf=20.12
+  raw_preview=['LS. a', 'ls ORS WABKER rp. 550035354', '=. P how at', "'@)", '= ee']
+- unsharp_inverted: raw_lines=8, accepted_detections=18, total_data_rows=36, mean_conf=16.61
+  raw_preview=['——S., az', 'ls OTS WABKER rp. 550035354', '==. P hoon at', "'@)", 'Ss ee']
+- gray_upscale_x2: raw_lines=7, accepted_detections=14, total_data_rows=30, mean_conf=42.00
+  raw_preview=[': BRAID: 55093F 35Y,', 'P ROOM 15', '£e', 'C)', '3 a']
+- gray_upscale_x2_lstm: raw_lines=0, accepted_detections=0, total_data_rows=5, mean_conf=-1.00
+  raw_preview=[]
+- gray_upscale_x3: raw_lines=10, accepted_detections=13, total_data_rows=43, mean_conf=44.00
+  raw_preview=['’ BRAID: 55093F 35Y', 'DAROOM 15', '£e', '>', '']
+- adaptive_upscale_x3: raw_lines=7, accepted_detections=31, total_data_rows=71, mean_conf=28.13
+  raw_preview=['q * A . : v. ~~ 7 “*’', 'ee ae : \\" LUIS’ WALK © IDs "55693F =<', '. yt 66 -f eames. Ph ROOM', 'm. 7 oe : ap aa @ “4 at +:', 'OPS EG BS']
+- unsharp_upscale_x3: raw_lines=13, accepted_detections=26, total_data_rows=64, mean_conf=29.42
+  raw_preview=['SS, - * — —', '', "~~ “ ' LUTSOWAEKERSTD: 55093F 35Y", '€e', '']
+
+Clusters that passed overlap rule:
+- cluster_1: token='e', members=3, passes=['gray_upscale_x3', 'inverted_gray', 'standard_gray']
+- cluster_2: token='55093f', members=3, passes=['gray_upscale_x2', 'gray_upscale_x3', 'unsharp_upscale_x3']
+- cluster_3: token='35y', members=3, passes=['gray_upscale_x2', 'gray_upscale_x3', 'unsharp_upscale_x3']
+- cluster_4: token='room', members=2, passes=['adaptive_upscale_x3', 'gray_upscale_x2']
+- cluster_5: token='4', members=1, passes=['gray_upscale_x2']
+
+All detections (before filters):
+- pass=standard_gray, text='be', conf=29.00, bbox=(379,24,9,7)
+- pass=standard_gray, text='ssmmnr', conf=0.00, bbox=(400,2,44,46)
+- pass=standard_gray, text='sy,', conf=13.00, bbox=(463,2,31,46)
+- pass=standard_gray, text='£e', conf=70.00, bbox=(475,45,16,11)
+- pass=standard_gray, text='a', conf=37.00, bbox=(235,196,29,6)
+- pass=standard_gray, text='ae', conf=33.00, bbox=(330,197,25,11)
+- pass=standard_gray, text='ie', conf=17.00, bbox=(379,186,34,14)
+- pass=standard_gray, text='ee', conf=4.00, bbox=(228,395,21,17)
+- pass=standard_gray, text='“e', conf=15.00, bbox=(236,412,47,33)
+- pass=inverted_gray, text='besser', conf=0.00, bbox=(379,24,65,7)
+- pass=inverted_gray, text='sy,', conf=0.00, bbox=(463,2,31,46)
+- pass=inverted_gray, text='£e', conf=69.00, bbox=(475,45,16,11)
+- pass=inverted_gray, text='‘a', conf=41.00, bbox=(235,196,29,6)
+- pass=inverted_gray, text='ae', conf=26.00, bbox=(330,197,25,11)
+- pass=inverted_gray, text='a', conf=14.00, bbox=(228,395,21,17)
+- pass=clahe, text='a,', conf=19.00, bbox=(50,0,87,20)
+- pass=clahe, text='AP', conf=23.00, bbox=(277,6,36,11)
+- pass=clahe, text='sep', conf=38.00, bbox=(302,0,15,21)
+- pass=clahe, text='D:/55093F35Y;', conf=0.00, bbox=(377,23,109,9)
+- pass=clahe, text='hook', conf=54.00, bbox=(441,34,27,9)
+- pass=clahe, text='Ub', conf=38.00, bbox=(481,19,15,41)
+- pass=clahe, text='ee', conf=17.00, bbox=(190,205,101,14)
+- pass=clahe, text='rf', conf=36.00, bbox=(8,356,18,29)
+- pass=clahe, text='‘e-', conf=34.00, bbox=(199,350,51,46)
+- pass=clahe, text='cs', conf=26.00, bbox=(286,345,20,17)
+- pass=clahe, text='oe', conf=13.00, bbox=(224,391,107,55)
+- pass=clahe_inverted, text='ET', conf=0.00, bbox=(46,0,46,20)
+- pass=clahe_inverted, text='AP', conf=22.00, bbox=(277,6,36,11)
+- pass=clahe_inverted, text='sae', conf=39.00, bbox=(302,0,15,21)
+- pass=clahe_inverted, text='e.', conf=0.00, bbox=(136,30,48,5)
+- pass=clahe_inverted, text='D:/55093F', conf=6.00, bbox=(377,23,68,9)
+- pass=clahe_inverted, text='35;', conf=0.00, bbox=(463,23,23,9)
+- pass=clahe_inverted, text='hook', conf=59.00, bbox=(441,34,27,9)
+- pass=clahe_inverted, text='Ub', conf=39.00, bbox=(481,19,15,41)
+- pass=clahe_inverted, text='ee', conf=15.00, bbox=(190,205,101,14)
+- pass=clahe_inverted, text='i', conf=18.00, bbox=(370,206,45,12)
+- pass=clahe_inverted, text='rf', conf=37.00, bbox=(8,356,18,29)
+- pass=clahe_inverted, text='‘e-', conf=25.00, bbox=(199,350,51,46)
+- pass=clahe_inverted, text='cs', conf=29.00, bbox=(286,345,20,17)
+- pass=clahe_inverted, text='so', conf=12.00, bbox=(224,391,66,55)
+- pass=adaptive_binary, text='a', conf=0.00, bbox=(382,10,33,10)
+- pass=adaptive_binary, text='B00', conf=33.00, bbox=(70,223,22,15)
+- pass=adaptive_binary, text='COS', conf=51.00, bbox=(130,225,110,20)
+- pass=adaptive_binary, text='a', conf=22.00, bbox=(253,215,18,49)
+- pass=adaptive_binary, text='gets', conf=23.00, bbox=(306,215,71,49)
+- pass=adaptive_binary, text='Soe', conf=6.00, bbox=(392,215,50,49)
+- pass=adaptive_binary, text='iautic', conf=0.00, bbox=(169,241,81,19)
+- pass=adaptive_binary, text='Lote', conf=16.00, bbox=(299,247,62,18)
+- pass=adaptive_binary, text='ae', conf=20.00, bbox=(374,250,38,21)
+- pass=adaptive_binary, text='i', conf=25.00, bbox=(430,257,46,25)
+- pass=adaptive_binary, text='Hera', conf=19.00, bbox=(24,252,111,23)
+- pass=adaptive_binary, text='Rey', conf=5.00, bbox=(165,261,88,28)
+- pass=adaptive_binary, text='Oe', conf=25.00, bbox=(269,268,30,23)
+- pass=adaptive_binary, text='at', conf=39.00, bbox=(318,254,29,42)
+- pass=adaptive_binary, text='ae', conf=19.00, bbox=(337,265,94,37)
+- pass=adaptive_binary, text='e-', conf=0.00, bbox=(17,426,47,28)
+- pass=adaptive_binary, text='"SA', conf=11.00, bbox=(99,433,69,24)
+- pass=adaptive_binary, text='at', conf=35.00, bbox=(183,440,13,18)
+- pass=adaptive_binary, text='Page', conf=9.00, bbox=(215,429,100,41)
+- pass=adaptive_binary, text='a', conf=32.00, bbox=(405,452,17,27)
+- pass=adaptive_binary_inv, text='a', conf=0.00, bbox=(382,10,33,10)
+- pass=adaptive_binary_inv, text='s', conf=0.00, bbox=(497,7,9,15)
+- pass=adaptive_binary_inv, text='B00', conf=38.00, bbox=(70,223,22,15)
+- pass=adaptive_binary_inv, text='COS', conf=45.00, bbox=(130,225,110,20)
+- pass=adaptive_binary_inv, text='a', conf=31.00, bbox=(253,215,18,49)
+- pass=adaptive_binary_inv, text='ges', conf=42.00, bbox=(306,235,70,19)
+- pass=adaptive_binary_inv, text='Soe', conf=6.00, bbox=(392,215,50,49)
+- pass=adaptive_binary_inv, text='Piautic', conf=0.00, bbox=(169,241,81,19)
+- pass=adaptive_binary_inv, text='Lote', conf=18.00, bbox=(299,247,113,24)
+- pass=adaptive_binary_inv, text='i', conf=27.00, bbox=(430,257,46,25)
+- pass=adaptive_binary_inv, text='Hera', conf=17.00, bbox=(24,252,111,23)
+- pass=adaptive_binary_inv, text='Bey', conf=3.00, bbox=(165,261,88,28)
+- pass=adaptive_binary_inv, text='Oe', conf=23.00, bbox=(269,268,30,23)
+- pass=adaptive_binary_inv, text='at', conf=26.00, bbox=(318,254,29,42)
+- pass=adaptive_binary_inv, text='ane', conf=13.00, bbox=(337,265,94,37)
+- pass=adaptive_binary_inv, text='e', conf=0.00, bbox=(17,426,12,28)
+- pass=adaptive_binary_inv, text='"BME', conf=15.00, bbox=(99,433,69,24)
+- pass=adaptive_binary_inv, text='ay', conf=41.00, bbox=(183,440,13,18)
+- pass=adaptive_binary_inv, text='wage', conf=10.00, bbox=(215,429,100,41)
+- pass=adaptive_binary_inv, text='a', conf=33.00, bbox=(405,452,17,27)
+- pass=morph_close, text='Ret', conf=18.00, bbox=(224,10,49,24)
+- pass=morph_close, text='elias', conf=16.00, bbox=(283,17,63,15)
+- pass=morph_close, text='sonar', conf=14.00, bbox=(378,11,68,22)
+- pass=morph_close, text='ony', conf=31.00, bbox=(464,12,41,21)
+- pass=morph_close, text='foe', conf=3.00, bbox=(20,313,81,18)
+- pass=morph_close, text='ee', conf=28.00, bbox=(162,311,36,11)
+- pass=morph_close, text='Se', conf=13.00, bbox=(224,311,172,22)
+- pass=morph_close, text='RDI', conf=9.00, bbox=(291,305,38,32)
+- pass=morph_close, text='a', conf=18.00, bbox=(358,305,40,32)
+- pass=morph_close, text='ro.', conf=35.00, bbox=(18,421,47,23)
+- pass=morph_close, text='‘er', conf=23.00, bbox=(249,418,67,34)
+- pass=morph_close, text='a', conf=25.00, bbox=(236,460,8,5)
+- pass=morph_open, text='n', conf=0.00, bbox=(191,38,13,9)
+- pass=morph_open, text='Oia', conf=7.00, bbox=(264,33,40,16)
+- pass=morph_open, text='RRA.', conf=1.00, bbox=(372,32,18,16)
+- pass=morph_open, text='ROOM', conf=36.00, bbox=(413,28,66,24)
+- pass=morph_open, text='ii', conf=7.00, bbox=(111,265,322,35)
+- pass=morph_open, text='An', conf=40.00, bbox=(269,256,32,54)
+- pass=morph_open, text='ee', conf=25.00, bbox=(318,256,41,54)
+- pass=morph_open, text='aa', conf=19.00, bbox=(449,260,42,23)
+- pass=morph_open, text='Rte', conf=1.00, bbox=(82,356,36,11)
+- pass=morph_open, text='aw', conf=46.00, bbox=(244,357,10,9)
+- pass=morph_open, text='tsa', conf=41.00, bbox=(308,356,84,14)
+- pass=morph_open, text='TOI', conf=33.00, bbox=(17,358,149,38)
+- pass=morph_open, text='Ng', conf=33.00, bbox=(204,357,75,37)
+- pass=morph_open, text='NS', conf=26.00, bbox=(300,359,75,36)
+- pass=morph_open, text='Negi', conf=23.00, bbox=(19,391,302,54)
+- pass=unsharp, text='LS.', conf=14.00, bbox=(47,0,104,23)
+- pass=unsharp, text='a', conf=0.00, bbox=(277,4,106,13)
+- pass=unsharp, text='ls', conf=45.00, bbox=(135,30,49,7)
+- pass=unsharp, text='WABKER', conf=0.00, bbox=(343,24,14,7)
+- pass=unsharp, text='rp.', conf=26.00, bbox=(371,23,17,10)
+- pass=unsharp, text='550035354', conf=9.00, bbox=(394,22,92,18)
+- pass=unsharp, text='how', conf=0.00, bbox=(441,34,26,9)
+- pass=unsharp, text='at', conf=46.00, bbox=(476,21,16,39)
+- pass=unsharp, text='ee', conf=49.00, bbox=(360,115,24,14)
+- pass=unsharp, text='ee', conf=13.00, bbox=(124,257,206,27)
+- pass=unsharp, text='Ae', conf=27.00, bbox=(268,251,31,37)
+- pass=unsharp, text='See)', conf=28.00, bbox=(343,255,142,28)
+- pass=unsharp, text='ag', conf=45.00, bbox=(11,359,45,17)
+- pass=unsharp, text='wee', conf=0.00, bbox=(198,353,52,19)
+- pass=unsharp, text='mL', conf=40.00, bbox=(286,350,20,12)
+- pass=unsharp, text='e', conf=0.00, bbox=(341,363,11,11)
+- pass=unsharp, text='Ld', conf=0.00, bbox=(247,421,34,36)
+- pass=unsharp_inverted, text='——S.,', conf=0.00, bbox=(43,0,108,23)
+- pass=unsharp_inverted, text='az', conf=0.00, bbox=(277,4,106,13)
+- pass=unsharp_inverted, text='ls', conf=45.00, bbox=(135,30,49,7)
+- pass=unsharp_inverted, text='WABKER', conf=11.00, bbox=(343,24,14,7)
+- pass=unsharp_inverted, text='rp.', conf=26.00, bbox=(371,23,17,10)
+- pass=unsharp_inverted, text='550035354', conf=3.00, bbox=(394,22,92,18)
+- pass=unsharp_inverted, text='hoon', conf=45.00, bbox=(441,34,26,9)
+- pass=unsharp_inverted, text='at', conf=43.00, bbox=(476,21,16,39)
+- pass=unsharp_inverted, text='Ss', conf=0.00, bbox=(320,125,13,6)
+- pass=unsharp_inverted, text='ee', conf=52.00, bbox=(360,115,24,14)
+- pass=unsharp_inverted, text='agusterraien', conf=0.00, bbox=(124,257,206,27)
+- pass=unsharp_inverted, text='ge', conf=0.00, bbox=(280,251,13,37)
+- pass=unsharp_inverted, text='tewnugmete', conf=0.00, bbox=(343,255,86,27)
+- pass=unsharp_inverted, text='ag', conf=39.00, bbox=(11,359,45,17)
+- pass=unsharp_inverted, text='we', conf=0.00, bbox=(198,353,52,19)
+- pass=unsharp_inverted, text='mL', conf=35.00, bbox=(286,350,20,12)
+- pass=unsharp_inverted, text='e', conf=0.00, bbox=(341,363,11,11)
+- pass=unsharp_inverted, text='Ld', conf=0.00, bbox=(247,421,34,36)
+- pass=gray_upscale_x2, text='BRAID:', conf=50.00, bbox=(348,14,41,18)
+- pass=gray_upscale_x2, text='55093F', conf=68.00, bbox=(400,22,46,10)
+- pass=gray_upscale_x2, text='35Y,', conf=64.00, bbox=(463,23,22,9)
+- pass=gray_upscale_x2, text='ROOM', conf=91.00, bbox=(441,34,28,10)
+- pass=gray_upscale_x2, text='15', conf=47.00, bbox=(477,24,16,24)
+- pass=gray_upscale_x2, text='£e', conf=37.00, bbox=(475,45,16,11)
+- pass=gray_upscale_x2, text='C)', conf=37.00, bbox=(478,60,14,11)
+- pass=gray_upscale_x2, text='3', conf=38.00, bbox=(159,162,10,8)
+- pass=gray_upscale_x2, text='a', conf=0.00, bbox=(351,142,50,32)
+- pass=gray_upscale_x2, text='me', conf=16.00, bbox=(234,192,30,10)
+- pass=gray_upscale_x2, text='za', conf=5.00, bbox=(330,187,25,22)
+- pass=gray_upscale_x2, text='he', conf=18.00, bbox=(402,186,10,8)
+- pass=gray_upscale_x2, text='cn', conf=28.00, bbox=(242,419,32,8)
+- pass=gray_upscale_x2, text='4', conf=89.00, bbox=(314,422,6,10)
+- pass=gray_upscale_x3, text='BRAID:', conf=16.00, bbox=(348,15,41,18)
+- pass=gray_upscale_x3, text='55093F', conf=83.00, bbox=(400,23,46,10)
+- pass=gray_upscale_x3, text='35Y', conf=63.00, bbox=(463,23,23,9)
+- pass=gray_upscale_x3, text='DAROOM', conf=0.00, bbox=(418,26,74,18)
+- pass=gray_upscale_x3, text='15', conf=58.00, bbox=(477,25,15,22)
+- pass=gray_upscale_x3, text='£e', conf=84.00, bbox=(475,45,16,11)
+- pass=gray_upscale_x3, text='Niatias', conf=0.00, bbox=(172,212,29,5)
+- pass=gray_upscale_x3, text='ee', conf=54.00, bbox=(375,207,17,9)
+- pass=gray_upscale_x3, text='aie:', conf=37.00, bbox=(211,215,35,12)
+- pass=gray_upscale_x3, text='3', conf=66.00, bbox=(359,220,5,6)
+- pass=gray_upscale_x3, text='a', conf=44.00, bbox=(179,256,27,14)
+- pass=gray_upscale_x3, text='Ms', conf=41.00, bbox=(242,418,15,12)
+- pass=gray_upscale_x3, text='i', conf=26.00, bbox=(315,422,12,10)
+- pass=adaptive_upscale_x3, text='A', conf=21.00, bbox=(100,12,13,6)
+- pass=adaptive_upscale_x3, text='v.', conf=0.00, bbox=(297,17,9,5)
+- pass=adaptive_upscale_x3, text='ee', conf=30.00, bbox=(112,22,28,10)
+- pass=adaptive_upscale_x3, text='ae', conf=38.00, bbox=(159,31,14,5)
+- pass=adaptive_upscale_x3, text='LUIS’', conf=44.00, bbox=(268,23,36,10)
+- pass=adaptive_upscale_x3, text='WALK', conf=78.00, bbox=(313,22,32,10)
+- pass=adaptive_upscale_x3, text='IDs', conf=0.00, bbox=(370,23,18,12)
+- pass=adaptive_upscale_x3, text='"55693F', conf=0.00, bbox=(393,13,52,19)
+- pass=adaptive_upscale_x3, text='yt', conf=22.00, bbox=(182,36,23,9)
+- pass=adaptive_upscale_x3, text='66', conf=58.00, bbox=(274,34,13,9)
+- pass=adaptive_upscale_x3, text='-f', conf=58.00, bbox=(292,36,10,5)
+- pass=adaptive_upscale_x3, text='eames.', conf=0.00, bbox=(333,36,66,11)
+- pass=adaptive_upscale_x3, text='Ph', conf=42.00, bbox=(416,34,15,10)
+- pass=adaptive_upscale_x3, text='ROOM', conf=88.00, bbox=(438,34,32,9)
+- pass=adaptive_upscale_x3, text='7', conf=4.00, bbox=(125,132,5,12)
+- pass=adaptive_upscale_x3, text='ap', conf=42.00, bbox=(312,136,8,5)
+- pass=adaptive_upscale_x3, text='at', conf=29.00, bbox=(431,132,14,14)
+- pass=adaptive_upscale_x3, text='OPS', conf=36.00, bbox=(33,178,121,17)
+- pass=adaptive_upscale_x3, text='EG', conf=32.00, bbox=(306,167,57,31)
+- pass=adaptive_upscale_x3, text='BS', conf=11.00, bbox=(368,172,83,41)
+- pass=adaptive_upscale_x3, text='oF)', conf=33.00, bbox=(40,321,13,8)
+- pass=adaptive_upscale_x3, text='wos', conf=26.00, bbox=(80,323,25,9)
+- pass=adaptive_upscale_x3, text='x', conf=23.00, bbox=(239,324,6,5)
+- pass=adaptive_upscale_x3, text='nist', conf=0.00, bbox=(286,321,41,14)
+- pass=adaptive_upscale_x3, text='i', conf=6.00, bbox=(368,321,20,14)
+- pass=adaptive_upscale_x3, text='eek', conf=35.00, bbox=(109,354,15,5)
+- pass=adaptive_upscale_x3, text='ayn', conf=38.00, bbox=(128,355,22,5)
+- pass=adaptive_upscale_x3, text='wet', conf=27.00, bbox=(209,355,25,6)
+- pass=adaptive_upscale_x3, text='os', conf=0.00, bbox=(279,350,12,10)
+- pass=adaptive_upscale_x3, text='ee', conf=27.00, bbox=(314,348,42,8)
+- pass=adaptive_upscale_x3, text='ha', conf=24.00, bbox=(388,350,12,8)
+- pass=unsharp_upscale_x3, text='SS,', conf=40.00, bbox=(46,2,88,10)
+- pass=unsharp_upscale_x3, text='LUTSOWAEKERSTD:', conf=0.00, bbox=(276,22,113,12)
+- pass=unsharp_upscale_x3, text='55093F', conf=83.00, bbox=(400,22,46,10)
+- pass=unsharp_upscale_x3, text='35Y', conf=62.00, bbox=(462,23,24,9)
+- pass=unsharp_upscale_x3, text='€e', conf=31.00, bbox=(462,45,30,11)
+- pass=unsharp_upscale_x3, text='6', conf=10.00, bbox=(53,224,11,13)
+- pass=unsharp_upscale_x3, text='Set', conf=23.00, bbox=(181,222,39,14)
+- pass=unsharp_upscale_x3, text='a', conf=24.00, bbox=(242,219,18,20)
+- pass=unsharp_upscale_x3, text='ie', conf=29.00, bbox=(269,224,6,13)
+- pass=unsharp_upscale_x3, text='we', conf=23.00, bbox=(313,224,14,10)
+- pass=unsharp_upscale_x3, text='ee', conf=59.00, bbox=(352,222,25,15)
+- pass=unsharp_upscale_x3, text='gs', conf=30.00, bbox=(392,229,13,6)
+- pass=unsharp_upscale_x3, text='ot', conf=31.00, bbox=(409,223,7,6)
+- pass=unsharp_upscale_x3, text='“a', conf=12.00, bbox=(421,225,13,12)
+- pass=unsharp_upscale_x3, text='eS', conf=29.00, bbox=(193,244,36,10)
+- pass=unsharp_upscale_x3, text='dese', conf=10.00, bbox=(351,233,42,22)
+- pass=unsharp_upscale_x3, text='i', conf=70.00, bbox=(478,241,5,12)
+- pass=unsharp_upscale_x3, text='i', conf=19.00, bbox=(205,255,7,7)
+- pass=unsharp_upscale_x3, text='be', conf=39.00, bbox=(379,252,5,10)
+- pass=unsharp_upscale_x3, text='#5', conf=29.00, bbox=(477,252,5,9)
+- pass=unsharp_upscale_x3, text='Ot:', conf=2.00, bbox=(227,295,92,12)
+- pass=unsharp_upscale_x3, text='dae', conf=33.00, bbox=(344,297,74,15)
+- pass=unsharp_upscale_x3, text='a', conf=47.00, bbox=(269,317,7,8)
+- pass=unsharp_upscale_x3, text='me', conf=8.00, bbox=(290,319,15,11)
+- pass=unsharp_upscale_x3, text='e*', conf=0.00, bbox=(413,319,13,10)
+- pass=unsharp_upscale_x3, text='se', conf=22.00, bbox=(277,403,11,8)
+
+Final detections (after overlap + dedup):
+- text='ROOM', conf=91.00, bbox=(441,34,28,10), pass=gray_upscale_x2
+- text='4', conf=89.00, bbox=(314,422,6,10), pass=gray_upscale_x2
+- text='£e', conf=84.00, bbox=(475,45,16,11), pass=gray_upscale_x3
+- text='55093F', conf=83.00, bbox=(400,23,46,10), pass=gray_upscale_x3
+- text='35Y,', conf=64.00, bbox=(463,23,22,9), pass=gray_upscale_x2

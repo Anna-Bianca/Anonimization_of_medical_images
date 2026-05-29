@@ -1,0 +1,15 @@
+# final_word	x	y	w	h	conf	source_pass
+ROOM	192	34	32	9	91.00	adaptive_upscale_x3
+D	133	24	9	8	87.00	gray_upscale_x3
+55093F	154	23	45	10	78.00	gray_upscale_x3
+35Y	217	23	23	9	78.00	gray_upscale_x3
+3	0	8	24	35	71.00	unsharp_upscale_x3
+e	229	45	16	11	70.00	standard_gray
+
+# final_text
+ROOM
+D
+55093F
+35Y
+3
+e
